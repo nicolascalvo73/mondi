@@ -5,6 +5,7 @@ import WebIcon from '@mui/icons-material/Web'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BuildIcon from '@mui/icons-material/Build'
 import BusinessIcon from '@mui/icons-material/Business'
+import CodeIcon from '@mui/icons-material/Code'
 
 export default function ServiciosSection() {
   return (
@@ -74,7 +75,7 @@ export default function ServiciosSection() {
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                   <Chip label="Next.js" sx={{ backgroundColor: '#cfe8dc' }} />
-                  <Chip label="WordPress" sx={{ backgroundColor: '#cfe8dc' }} />
+                  <Chip label="React" sx={{ backgroundColor: '#cfe8dc' }} />
                   <Chip label="Responsive" sx={{ backgroundColor: '#cfe8dc' }} />
                   <Chip label="SEO" sx={{ backgroundColor: '#cfe8dc' }} />
                 </Box>
@@ -190,6 +191,67 @@ export default function ServiciosSection() {
                   Desarrollo y mantenimiento de tiendas enterprise en VTEX. Integraciones,
                   customizaciones y soporte técnico especializado.
                 </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Card
+              sx={{
+                p: 5,
+                position: 'relative',
+                overflow: 'hidden',
+                background: 'linear-gradient(135deg, #fcf9f4 0%, #f6f3ee 100%)',
+                border: '2px solid',
+                borderColor: 'primary.main',
+                '&:hover .code-emoji': {
+                  transform: 'scale(1.1) rotate(5deg)',
+                },
+              }}
+            >
+              <Box
+                className="code-emoji"
+                sx={{
+                  position: 'absolute',
+                  top: '-2rem',
+                  right: '2rem',
+                  fontSize: '10rem',
+                  opacity: 0.1,
+                  transition: 'transform 0.3s ease',
+                }}
+              >
+                💻
+              </Box>
+              <CardContent sx={{ p: 0, position: 'relative', zIndex: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+                  <CodeIcon sx={{ fontSize: '3.5rem', color: 'primary.main' }} />
+                  <Chip
+                    label="A medida"
+                    sx={{
+                      backgroundColor: 'secondary.main',
+                      color: 'secondary.contrastText',
+                      fontWeight: 700,
+                      fontSize: '0.875rem',
+                    }}
+                  />
+                </Box>
+                <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
+                  Software a medida de toda complejidad
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary', maxWidth: '60rem' }}>
+                  Desarrollo de sistemas de gestión personalizados para empresas, hospitales, instituciones
+                  educativas y organizaciones de cualquier sector. Desde ERPs hasta plataformas especializadas,
+                  construimos soluciones que se adaptan exactamente a tus procesos y necesidades.
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                  <Chip label="Sistemas de gestión" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="ERPs" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="Hospitales" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="Educación" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="Integraciones" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="APIs" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                  <Chip label="Cloud" sx={{ backgroundColor: '#e0bfb4', color: 'text.primary' }} />
+                </Box>
               </CardContent>
             </Card>
           </Grid>

@@ -16,7 +16,7 @@ const pulse = keyframes`
 `
 
 export default function WhatsAppButton() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5493511234567'
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5493516283916'
 
   return (
     <Fab

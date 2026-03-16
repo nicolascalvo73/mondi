@@ -38,6 +38,18 @@ export default function Navbar() {
     setMobileOpen(false)
   }
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const href = e.currentTarget.getAttribute('href')
+    if (href?.startsWith('#')) {
+      const targetId = href.substring(1)
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }
+
   return (
     <AppBar
       position="sticky"
@@ -68,12 +80,17 @@ export default function Navbar() {
               variant="h6"
               component="a"
               href="#hero"
+              onClick={handleSmoothScroll}
               sx={{
                 fontFamily: 'var(--font-epilogue)',
                 fontWeight: 700,
                 fontSize: '1.125rem',
                 color: 'text.primary',
                 textDecoration: 'none',
+                lineHeight: 1,
+                display: 'flex',
+                alignItems: 'center',
+                marginTop: '0.25rem',
               }}
             >
               Mondi Studio
@@ -85,6 +102,7 @@ export default function Navbar() {
               <Button
                 key={link.href}
                 href={link.href}
+                onClick={handleSmoothScroll}
                 sx={{
                   color: 'text.primary',
                   fontSize: '0.875rem',
@@ -101,7 +119,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-            <Button variant="contained" color="primary" href="#contacto">
+            <Button variant="contained" color="primary" href="#contacto" onClick={handleSmoothScroll}>
               Hablemos
             </Button>
           </Box>
@@ -138,7 +156,14 @@ export default function Navbar() {
         <List>
           {navLinks.map((link) => (
             <ListItem key={link.href} disablePadding>
-              <ListItemButton component="a" href={link.href} onClick={handleLinkClick}>
+              <ListItemButton
+                component="a"
+                href={link.href}
+                onClick={(e) => {
+                  handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  handleLinkClick()
+                }}
+              >
                 <ListItemText primary={link.label} />
               </ListItemButton>
             </ListItem>
@@ -149,7 +174,10 @@ export default function Navbar() {
               color="primary"
               href="#contacto"
               fullWidth
-              onClick={handleLinkClick}
+              onClick={(e) => {
+                handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                handleLinkClick()
+              }}
             >
               Hablemos
             </Button>

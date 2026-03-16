@@ -118,38 +118,6 @@ export default function HeroSection() {
                   "Miau miau, aprobado."
                 </Typography>
               </Paper>
-
-              <Paper
-                sx={{
-                  position: 'absolute',
-                  top: '-0.5rem',
-                  right: '-0.5rem',
-                  backgroundColor: 'background.paper',
-                  p: 1.5,
-                  borderRadius: '0.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  boxShadow: '0 0.25rem 1rem rgba(0,0,0,0.1)',
-                }}
-              >
-                <Box
-                  sx={{
-                    width: '0.5rem',
-                    height: '0.5rem',
-                    borderRadius: '50%',
-                    backgroundColor: '#25D366',
-                    animation: 'pulse 2s infinite',
-                    '@keyframes pulse': {
-                      '0%, 100%': { opacity: 1 },
-                      '50%': { opacity: 0.5 },
-                    },
-                  }}
-                />
-                <Typography variant="body2" sx={{ fontWeight: 600, fontSize: '0.8125rem' }}>
-                  Online & Ready
-                </Typography>
-              </Paper>
             </Box>
           </Grid>
         </Grid>
