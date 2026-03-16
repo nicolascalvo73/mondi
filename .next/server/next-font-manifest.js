@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/nicolascalvo/Documents/mondi/src/app/layout\":[\"static/media/4cd5ce611d88e1ae-s.p.woff2\",\"static/media/5c9b804ec7dd51d9-s.p.woff2\",\"static/media/558ca1a6aa3cb55e-s.p.woff2\",\"static/media/636a5ac981f94f8b-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
