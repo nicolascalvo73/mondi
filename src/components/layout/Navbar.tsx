@@ -76,7 +76,7 @@ export default function Navbar() {
                 textDecoration: 'none',
               }}
             >
-              Mondí Studio
+              Mondi Studio
             </Typography>
           </Box>
 

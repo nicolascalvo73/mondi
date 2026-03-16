@@ -8,7 +8,7 @@ const testimonios = [
     rol: 'Dueña',
     empresa: 'Café del Centro · Córdoba',
     testimonio:
-      'Necesitaba una web rápido para mi cafetería y Mondí la entregó en dos semanas. Quedó hermosa y mis clientes la usan para ver el menú y reservar.',
+      'Necesitaba una web rápido para mi cafetería y Mondi la entregó en dos semanas. Quedó hermosa y mis clientes la usan para ver el menú y reservar.',
     iniciales: 'MG',
   },
   {

@@ -1,4 +1,4 @@
-# Mondí Studio — Project Context
+# Mondi Studio — Project Context
 
 Estudio de diseño web unipersonal. Córdoba, Argentina.
 

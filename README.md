@@ -1,6 +1,6 @@
-# Mondí Studio
+# Mondi Studio
 
-Sitio web oficial del estudio de diseño y desarrollo web Mondí Studio.
+Sitio web oficial del estudio de diseño y desarrollo web Mondi Studio.
 
 ## 🚀 Stack Tecnológico
 
@@ -140,7 +140,7 @@ Ver `CONTEXT.md` para más detalles.
 
 ## 📝 Licencia
 
-© 2024 Mondí Studio. Todos los derechos reservados.
+© 2023 Mondi Studio. Todos los derechos reservados.
 
 ---
 

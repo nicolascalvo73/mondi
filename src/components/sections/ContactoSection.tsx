@@ -44,7 +44,7 @@ export default function ContactoSection() {
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           ...formData,
-          subject: `Nuevo contacto de ${formData.nombre} - Mondí Studio`,
+          subject: `Nuevo contacto de ${formData.nombre} - Mondi Studio`,
         }),
       })
 

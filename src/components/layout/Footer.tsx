@@ -37,7 +37,7 @@ export default function Footer() {
                 mb: 2,
               }}
             >
-              Mondí Studio
+              Mondi Studio
             </Typography>
             <Typography variant="body2" sx={{ mb: 3, maxWidth: '28rem' }}>
               Estudio de diseño y desarrollo web unipersonal. Comunicación directa, sin estructuras
@@ -121,7 +121,7 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            © {currentYear} Mondí Studio. Todos los derechos reservados.
+            © {currentYear} Mondi Studio. Todos los derechos reservados.
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
             Hecho con ☕ y algo de maullido en Córdoba, Argentina

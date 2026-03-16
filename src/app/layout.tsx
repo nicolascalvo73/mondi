@@ -28,15 +28,15 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Mondí Studio — Diseño y desarrollo web en Córdoba',
-  description: 'Estudio de diseño web unipersonal. Landing pages, webs institucionales, tiendas online y mantenimiento. Comunicación directa, sin estructuras de agencia.',
-  keywords: ['diseño web', 'desarrollo web', 'Córdoba', 'Argentina', 'landing page', 'tienda online', 'Tienda Nube', 'Shopify', 'VTEX'],
-  authors: [{ name: 'Mondí Studio' }],
+  title: 'Mondi Studio — Diseño y desarrollo',
+  description: 'Estudio de diseño web. Landing pages, webs institucionales, tiendas online y mantenimiento. Comunicación directa, sin estructuras de agencia.',
+  keywords: ['diseño web', 'desarrollo web', 'Argentina', 'landing page', 'tienda online', 'Tienda Nube', 'Shopify', 'VTEX'],
+  authors: [{ name: 'Mondi Studio' }],
   openGraph: {
-    title: 'Mondí Studio — Diseño y desarrollo web en Córdoba',
+    title: 'Mondi Studio — Diseño y desarrollo web en Córdoba',
     description: 'Tu negocio, con la cara que merece.',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://mondistudio.com.ar',
-    siteName: 'Mondí Studio',
+    siteName: 'Mondi Studio',
     locale: 'es_AR',
     type: 'website',
   },
