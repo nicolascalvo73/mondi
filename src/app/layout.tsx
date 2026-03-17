@@ -3,6 +3,7 @@ import { Epilogue, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
+import { LanguageContextProvider } from '@/lib/LanguageContext'
 import ThemeRegistry from '@/lib/ThemeRegistry'
 
 const epilogue = Epilogue({
@@ -61,12 +62,14 @@ export default function RootLayout({
           Ir al contenido principal
         </a>
         <AppRouterCacheProvider>
-          <ThemeContextProvider>
-            <ThemeRegistry>
-              <CssBaseline />
-              {children}
-            </ThemeRegistry>
-          </ThemeContextProvider>
+          <LanguageContextProvider>
+            <ThemeContextProvider>
+              <ThemeRegistry>
+                <CssBaseline />
+                {children}
+              </ThemeRegistry>
+            </ThemeContextProvider>
+          </LanguageContextProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

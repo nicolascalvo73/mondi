@@ -22,6 +22,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
+import { useLanguage } from '@/lib/LanguageContext'
 
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
@@ -31,9 +32,16 @@ const navLinks = [
   { label: 'Sobre mí', href: '#sobre-mi' },
 ]
 
+const flagEmojis = {
+  es: '🇦🇷',
+  pt: '🇧🇷',
+  en: '🇺🇸',
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { mode, toggleTheme } = useThemeMode()
+  const { language, cycleLanguage } = useLanguage()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -136,6 +144,20 @@ export default function Navbar() {
             <Fab
               size="small"
               color="primary"
+              aria-label="Cambiar idioma"
+              onClick={cycleLanguage}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+                fontSize: '1.25rem',
+              }}
+            >
+              {flagEmojis[language]}
+            </Fab>
+            <Fab
+              size="small"
+              color="primary"
               aria-label={mode === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
               onClick={toggleTheme}
               sx={{
@@ -206,7 +228,21 @@ export default function Navbar() {
               Hablemos
             </Button>
           </ListItem>
-          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center' }}>
+          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center', gap: 1.5 }}>
+            <Fab
+              size="small"
+              color="primary"
+              aria-label="Cambiar idioma"
+              onClick={cycleLanguage}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+                fontSize: '1.25rem',
+              }}
+            >
+              {flagEmojis[language]}
+            </Fab>
             <Fab
               size="small"
               color="primary"
