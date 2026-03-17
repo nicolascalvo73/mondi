@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "platforms": "Platforms",
+    "pricing": "Pricing",
+    "about": "About me",
+    "contact": "Let's talk"
+  },
+  "hero": {
+    "title": "Your business, with the face it deserves",
+    "subtitle": "Web design and development without agency structures. Direct communication, real results.",
+    "cta": "View services",
+    "platforms": "View platforms"
+  }
+}

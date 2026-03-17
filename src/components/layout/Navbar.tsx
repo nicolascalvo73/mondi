@@ -23,14 +23,7 @@ import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
-
-const navLinks = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Plataformas', href: '#plataformas' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Sobre mí', href: '#sobre-mi' },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 const flagEmojis = {
   es: '🇦🇷',
@@ -42,6 +35,15 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { mode, toggleTheme } = useThemeMode()
   const { language, cycleLanguage } = useLanguage()
+  const { t } = useTranslations()
+
+  const navLinks = [
+    { label: t('nav.services'), href: '#servicios' },
+    { label: t('nav.process'), href: '#proceso' },
+    { label: t('nav.platforms'), href: '#plataformas' },
+    { label: t('nav.pricing'), href: '#precios' },
+    { label: t('nav.about'), href: '#sobre-mi' },
+  ]
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -139,7 +141,7 @@ export default function Navbar() {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, alignItems: 'center' }}>
             <Button variant="contained" color="primary" href="#contacto" onClick={handleSmoothScroll}>
-              Hablemos
+              {t('nav.contact')}
             </Button>
             <Fab
               size="small"
@@ -225,7 +227,7 @@ export default function Navbar() {
                 handleLinkClick()
               }}
             >
-              Hablemos
+              {t('nav.contact')}
             </Button>
           </ListItem>
           <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center', gap: 1.5 }}>

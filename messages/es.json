@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "process": "Proceso",
+    "platforms": "Plataformas",
+    "pricing": "Precios",
+    "about": "Sobre mí",
+    "contact": "Hablemos"
+  },
+  "hero": {
+    "title": "Tu negocio, con la cara que merece",
+    "subtitle": "Diseño y desarrollo web sin estructuras de agencia. Comunicación directa, resultados reales.",
+    "cta": "Ver servicios",
+    "platforms": "Ver plataformas"
+  }
+}
