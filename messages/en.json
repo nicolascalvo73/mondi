@@ -8,6 +8,7 @@
     "contact": "Let's talk"
   },
   "hero": {
+    "location": "Web design studio · Córdoba, Argentina",
     "title": "Your business, with the face it deserves",
     "subtitle": "Web design and development without agency structures. Direct communication, real results.",
     "cta": "View services",
@@ -77,7 +78,7 @@
     },
     "webs": {
       "nextjs": "Performance",
-      "wordpress": "Simple management",
+      "wordpress": "IA Integration",
       "nicar": ".ar domains",
       "mercadopago": "Online payments",
       "cloudflare": "Security"

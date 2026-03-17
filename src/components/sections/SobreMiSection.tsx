@@ -6,15 +6,17 @@ import ForumIcon from '@mui/icons-material/Forum'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import Image from 'next/image'
-
-const valores = [
-  { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
-  { icono: ForumIcon, texto: 'Comunicación directa' },
-  { icono: VerifiedIcon, texto: 'Sin letra chica' },
-  { icono: LocationOnIcon, texto: 'Hecho en Córdoba' },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function SobreMiSection() {
+  const { t } = useTranslations()
+  
+  const valores = [
+    { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
+    { icono: ForumIcon, texto: 'Comunicación directa' },
+    { icono: VerifiedIcon, texto: 'Sin letra chica' },
+    { icono: LocationOnIcon, texto: 'Hecho en Córdoba' },
+  ]
   return (
     <Box
       component="section"
@@ -52,9 +54,9 @@ export default function SobreMiSection() {
 
           <Grid item xs={12} md={7}>
             <Typography variant="h2" component="h2" sx={{ mb: 3 }}>
-              Un desarrollador y un{' '}
+              {t('about.title')}{' '}
               <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
-                equipo completo
+                {t('about.titleHighlight')}
               </Box>
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>

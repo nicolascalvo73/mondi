@@ -8,6 +8,7 @@
     "contact": "Vamos conversar"
   },
   "hero": {
+    "location": "Estúdio de design web · Córdoba, Argentina",
     "title": "Seu negócio, com a cara que merece",
     "subtitle": "Design e desenvolvimento web sem estruturas de agência. Comunicação direta, resultados reais.",
     "cta": "Ver serviços",
@@ -77,7 +78,7 @@
     },
     "webs": {
       "nextjs": "Performance",
-      "wordpress": "Gestão simples",
+      "wordpress": "IA Integration",
       "nicar": "Domínios .ar",
       "mercadopago": "Pagamentos online",
       "cloudflare": "Segurança"

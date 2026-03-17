@@ -1,24 +1,26 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Divider, Button } from '@mui/material'
-
-const tiendas = [
-  { nombre: 'Tienda Nube', ideal: 'PyMEs argentinas' },
-  { nombre: 'Empretienda', ideal: 'Emprendedores' },
-  { nombre: 'WooCommerce', ideal: 'WordPress' },
-  { nombre: 'Shopify', ideal: 'Internacional' },
-  { nombre: 'VTEX', ideal: 'Enterprise', badge: true },
-]
-
-const webs = [
-  { nombre: 'Next.js', ideal: 'Performance' },
-  { nombre: 'WordPress', ideal: 'Gestión simple' },
-  { nombre: 'NIC.ar', ideal: 'Dominios .ar' },
-  { nombre: 'Mercado Pago', ideal: 'Pagos online' },
-  { nombre: 'Cloudflare', ideal: 'Seguridad' },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function PlataformasSection() {
+  const { t } = useTranslations()
+  
+  const tiendas = [
+    { nombre: 'Tienda Nube', ideal: t('platforms.stores.tiendanube') },
+    { nombre: 'Empretienda', ideal: t('platforms.stores.empretienda') },
+    { nombre: 'WooCommerce', ideal: t('platforms.stores.woocommerce') },
+    { nombre: 'Shopify', ideal: t('platforms.stores.shopify') },
+    { nombre: 'VTEX', ideal: t('platforms.stores.vtex'), badge: true },
+  ]
+
+  const webs = [
+    { nombre: 'Next.js', ideal: t('platforms.webs.nextjs') },
+    { nombre: 'IA Integration', ideal: t('platforms.webs.wordpress') },
+    { nombre: 'NIC.ar', ideal: t('platforms.webs.nicar') },
+    { nombre: 'Mercado Pago', ideal: t('platforms.webs.mercadopago') },
+    { nombre: 'Cloudflare', ideal: t('platforms.webs.cloudflare') },
+  ]
   return (
     <Box
       component="section"
@@ -31,13 +33,13 @@ export default function PlataformasSection() {
       <Container maxWidth="lg">
         <Box sx={{ mb: 8 }}>
           <Typography variant="h2" component="h2" sx={{ mb: 2 }}>
-            Plataformas con las que{' '}
+            {t('platforms.title')}{' '}
             <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
-              trabajo
+              {t('platforms.titleHighlight')}
             </Box>
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: '42rem' }}>
-            Elegimos la mejor tecnología para tu proyecto. Sin atarte a una sola opción.
+            {t('platforms.subtitle')}
           </Typography>
         </Box>
 
@@ -47,7 +49,7 @@ export default function PlataformasSection() {
             component="h3"
             sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
           >
-            Tiendas online
+            {t('platforms.ecommerce')}
           </Typography>
           <Grid container spacing={3}>
             {tiendas.map((plataforma) => (
@@ -69,7 +71,7 @@ export default function PlataformasSection() {
                 >
                   {plataforma.badge && (
                     <Chip
-                      label="Enterprise"
+                      label={t('services.vtex.badge')}
                       size="small"
                       sx={{
                         position: 'absolute',
@@ -106,7 +108,7 @@ export default function PlataformasSection() {
                       {plataforma.nombre}
                     </Typography>
                     <Chip
-                      label={`Ideal para: ${plataforma.ideal}`}
+                      label={`${t('platforms.idealFor')}: ${plataforma.ideal}`}
                       size="small"
                       sx={{
                         fontSize: '0.625rem',
@@ -132,7 +134,7 @@ export default function PlataformasSection() {
             component="h3"
             sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
           >
-            Webs & dominios
+            {t('platforms.web')}
           </Typography>
           <Grid container spacing={3}>
             {webs.map((plataforma) => (
@@ -175,7 +177,7 @@ export default function PlataformasSection() {
                       {plataforma.nombre}
                     </Typography>
                     <Chip
-                      label={`Ideal para: ${plataforma.ideal}`}
+                      label={`${t('platforms.idealFor')}: ${plataforma.ideal}`}
                       size="small"
                       sx={{
                         fontSize: '0.625rem',
@@ -204,10 +206,10 @@ export default function PlataformasSection() {
           }}
         >
           <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
-            ¿No encontrás la plataforma que necesitás?
+            {t('platforms.cta.question')}
           </Typography>
           <Button variant="contained" color="primary" href="#contacto">
-            Hablemos de tu proyecto
+            {t('platforms.cta.button')}
           </Button>
         </Box>
       </Container>

@@ -21,7 +21,7 @@ export default function HeroSection() {
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
             <Chip
-              label="Estudio de diseño web · Córdoba, Argentina"
+              label={t('hero.location')}
               sx={{
                 backgroundColor: '#cfe8dc',
                 color: '#354b43',
