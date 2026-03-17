@@ -12,13 +12,13 @@ export default function PreciosSection() {
       nombre: t('pricing.plans.landing.name'),
       precio: t('pricing.plans.landing.price'),
       descripcion: t('pricing.plans.landing.description'),
-      caracteristicas: t('pricing.plans.landing.features') as string[],
+      caracteristicas: t('pricing.plans.landing.features') as unknown as string[],
     },
     {
       nombre: t('pricing.plans.website.name'),
       precio: t('pricing.plans.website.price'),
       descripcion: t('pricing.plans.website.description'),
-      caracteristicas: t('pricing.plans.website.features') as string[],
+      caracteristicas: t('pricing.plans.website.features') as unknown as string[],
       destacado: true,
       badge: t('pricing.plans.website.badge'),
     },
@@ -26,7 +26,7 @@ export default function PreciosSection() {
       nombre: t('pricing.plans.ecommerce.name'),
       precio: t('pricing.plans.ecommerce.price'),
       descripcion: t('pricing.plans.ecommerce.description'),
-      caracteristicas: t('pricing.plans.ecommerce.features') as string[],
+      caracteristicas: t('pricing.plans.ecommerce.features') as unknown as string[],
     },
   ]
   return (
@@ -161,7 +161,7 @@ export default function PreciosSection() {
                 {t('pricing.maintenance.basic.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
-                {(t('pricing.maintenance.basic.features') as string[]).map((feature) => (
+                {(t('pricing.maintenance.basic.features') as unknown as string[]).map((feature) => (
                   <Box key={feature} sx={{ display: 'flex', gap: 1.5 }}>
                     <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
                     <Typography variant="body2">{feature}</Typography>
@@ -185,7 +185,7 @@ export default function PreciosSection() {
                 {t('pricing.maintenance.premium.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
-                {(t('pricing.maintenance.premium.features') as string[]).map((feature) => (
+                {(t('pricing.maintenance.premium.features') as unknown as string[]).map((feature) => (
                   <Box key={feature} sx={{ display: 'flex', gap: 1.5 }}>
                     <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
                     <Typography variant="body2">{feature}</Typography>
