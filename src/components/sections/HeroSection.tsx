@@ -2,8 +2,11 @@
 
 import { Container, Grid, Box, Typography, Button, Chip, Paper } from '@mui/material'
 import Image from 'next/image'
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function HeroSection() {
+  const { t } = useTranslations()
+  
   return (
     <Box
       component="section"
@@ -26,17 +29,7 @@ export default function HeroSection() {
               }}
             />
             <Typography variant="h1" component="h1" sx={{ mb: 3 }}>
-              Tu negocio, con la cara que{' '}
-              <Box
-                component="em"
-                sx={{
-                  fontStyle: 'italic',
-                  color: 'primary.main',
-                }}
-              >
-                merece
-              </Box>
-              .
+              {t('hero.title')}
             </Typography>
             <Typography
               variant="body1"
@@ -48,12 +41,11 @@ export default function HeroSection() {
                 color: 'text.secondary',
               }}
             >
-              Diseño y desarrollo web directo, sin vueltas. Landing pages, webs institucionales,
-              tiendas online y mantenimiento. Todo con comunicación clara y entregas en tiempo.
+              {t('hero.subtitle')}
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
               <Button variant="contained" color="primary" href="#contacto" size="large">
-                Quiero mi web
+                {t('hero.cta')}
               </Button>
               <Button
                 variant="outlined"
@@ -65,7 +57,7 @@ export default function HeroSection() {
                   color: 'text.primary',
                 }}
               >
-                Ver plataformas
+                {t('hero.platforms')}
               </Button>
             </Box>
           </Grid>

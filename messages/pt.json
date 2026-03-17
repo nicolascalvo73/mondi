@@ -12,5 +12,249 @@
     "subtitle": "Design e desenvolvimento web sem estruturas de agência. Comunicação direta, resultados reais.",
     "cta": "Ver serviços",
     "platforms": "Ver plataformas"
+  },
+  "services": {
+    "title": "Serviços",
+    "subtitle": "desenhados para você",
+    "description": "Soluções web adaptadas ao seu negócio. Sem pacotes rígidos nem custos ocultos.",
+    "landing": {
+      "title": "Landing Page",
+      "description": "Uma página focada em converter visitantes em clientes. Perfeita para lançar produtos ou serviços.",
+      "features": ["Next.js", "React", "Responsivo", "SEO"]
+    },
+    "ecommerce": {
+      "title": "Lojas online",
+      "description": "Sua loja pronta para vender. Configuração completa em Tienda Nube, Shopify ou WooCommerce.",
+      "ideal": "Ideal para empreendedores e PMEs"
+    },
+    "vtex": {
+      "title": "VTEX Enterprise",
+      "description": "Desenvolvimento e manutenção de lojas VTEX. Para empresas que precisam de escala e personalização.",
+      "badge": "Enterprise"
+    },
+    "custom": {
+      "title": "Software sob medida",
+      "description": "Sistemas web personalizados. CRMs, dashboards, integrações e mais.",
+      "features": ["Sistemas", "ERPs", "Dashboards", "Integrações"]
+    }
+  },
+  "process": {
+    "title": "Como",
+    "titleHighlight": "trabalho",
+    "subtitle": "Simples, direto e sem rodeios.",
+    "steps": {
+      "talk": {
+        "title": "Conversamos",
+        "description": "Você me conta o que precisa e eu digo se posso ajudar. Sem compromissos."
+      },
+      "quote": {
+        "title": "Orçamento",
+        "description": "Passo um preço claro e um tempo estimado. Sem surpresas."
+      },
+      "build": {
+        "title": "Desenvolvimento",
+        "description": "Trabalho no seu projeto e vou mostrando os avanços."
+      },
+      "deliver": {
+        "title": "Entrega",
+        "description": "Você recebe seu site funcionando e explico como usá-lo."
+      }
+    }
+  },
+  "platforms": {
+    "title": "Plataformas com as quais",
+    "titleHighlight": "trabalho",
+    "subtitle": "Escolhemos a melhor tecnologia para seu projeto. Sem amarrar você a uma única opção.",
+    "ecommerce": "Lojas online",
+    "web": "Sites & domínios",
+    "idealFor": "Ideal para",
+    "stores": {
+      "tiendanube": "PMEs argentinas",
+      "empretienda": "Empreendedores",
+      "woocommerce": "WordPress",
+      "shopify": "Internacional",
+      "vtex": "Enterprise"
+    },
+    "webs": {
+      "nextjs": "Performance",
+      "wordpress": "Gestão simples",
+      "nicar": "Domínios .ar",
+      "mercadopago": "Pagamentos online",
+      "cloudflare": "Segurança"
+    },
+    "cta": {
+      "question": "Não encontra a plataforma que precisa?",
+      "button": "Vamos falar do seu projeto"
+    }
+  },
+  "pricing": {
+    "title": "Preços",
+    "titleHighlight": "transparentes",
+    "subtitle": "Sem surpresas nem custos ocultos. Você sabe exatamente o que está pagando.",
+    "from": "desde",
+    "plans": {
+      "landing": {
+        "name": "Landing Page",
+        "price": "USD 300",
+        "description": "Ideal para lançar um produto ou serviço",
+        "features": [
+          "Design responsivo",
+          "Formulário de contato",
+          "SEO básico",
+          "Hospedagem incluída 1 ano",
+          "Domínio .com.ar incluído"
+        ]
+      },
+      "website": {
+        "name": "Site completo",
+        "price": "USD 700",
+        "description": "Para empresas que precisam de presença profissional",
+        "badge": "O mais escolhido",
+        "features": [
+          "Até 5 seções",
+          "Design personalizado",
+          "SEO otimizado",
+          "Blog integrado",
+          "Hospedagem incluída 1 ano",
+          "Domínio .com.ar incluído",
+          "Treinamento de uso"
+        ]
+      },
+      "ecommerce": {
+        "name": "Loja Online",
+        "price": "USD 400",
+        "description": "Configuração completa do seu e-commerce",
+        "features": [
+          "Setup na plataforma escolhida",
+          "Design de tema",
+          "Cadastro de produtos (até 50)",
+          "Meios de pagamento",
+          "Treinamento completo"
+        ]
+      }
+    },
+    "maintenance": {
+      "title": "Add-on: Manutenção mensal",
+      "basic": {
+        "price": "USD 80/mês",
+        "name": "Manutenção básica",
+        "features": [
+          "Atualizações de segurança",
+          "Backup semanal",
+          "Suporte por email"
+        ]
+      },
+      "premium": {
+        "price": "USD 150/mês",
+        "name": "Manutenção premium",
+        "features": [
+          "Tudo do plano básico",
+          "Mudanças de conteúdo ilimitadas",
+          "Suporte prioritário",
+          "Relatórios mensais"
+        ]
+      }
+    },
+    "vtexNote": "Projetos VTEX Enterprise: orçamento personalizado segundo alcance e complexidade.",
+    "paymentNote": "Preços em dólares americanos. Método de pagamento: transferência, Mercado Pago, PayPal, crypto."
+  },
+  "testimonials": {
+    "title": "O que dizem",
+    "titleHighlight": "meus clientes",
+    "subtitle": "Projetos reais, clientes reais, resultados reais.",
+    "clients": [
+      {
+        "name": "María González",
+        "role": "Proprietária",
+        "company": "Café del Centro · Córdoba",
+        "text": "Precisava de um site rápido para minha cafeteria e Mondi entregou em duas semanas. Ficou lindo e meus clientes usam para ver o cardápio e reservar.",
+        "initials": "MG"
+      },
+      {
+        "name": "Lucas Fernández",
+        "role": "Fundador",
+        "company": "Tienda Verde · Villa María",
+        "text": "Configurou minha Tienda Nube completa, subiu os produtos e me ensinou a gerenciá-la. Agora vendo online sem depender de ninguém e sem as comissões do mercado livre.",
+        "initials": "LF"
+      },
+      {
+        "name": "Ana Rodríguez",
+        "role": "Diretora",
+        "company": "Estúdio Jurídico · Córdoba",
+        "text": "Comunicação direta, sem rodeios. Explicou tudo e sempre respondeu rápido. O site ficou exatamente como imaginei. Tenho um site profissional e funcional de primeiro nível.",
+        "initials": "AR"
+      },
+      {
+        "name": "Carlos Martínez",
+        "role": "CEO",
+        "company": "TechSolutions · Buenos Aires",
+        "text": "Desenvolveu nossa plataforma VTEX com integrações complexas. O nível técnico é excelente e cumpriu todos os prazos. Muito profissional.",
+        "initials": "CM"
+      },
+      {
+        "name": "Sofía Pérez",
+        "role": "Proprietária",
+        "company": "Boutique Luna · Rosario",
+        "text": "Minha loja Shopify ficou incrível. Me ajudou com todo o setup, os pagamentos e até me treinou para administrá-la sozinha. Super recomendável.",
+        "initials": "SP"
+      },
+      {
+        "name": "Diego Ramírez",
+        "role": "Gerente",
+        "company": "Consultora RH · Mendoza",
+        "text": "Fez o site institucional da nossa consultoria em tempo recorde. Design moderno, rápido e com tudo que precisávamos. Excelente trabalho.",
+        "initials": "DR"
+      },
+      {
+        "name": "Valentina Torres",
+        "role": "Fundadora",
+        "company": "Estúdio Criativo · Córdoba",
+        "text": "Precisava de um portfólio que mostrasse meus trabalhos de forma profissional. O resultado superou minhas expectativas. O site é lindo e funciona perfeitamente.",
+        "initials": "VT"
+      },
+      {
+        "name": "Martín Silva",
+        "role": "Diretor",
+        "company": "Clínica Dental · San Juan",
+        "text": "Desenvolveu o sistema de agendamento online para nossa clínica. Agora os pacientes reservam pelo site e economizamos horas de ligações. Genial.",
+        "initials": "MS"
+      },
+      {
+        "name": "Laura Benítez",
+        "role": "Proprietária",
+        "company": "Catering Empresarial · Salta",
+        "text": "Minha landing page ficou linda e agora recebo pedidos por WhatsApp direto do site. Simples, efetivo e exatamente o que precisava.",
+        "initials": "LB"
+      }
+    ]
+  },
+  "about": {
+    "title": "Sobre",
+    "titleHighlight": "mim"
+  },
+  "contact": {
+    "title": "Vamos falar do seu",
+    "titleHighlight": "projeto",
+    "subtitle": "Me conte o que precisa e respondo em menos de 24 horas.",
+    "form": {
+      "name": "Seu nome",
+      "whatsapp": "Seu WhatsApp",
+      "whatsappPlaceholder": "Ex: +55 11 98765 4321",
+      "business": "Seu negócio",
+      "service": "O que você precisa?",
+      "services": {
+        "landing": "Landing Page",
+        "website": "Site Institucional",
+        "ecommerce": "Loja Online",
+        "maintenance": "Manutenção",
+        "vtex": "VTEX Enterprise",
+        "other": "Outro"
+      },
+      "message": "Me conte mais",
+      "submit": "Enviar mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada! Respondo em breve.",
+      "error": "Houve um erro. Tente novamente ou me escreva pelo WhatsApp."
+    }
   }
 }

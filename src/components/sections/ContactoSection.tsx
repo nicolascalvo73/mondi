@@ -12,17 +12,20 @@ import {
   MenuItem,
   Alert,
 } from '@mui/material'
-
-const servicios = [
-  'Landing Page',
-  'Web Institucional',
-  'Tienda Online',
-  'Mantenimiento',
-  'VTEX Enterprise',
-  'Otro',
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function ContactoSection() {
+  const { t } = useTranslations()
+  
+  const servicios = [
+    t('contact.form.services.landing'),
+    t('contact.form.services.website'),
+    t('contact.form.services.ecommerce'),
+    t('contact.form.services.maintenance'),
+    t('contact.form.services.vtex'),
+    t('contact.form.services.other'),
+  ]
+  
   const [formData, setFormData] = useState({
     nombre: '',
     whatsapp: '',
@@ -80,19 +83,18 @@ export default function ContactoSection() {
           <Grid container>
             <Grid item xs={12} md={6} sx={{ p: 10 }}>
               <Typography variant="h2" component="h2" sx={{ mb: 2, color: '#f3f0eb' }}>
-                ¿
+                {t('contact.title')}{' '}
                 <Box component="em" sx={{ fontStyle: 'italic', color: '#ffb59a' }}>
-                  Arrancamos
+                  {t('contact.titleHighlight')}
                 </Box>
-                ?
               </Typography>
               <Typography variant="body1" sx={{ mb: 4, color: '#f3f0eb', opacity: 0.7 }}>
-                Contame qué necesitás y te respondo en menos de 24 horas. Sin compromiso.
+                {t('contact.subtitle')}
               </Typography>
 
               <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <TextField
-                  label="Tu nombre"
+                  label={t('contact.form.name')}
                   name="nombre"
                   required
                   fullWidth
@@ -111,12 +113,12 @@ export default function ContactoSection() {
                 />
 
                 <TextField
-                  label="Tu WhatsApp"
+                  label={t('contact.form.whatsapp')}
                   name="whatsapp"
                   type="tel"
                   required
                   fullWidth
-                  placeholder="Ej: +54 9 351 123 4567"
+                  placeholder={t('contact.form.whatsappPlaceholder')}
                   value={formData.whatsapp}
                   onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                   sx={{
@@ -132,7 +134,7 @@ export default function ContactoSection() {
                 />
 
                 <TextField
-                  label="Tu negocio (opcional)"
+                  label={t('contact.form.business')}
                   name="negocio"
                   fullWidth
                   value={formData.negocio}
@@ -151,7 +153,7 @@ export default function ContactoSection() {
 
                 <TextField
                   select
-                  label="¿Qué servicio te interesa?"
+                  label={t('contact.form.service')}
                   name="servicio"
                   required
                   fullWidth
@@ -177,7 +179,7 @@ export default function ContactoSection() {
                 </TextField>
 
                 <TextField
-                  label="Contame sobre tu proyecto"
+                  label={t('contact.form.message')}
                   name="mensaje"
                   required
                   fullWidth
@@ -210,19 +212,18 @@ export default function ContactoSection() {
                     minHeight: '2.75rem',
                   }}
                 >
-                  {status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
+                  {status === 'loading' ? t('contact.form.sending') : t('contact.form.submit')}
                 </Button>
 
                 {status === 'success' && (
                   <Alert severity="success" sx={{ mt: 2 }}>
-                    ¡Mensaje enviado! Te respondo en menos de 24 horas.
+                    {t('contact.form.success')}
                   </Alert>
                 )}
 
                 {status === 'error' && (
                   <Alert severity="error" sx={{ mt: 2 }}>
-                    Hubo un error. Probá escribirme directo a{' '}
-                    {process.env.NEXT_PUBLIC_EMAIL || 'hola@mondistudio.com.ar'}
+                    {t('contact.form.error')}
                   </Alert>
                 )}
               </Box>
