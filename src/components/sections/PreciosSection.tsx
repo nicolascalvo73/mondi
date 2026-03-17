@@ -235,8 +235,7 @@ export default function PreciosSection() {
           Proyectos VTEX Enterprise: presupuesto personalizado según alcance y complejidad.
         </Typography>
         <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: 'text.secondary', mt: 2 }}>
-          Precios en dólares estadounidenses. Formas de pago: transferencia, Mercado Pago, PayPal.
-          50% al inicio, 50% al finalizar.
+          Precios en dólares estadounidenses. Método de pago: transferencia, Mercado Pago, PayPal, crypto.
         </Typography>
       </Container>
     </Box>

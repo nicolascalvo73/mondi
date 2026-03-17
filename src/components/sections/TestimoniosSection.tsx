@@ -1,6 +1,7 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Avatar } from '@mui/material'
+import StarIcon from '@mui/icons-material/Star'
 
 const testimonios = [
   {
@@ -16,7 +17,7 @@ const testimonios = [
     rol: 'Fundador',
     empresa: 'Tienda Verde · Villa María',
     testimonio:
-      'Configuró mi Tienda Nube completa, subió los productos y me enseñó a gestionarla. Ahora vendo online sin depender de nadie.',
+      'Configuró mi Tienda Nube completa, subió los productos y me enseñó a gestionarla. Ahora vendo online sin depender de nadie y sin las comisiones de mercadolibre.',
     iniciales: 'LF',
   },
   {
@@ -24,7 +25,7 @@ const testimonios = [
     rol: 'Directora',
     empresa: 'Estudio Jurídico · Córdoba',
     testimonio:
-      'Comunicación directa, sin vueltas. Me explicó todo en español y siempre respondió rápido. La web quedó exactamente como la imaginaba.',
+      'Comunicación directa, sin vueltas. Me explicó todo y siempre respondió rápido. La web quedó exactamente como la imaginaba. Tengo un sitio web profesional y funcional de primer nivel.',
     iniciales: 'AR',
   },
 ]
@@ -62,8 +63,8 @@ export default function TestimoniosSection() {
         <Grid container spacing={4}>
           {testimonios.map((testimonio) => (
             <Grid item xs={12} md={4} key={testimonio.nombre}>
-              <Card sx={{ height: '100%', p: 4 }}>
-                <CardContent sx={{ p: 0 }}>
+              <Card sx={{ height: '100%', p: 4, pb: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
                     <Avatar
                       sx={{
@@ -90,12 +91,18 @@ export default function TestimoniosSection() {
                       fontFamily: 'var(--font-epilogue)',
                       fontStyle: 'italic',
                       color: 'text.secondary',
+                      mb: 3,
                       '&::before': { content: '"\\201C"' },
                       '&::after': { content: '"\\201D"' },
                     }}
                   >
                     {testimonio.testimonio}
                   </Typography>
+                  <Box sx={{ display: 'flex', gap: 0.5, mt: 'auto' }}>
+                    {[...Array(5)].map((_, index) => (
+                      <StarIcon key={index} sx={{ fontSize: '1.25rem', color: '#E8622A' }} />
+                    ))}
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>

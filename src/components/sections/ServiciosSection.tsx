@@ -1,6 +1,7 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Button } from '@mui/material'
+import Image from 'next/image'
 import WebIcon from '@mui/icons-material/Web'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BuildIcon from '@mui/icons-material/Build'
@@ -62,7 +63,7 @@ export default function ServiciosSection() {
                   transition: 'opacity 0.3s ease',
                 }}
               >
-                🐱
+             
               </Box>
               <CardContent sx={{ p: 0, position: 'relative', zIndex: 1 }}>
                 <WebIcon sx={{ fontSize: '3rem', color: 'primary.main', mb: 2 }} />

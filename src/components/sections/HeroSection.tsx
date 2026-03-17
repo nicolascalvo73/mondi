@@ -1,6 +1,7 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Button, Chip, Paper } from '@mui/material'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
@@ -83,15 +84,15 @@ export default function HeroSection() {
                 justifyContent: 'center',
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: '4rem',
-                  opacity: 0.3,
-                  color: 'primary.contrastText',
+              <Image
+                src="/Gemini_Generated_Image_xregmqxregmqxreg.png"
+                alt="Mondi Studio"
+                fill
+                style={{
+                  objectFit: 'cover',
                 }}
-              >
-                🐱
-              </Typography>
+                priority
+              />
 
               <Paper
                 sx={{
@@ -101,6 +102,7 @@ export default function HeroSection() {
                   right: '1.5rem',
                   backgroundColor: 'rgba(255,255,255,0.9)',
                   backdropFilter: 'blur(0.75rem)',
+                  opacity: 0.85,
                   p: 2.5,
                   borderRadius: '1rem',
                 }}

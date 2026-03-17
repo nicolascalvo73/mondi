@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import Image from 'next/image'
 import {
   Container,
   Grid,
@@ -241,32 +242,50 @@ export default function ContactoSection() {
             >
               <Box
                 sx={{
-                  fontSize: '12rem',
-                  opacity: 0.4,
+                  opacity: 1,
                   position: 'absolute',
+                  width: '100%',
+                  height: '100%',
                 }}
               >
-                🐱
+                <Image
+                  src="/Gemini_Generated_Image_lidxullidxullidx.png"
+                  alt="Decorative background"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </Box>
               <Box
                 sx={{
                   position: 'relative',
                   zIndex: 1,
-                  textAlign: 'center',
-                  p: 4,
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                <Typography
+                <Box
                   sx={{
-                    fontFamily: 'var(--font-epilogue)',
-                    fontSize: '1.5rem',
-                    fontStyle: 'italic',
-                    color: 'primary.contrastText',
-                    maxWidth: '20rem',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    py: '1rem',
+                    px: 2,
+                    width: '100%',
+                    textAlign: 'center',
                   }}
                 >
-                  "Cada proyecto es una oportunidad para hacer algo que funcione de verdad."
-                </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: 'var(--font-epilogue)',
+                      fontSize: '1.5rem',
+                      fontStyle: 'italic',
+                      color: 'primary.contrastText',
+                      margin: '0 auto',
+                    }}
+                  >
+                    "Cada proyecto es una oportunidad para hacer algo que funcione de verdad."
+                  </Typography>
+                </Box>
               </Box>
             </Grid>
           </Grid>

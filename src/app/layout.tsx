@@ -32,6 +32,13 @@ export const metadata: Metadata = {
   description: 'Estudio de diseño web. Landing pages, webs institucionales, tiendas online y mantenimiento. Comunicación directa, sin estructuras de agencia.',
   keywords: ['diseño web', 'desarrollo web', 'Argentina', 'landing page', 'tienda online', 'Tienda Nube', 'Shopify', 'VTEX'],
   authors: [{ name: 'Mondi Studio' }],
+  icons: {
+    icon: [
+      {
+        url: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>',
+      },
+    ],
+  },
   openGraph: {
     title: 'Mondi Studio — Diseño y desarrollo web en Córdoba',
     description: 'Tu negocio, con la cara que merece.',
