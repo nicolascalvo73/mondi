@@ -147,7 +147,8 @@ export default function PreciosSection() {
 
         <Paper
           sx={{
-            backgroundColor: '#f0ede9',
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light' ? '#f0ede9' : '#2a2a27',
             borderRadius: '1rem',
             p: 4,
             mb: 4,

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Epilogue, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
-import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import theme from '@/lib/theme'
+import { ThemeContextProvider } from '@/lib/ThemeContext'
+import ThemeRegistry from '@/lib/ThemeRegistry'
 
 const epilogue = Epilogue({
   subsets: ['latin'],
@@ -61,10 +61,12 @@ export default function RootLayout({
           Ir al contenido principal
         </a>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
+          <ThemeContextProvider>
+            <ThemeRegistry>
+              <CssBaseline />
+              {children}
+            </ThemeRegistry>
+          </ThemeContextProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

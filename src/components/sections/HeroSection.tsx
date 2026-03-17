@@ -100,7 +100,10 @@ export default function HeroSection() {
                   bottom: '1.5rem',
                   left: '1.5rem',
                   right: '1.5rem',
-                  backgroundColor: 'rgba(255,255,255,0.9)',
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                      ? 'rgba(255,255,255,0.9)'
+                      : 'rgba(42, 42, 39, 0.9)',
                   backdropFilter: 'blur(0.75rem)',
                   opacity: 0.85,
                   p: 2.5,

@@ -37,7 +37,8 @@ export default function TestimoniosSection() {
       id="testimonios"
       sx={{
         py: 12,
-        backgroundColor: '#f6f3ee',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'light' ? '#f6f3ee' : '#1a1a17',
       }}
     >
       <Container maxWidth="lg">

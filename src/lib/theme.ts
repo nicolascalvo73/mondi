@@ -2,15 +2,16 @@
 
 import { createTheme } from '@mui/material/styles'
 
-const theme = createTheme({
+const getTheme = (mode: 'light' | 'dark') => createTheme({
   palette: {
+    mode,
     background: {
-      default: '#fcf9f4',
-      paper: '#ffffff',
+      default: mode === 'light' ? '#fcf9f4' : '#1c1c19',
+      paper: mode === 'light' ? '#ffffff' : '#2a2a27',
     },
     text: {
-      primary: '#1c1c19',
-      secondary: '#594139',
+      primary: mode === 'light' ? '#1c1c19' : '#f3f0eb',
+      secondary: mode === 'light' ? '#594139' : '#c4b5ae',
     },
     primary: {
       main: '#E8622A',
@@ -155,4 +156,5 @@ const theme = createTheme({
   },
 })
 
-export default theme
+export default getTheme('light')
+export { getTheme }
