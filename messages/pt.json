@@ -67,7 +67,7 @@
     "titleHighlight": "trabalho",
     "subtitle": "Escolhemos a melhor tecnologia para seu projeto. Sem amarrar você a uma única opção.",
     "ecommerce": "Lojas online",
-    "web": "Sites & domínios",
+    "web": "Sites & integrações",
     "idealFor": "Ideal para",
     "stores": {
       "tiendanube": "PMEs argentinas",
@@ -79,9 +79,9 @@
     "webs": {
       "nextjs": "Performance",
       "wordpress": "IA Integration",
-      "nicar": "Domínios .ar",
+      "paypal": "Pagamentos globais",
       "mercadopago": "Pagamentos online",
-      "cloudflare": "Segurança"
+      "googlebusiness": "Presença local"
     },
     "cta": {
       "question": "Não encontra a plataforma que precisa?",

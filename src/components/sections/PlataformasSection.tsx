@@ -17,9 +17,9 @@ export default function PlataformasSection() {
   const webs = [
     { nombre: 'Next.js', ideal: t('platforms.webs.nextjs') },
     { nombre: 'IA Integration', ideal: t('platforms.webs.wordpress') },
-    { nombre: 'NIC.ar', ideal: t('platforms.webs.nicar') },
+    { nombre: 'PayPal', ideal: t('platforms.webs.paypal') },
     { nombre: 'Mercado Pago', ideal: t('platforms.webs.mercadopago') },
-    { nombre: 'Cloudflare', ideal: t('platforms.webs.cloudflare') },
+    { nombre: 'Google Business', ideal: t('platforms.webs.googlebusiness') },
   ]
   return (
     <Box

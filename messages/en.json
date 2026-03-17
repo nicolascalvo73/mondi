@@ -63,11 +63,11 @@
     }
   },
   "platforms": {
-    "title": "Platforms I",
-    "titleHighlight": "work with",
+    "title": "Platforms I work with",
+    "titleHighlight": "",
     "subtitle": "We choose the best technology for your project. Without tying you to a single option.",
-    "ecommerce": "Online stores",
-    "web": "Websites & domains",
+    "ecommerce": "E-commerce platforms",
+    "web": "Webs & integrations",
     "idealFor": "Ideal for",
     "stores": {
       "tiendanube": "Argentine SMEs",
@@ -79,9 +79,9 @@
     "webs": {
       "nextjs": "Performance",
       "wordpress": "IA Integration",
-      "nicar": ".ar domains",
+      "paypal": "Global payments",
       "mercadopago": "Online payments",
-      "cloudflare": "Security"
+      "googlebusiness": "Local presence"
     },
     "cta": {
       "question": "Can't find the platform you need?",
