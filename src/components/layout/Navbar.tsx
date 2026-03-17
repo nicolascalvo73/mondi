@@ -15,9 +15,13 @@ import {
   ListItemText,
   Avatar,
   Typography,
+  Fab,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import { useThemeMode } from '@/lib/ThemeContext'
 
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
@@ -29,6 +33,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { mode, toggleTheme } = useThemeMode()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -38,14 +43,32 @@ export default function Navbar() {
     setMobileOpen(false)
   }
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const href = e.currentTarget.getAttribute('href')
+    if (href?.startsWith('#')) {
+      const targetId = href.substring(1)
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }
+
   return (
     <AppBar
       position="sticky"
       component="nav"
       sx={{
-        backgroundColor: 'rgba(252, 249, 244, 0.8)',
+        backgroundColor: (theme) => 
+          theme.palette.mode === 'light' 
+            ? 'rgba(252, 249, 244, 0.8)' 
+            : 'rgba(28, 28, 25, 0.8)',
         backdropFilter: 'blur(1.5rem)',
-        borderBottom: '0.0625rem solid rgba(224, 191, 180, 0.15)',
+        borderBottom: (theme) =>
+          theme.palette.mode === 'light'
+            ? '0.0625rem solid rgba(224, 191, 180, 0.15)'
+            : '0.0625rem solid rgba(255, 255, 255, 0.1)',
         boxShadow: 'none',
         height: '5rem',
         justifyContent: 'center',
@@ -68,12 +91,17 @@ export default function Navbar() {
               variant="h6"
               component="a"
               href="#hero"
+              onClick={handleSmoothScroll}
               sx={{
                 fontFamily: 'var(--font-epilogue)',
                 fontWeight: 700,
                 fontSize: '1.125rem',
                 color: 'text.primary',
                 textDecoration: 'none',
+                lineHeight: 1,
+                display: 'flex',
+                alignItems: 'center',
+                marginTop: '0.25rem',
               }}
             >
               Mondi Studio
@@ -85,6 +113,7 @@ export default function Navbar() {
               <Button
                 key={link.href}
                 href={link.href}
+                onClick={handleSmoothScroll}
                 sx={{
                   color: 'text.primary',
                   fontSize: '0.875rem',
@@ -100,10 +129,23 @@ export default function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-            <Button variant="contained" color="primary" href="#contacto">
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, alignItems: 'center' }}>
+            <Button variant="contained" color="primary" href="#contacto" onClick={handleSmoothScroll}>
               Hablemos
             </Button>
+            <Fab
+              size="small"
+              color="primary"
+              aria-label={mode === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
+              onClick={toggleTheme}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+              }}
+            >
+              {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+            </Fab>
           </Box>
 
           <IconButton
@@ -138,7 +180,14 @@ export default function Navbar() {
         <List>
           {navLinks.map((link) => (
             <ListItem key={link.href} disablePadding>
-              <ListItemButton component="a" href={link.href} onClick={handleLinkClick}>
+              <ListItemButton
+                component="a"
+                href={link.href}
+                onClick={(e) => {
+                  handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  handleLinkClick()
+                }}
+              >
                 <ListItemText primary={link.label} />
               </ListItemButton>
             </ListItem>
@@ -149,10 +198,28 @@ export default function Navbar() {
               color="primary"
               href="#contacto"
               fullWidth
-              onClick={handleLinkClick}
+              onClick={(e) => {
+                handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                handleLinkClick()
+              }}
             >
               Hablemos
             </Button>
+          </ListItem>
+          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center' }}>
+            <Fab
+              size="small"
+              color="primary"
+              aria-label={mode === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
+              onClick={toggleTheme}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+              }}
+            >
+              {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+            </Fab>
           </ListItem>
         </List>
       </Drawer>

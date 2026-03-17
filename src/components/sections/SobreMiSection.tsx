@@ -5,6 +5,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import ForumIcon from '@mui/icons-material/Forum'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
+import Image from 'next/image'
 
 const valores = [
   { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
@@ -36,9 +37,16 @@ export default function SobreMiSection() {
                 justifyContent: 'center',
                 fontSize: '8rem',
                 opacity: 0.9,
+                overflow: 'hidden',
+                position: 'relative',
               }}
             >
-              🐱
+              <Image
+                src="/Gemini_Generated_Image_r1k8m3r1k8m3r1k8.png"
+                alt="Mondiola"
+                fill
+                style={{ objectFit: 'cover', objectPosition: '-2rem center' }}
+              />
             </Box>
           </Grid>
 
@@ -57,6 +65,9 @@ export default function SobreMiSection() {
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
               Acá no hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos
               juntos y te entrego tu proyecto. Simple.
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+            Trabajamos en red con múltiples profesionales especializados en cada area para que tu proyecto sea completo y tenga todo lo que requiera.
             </Typography>
             <Typography
               variant="body1"

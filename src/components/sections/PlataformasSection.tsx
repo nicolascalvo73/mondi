@@ -89,7 +89,8 @@ export default function PlataformasSection() {
                         width: '4rem',
                         height: '4rem',
                         borderRadius: '0.5rem',
-                        backgroundColor: '#f0ede9',
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -110,7 +111,10 @@ export default function PlataformasSection() {
                       sx={{
                         fontSize: '0.625rem',
                         height: '1.25rem',
-                        backgroundColor: '#cfe8dc',
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                        color: (theme) =>
+                          theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                       }}
                     />
                   </CardContent>
@@ -154,7 +158,8 @@ export default function PlataformasSection() {
                         width: '4rem',
                         height: '4rem',
                         borderRadius: '0.5rem',
-                        backgroundColor: '#f0ede9',
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -175,7 +180,10 @@ export default function PlataformasSection() {
                       sx={{
                         fontSize: '0.625rem',
                         height: '1.25rem',
-                        backgroundColor: '#cfe8dc',
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                        color: (theme) =>
+                          theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                       }}
                     />
                   </CardContent>
@@ -189,7 +197,8 @@ export default function PlataformasSection() {
           sx={{
             mt: 8,
             p: 4,
-            backgroundColor: '#f6f3ee',
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light' ? '#f6f3ee' : '#2a2a27',
             borderRadius: '1rem',
             textAlign: 'center',
           }}

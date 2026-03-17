@@ -40,7 +40,7 @@ export default function Footer() {
               Mondi Studio
             </Typography>
             <Typography variant="body2" sx={{ mb: 3, maxWidth: '28rem' }}>
-              Estudio de diseño y desarrollo web unipersonal. Comunicación directa, sin estructuras
+              Estudio de diseño y desarrollo web. Comunicación directa, sin estructuras
               de agencia.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
@@ -61,7 +61,7 @@ export default function Footer() {
                 </Typography>
               </Link>
               <Link
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
+               href="https://wa.me/3516283916?text=Hola%20Mondi%20Studio"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
@@ -124,7 +124,7 @@ export default function Footer() {
             © {currentYear} Mondi Studio. Todos los derechos reservados.
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
-            Hecho con ☕ y algo de maullido en Córdoba, Argentina
+           Creado con 🤍 y maullidos 🐱 desde Córdoba, Argentina 🇦🇷
           </Typography>
         </Box>
       </Container>

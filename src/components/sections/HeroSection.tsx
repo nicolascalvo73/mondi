@@ -1,6 +1,7 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Button, Chip, Paper } from '@mui/material'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
@@ -83,15 +84,15 @@ export default function HeroSection() {
                 justifyContent: 'center',
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: '4rem',
-                  opacity: 0.3,
-                  color: 'primary.contrastText',
+              <Image
+                src="/Gemini_Generated_Image_xregmqxregmqxreg.png"
+                alt="Mondi Studio"
+                fill
+                style={{
+                  objectFit: 'cover',
                 }}
-              >
-                🐱
-              </Typography>
+                priority
+              />
 
               <Paper
                 sx={{
@@ -99,8 +100,12 @@ export default function HeroSection() {
                   bottom: '1.5rem',
                   left: '1.5rem',
                   right: '1.5rem',
-                  backgroundColor: 'rgba(255,255,255,0.9)',
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                      ? 'rgba(255,255,255,0.9)'
+                      : 'rgba(42, 42, 39, 0.9)',
                   backdropFilter: 'blur(0.75rem)',
+                  opacity: 0.85,
                   p: 2.5,
                   borderRadius: '1rem',
                 }}
@@ -116,38 +121,6 @@ export default function HeroSection() {
                   }}
                 >
                   "Miau miau, aprobado."
-                </Typography>
-              </Paper>
-
-              <Paper
-                sx={{
-                  position: 'absolute',
-                  top: '-0.5rem',
-                  right: '-0.5rem',
-                  backgroundColor: 'background.paper',
-                  p: 1.5,
-                  borderRadius: '0.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  boxShadow: '0 0.25rem 1rem rgba(0,0,0,0.1)',
-                }}
-              >
-                <Box
-                  sx={{
-                    width: '0.5rem',
-                    height: '0.5rem',
-                    borderRadius: '50%',
-                    backgroundColor: '#25D366',
-                    animation: 'pulse 2s infinite',
-                    '@keyframes pulse': {
-                      '0%, 100%': { opacity: 1 },
-                      '50%': { opacity: 0.5 },
-                    },
-                  }}
-                />
-                <Typography variant="body2" sx={{ fontWeight: 600, fontSize: '0.8125rem' }}>
-                  Online & Ready
                 </Typography>
               </Paper>
             </Box>

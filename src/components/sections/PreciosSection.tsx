@@ -6,7 +6,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 const planes = [
   {
     nombre: 'Landing Page',
-    precio: 'USD 400',
+    precio: 'USD 300',
     descripcion: 'Ideal para lanzar un producto o servicio',
     caracteristicas: [
       'Diseño responsive',
@@ -18,7 +18,7 @@ const planes = [
   },
   {
     nombre: 'Web completa',
-    precio: 'USD 800',
+    precio: 'USD 700',
     descripcion: 'Para empresas que necesitan presencia profesional',
     caracteristicas: [
       'Hasta 5 secciones',
@@ -33,7 +33,7 @@ const planes = [
   },
   {
     nombre: 'Tienda Online',
-    precio: 'USD 600',
+    precio: 'USD 400',
     descripcion: 'Configuración completa de tu e-commerce',
     caracteristicas: [
       'Setup en plataforma elegida',
@@ -86,13 +86,13 @@ export default function PreciosSection() {
                   borderTopColor: plan.destacado ? 'primary.main' : 'transparent',
                   position: 'relative',
                 }}
-              >
+                >
                 {plan.destacado && (
                   <Chip
-                    label="El más elegido"
-                    sx={{
+                  label="El más elegido"
+                  sx={{
                       position: 'absolute',
-                      top: '-0.75rem',
+                      top: '-0.25rem',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       backgroundColor: 'primary.main',
@@ -104,17 +104,29 @@ export default function PreciosSection() {
                   <Typography variant="h4" component="h3" sx={{ mb: 1 }}>
                     {plan.nombre}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '2rem',
-                      fontWeight: 700,
-                      color: 'primary.main',
-                      mb: 1,
-                    }}
-                  >
-                    {plan.precio}
-                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, mb: 1 }}>
+                    <Typography
+                      component="span"
+                      sx={{
+                        fontSize: '0.875rem',
+                        fontWeight: 500,
+                        color: '#9e9e9e',
+                        fontStyle: 'italic',
+                      }}
+                    >
+                      desde
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '2rem',
+                        fontWeight: 700,
+                        color: 'primary.main',
+                      }}
+                    >
+                      {plan.precio}
+                    </Typography>
+                  </Box>
                   <Typography variant="body2" sx={{ mb: 4, color: 'text.secondary' }}>
                     {plan.descripcion}
                   </Typography>
@@ -135,7 +147,8 @@ export default function PreciosSection() {
 
         <Paper
           sx={{
-            backgroundColor: '#f0ede9',
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light' ? '#f0ede9' : '#2a2a27',
             borderRadius: '1rem',
             p: 4,
             mb: 4,
@@ -223,8 +236,7 @@ export default function PreciosSection() {
           Proyectos VTEX Enterprise: presupuesto personalizado según alcance y complejidad.
         </Typography>
         <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: 'text.secondary', mt: 2 }}>
-          Precios en dólares estadounidenses. Formas de pago: transferencia, Mercado Pago, PayPal.
-          50% al inicio, 50% al finalizar.
+          Precios en dólares estadounidenses. Método de pago: transferencia, Mercado Pago, PayPal, crypto.
         </Typography>
       </Container>
     </Box>
