@@ -25,7 +25,7 @@ const servicios = [
 export default function ContactoSection() {
   const [formData, setFormData] = useState({
     nombre: '',
-    email: '',
+    whatsapp: '',
     negocio: '',
     servicio: '',
     mensaje: '',
@@ -51,7 +51,7 @@ export default function ContactoSection() {
 
       if (response.ok) {
         setStatus('success')
-        setFormData({ nombre: '', email: '', negocio: '', servicio: '', mensaje: '' })
+        setFormData({ nombre: '', whatsapp: '', negocio: '', servicio: '', mensaje: '' })
       } else {
         setStatus('error')
       }
@@ -111,13 +111,14 @@ export default function ContactoSection() {
                 />
 
                 <TextField
-                  label="Tu email"
-                  name="email"
-                  type="email"
+                  label="Tu WhatsApp"
+                  name="whatsapp"
+                  type="tel"
                   required
                   fullWidth
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="Ej: +54 9 351 123 4567"
+                  value={formData.whatsapp}
+                  onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                   sx={{
                     '& .MuiInputLabel-root': { color: 'rgba(243, 240, 235, 0.7)' },
                     '& .MuiInput-root': { color: '#f3f0eb' },
