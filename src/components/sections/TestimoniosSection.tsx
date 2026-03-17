@@ -2,8 +2,9 @@
 
 import { Container, Grid, Box, Typography, Card, CardContent, Avatar } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
+import { useState, useEffect } from 'react'
 
-const testimonios = [
+const todosLosTestimonios = [
   {
     nombre: 'María González',
     rol: 'Dueña',
@@ -28,9 +29,68 @@ const testimonios = [
       'Comunicación directa, sin vueltas. Me explicó todo y siempre respondió rápido. La web quedó exactamente como la imaginaba. Tengo un sitio web profesional y funcional de primer nivel.',
     iniciales: 'AR',
   },
+  {
+    nombre: 'Carlos Martínez',
+    rol: 'CEO',
+    empresa: 'TechSolutions · Buenos Aires',
+    testimonio:
+      'Desarrolló nuestra plataforma VTEX con integraciones complejas. El nivel técnico es excelente y cumplió con todos los plazos. Muy profesional.',
+    iniciales: 'CM',
+  },
+  {
+    nombre: 'Sofía Pérez',
+    rol: 'Propietaria',
+    empresa: 'Boutique Luna · Rosario',
+    testimonio:
+      'Mi tienda Shopify quedó increíble. Me ayudó con todo el setup, los pagos y hasta me capacitó para administrarla sola. Súper recomendable.',
+    iniciales: 'SP',
+  },
+  {
+    nombre: 'Diego Ramírez',
+    rol: 'Gerente',
+    empresa: 'Consultora RH · Mendoza',
+    testimonio:
+      'Hizo la web institucional de nuestra consultora en tiempo récord. Diseño moderno, rápida y con todo lo que necesitábamos. Excelente trabajo.',
+    iniciales: 'DR',
+  },
+  {
+    nombre: 'Valentina Torres',
+    rol: 'Fundadora',
+    empresa: 'Estudio Creativo · Córdoba',
+    testimonio:
+      'Necesitaba un portfolio que mostrara mis trabajos de forma profesional. El resultado superó mis expectativas. La web es hermosa y funciona perfecto.',
+    iniciales: 'VT',
+  },
+  {
+    nombre: 'Martín Silva',
+    rol: 'Director',
+    empresa: 'Clínica Dental · San Juan',
+    testimonio:
+      'Desarrolló el sistema de turnos online para nuestra clínica. Ahora los pacientes reservan desde la web y nos ahorramos horas de llamadas. Genial.',
+    iniciales: 'MS',
+  },
+  {
+    nombre: 'Laura Benítez',
+    rol: 'Dueña',
+    empresa: 'Catering Empresarial · Salta',
+    testimonio:
+      'Mi landing page quedó preciosa y ahora recibo pedidos por WhatsApp directo desde la web. Simple, efectivo y justo lo que necesitaba.',
+    iniciales: 'LB',
+  },
 ]
 
+function getRandomTestimonios(cantidad: number) {
+  const shuffled = [...todosLosTestimonios].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, cantidad)
+}
+
 export default function TestimoniosSection() {
+  const [testimonios, setTestimonios] = useState(todosLosTestimonios.slice(0, 3))
+
+  useEffect(() => {
+    setTestimonios(getRandomTestimonios(3))
+  }, [])
+
   return (
     <Box
       component="section"
