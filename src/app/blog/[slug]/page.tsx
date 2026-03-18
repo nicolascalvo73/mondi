@@ -12,18 +12,28 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
+  // Si Sanity no está configurado, retornar array vacío para que Next.js no genere páginas
   if (!isSanityConfigured) {
-    return []
+    // Next.js requiere al menos un parámetro para rutas dinámicas con output: export
+    // Retornamos un slug dummy que será manejado por notFound()
+    return [{ slug: 'placeholder' }]
   }
 
   try {
     const posts = await client.fetch<SanityPost[]>(getAllPostsQuery)
+    
+    // Si no hay posts, retornar al menos un placeholder
+    if (!posts || posts.length === 0) {
+      return [{ slug: 'placeholder' }]
+    }
+    
     return posts.map((post) => ({
       slug: post.slug.current,
     }))
   } catch (error) {
     console.error('Error generating static params:', error)
-    return []
+    // En caso de error, retornar placeholder para evitar fallo de build
+    return [{ slug: 'placeholder' }]
   }
 }
 
