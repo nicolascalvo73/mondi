@@ -1,4 +1,4 @@
-import { defineType, defineField } from '@sanity/types'
+import { defineType, defineField } from 'sanity'
 
 export default defineType({
   name: 'post',
