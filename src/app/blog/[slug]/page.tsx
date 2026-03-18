@@ -8,7 +8,7 @@ import Footer from '@/components/layout/Footer'
 import BlogPostClient from '@/components/blog/BlogPostClient'
 
 interface PageProps {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }
 
 export async function generateStaticParams() {
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params
+  const { slug } = params
 
   if (!isSanityConfigured) {
     notFound()
