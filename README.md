@@ -146,6 +146,27 @@ Ver `CONTEXT.md` para más detalles.
 
 ## 📋 Changelog
 
+### [1.0.1] - 2026-03-18
+
+#### 💰 Precios
+- **Mantenimiento básico** reducido de USD 80 a **USD 60/mes**
+- **Mantenimiento premium** reducido de USD 150 a **USD 120/mes**
+- Actualizado en los 3 idiomas (es/en/pt)
+
+#### 🎨 Mejoras de UI
+- **Logo de Empretienda** agrandado al 100% del contenedor
+- **Logo de PayPal** reducido al 60% para mejor proporción
+- **Logo de Mercado Pago** agrandado al 150% para mejor visibilidad
+- **Versión centrada** en el footer entre copyright y texto de Córdoba
+
+#### 🧭 Navegación
+- **Link al Blog** agregado en navegación del footer
+
+#### 👤 Perfil
+- Título actualizado de "Desarrollador Frontend" a **"Software Engineer"** en JSON-LD y sección Sobre Mí
+
+---
+
 ### [1.0.0] - 2026-03-18
 
 #### 🎯 SEO & Optimización
