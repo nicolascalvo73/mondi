@@ -4,6 +4,7 @@
     "process": "Proceso",
     "platforms": "Plataformas",
     "pricing": "Precios",
+    "blog": "Blog",
     "about": "Sobre mí",
     "contact": "Hablemos"
   },
@@ -257,5 +258,32 @@
       "success": "¡Mensaje enviado! Te respondo pronto.",
       "error": "Hubo un error. Intentá de nuevo o escribime por WhatsApp."
     }
+  },
+  "blog": {
+    "title": "Pensamientos,",
+    "titleCode": "Código",
+    "titleCoffee": "Cafecito",
+    "subtitle": "Un espacio para hablar de diseño, estrategia y el futuro de la web",
+    "categories": {
+      "all": "Todos",
+      "design": "Diseño",
+      "business": "Negocios",
+      "tech": "Tech",
+      "corner": "Mondiola's Corner"
+    },
+    "empty": {
+      "title": "Próximamente",
+      "description": "Estamos preparando contenido de calidad para vos"
+    },
+    "featured": "Featured Post",
+    "readArticle": "Leer artículo",
+    "readMore": "Leer más",
+    "readTime": "min de lectura",
+    "backToBlog": "Volver al blog",
+    "breadcrumbs": {
+      "home": "Inicio",
+      "blog": "Blog"
+    },
+    "by": "por"
   }
 }

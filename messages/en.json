@@ -4,6 +4,7 @@
     "process": "Process",
     "platforms": "Platforms",
     "pricing": "Pricing",
+    "blog": "Blog",
     "about": "About me",
     "contact": "Let's talk"
   },
@@ -255,7 +256,34 @@
       "submit": "Send message",
       "sending": "Sending...",
       "success": "Message sent! I'll respond soon.",
-      "error": "There was an error. Try again or write me on WhatsApp."
+      "error": "There was an error. Try again or write to me on WhatsApp."
     }
+  },
+  "blog": {
+    "title": "Thoughts,",
+    "titleCode": "Code",
+    "titleCoffee": "Coffee",
+    "subtitle": "A space to talk about design, strategy and the future of the web",
+    "categories": {
+      "all": "All",
+      "design": "Design",
+      "business": "Business",
+      "tech": "Tech",
+      "corner": "Mondiola's Corner"
+    },
+    "empty": {
+      "title": "Coming Soon",
+      "description": "We're preparing quality content for you"
+    },
+    "featured": "Featured Post",
+    "readArticle": "Read article",
+    "readMore": "Read more",
+    "readTime": "min read",
+    "backToBlog": "Back to blog",
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "by": "by"
   }
 }

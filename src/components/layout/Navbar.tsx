@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   AppBar,
   Toolbar,
@@ -36,12 +37,15 @@ export default function Navbar() {
   const { mode, toggleTheme } = useThemeMode()
   const { language, cycleLanguage } = useLanguage()
   const { t } = useTranslations()
+  const pathname = usePathname()
+  const router = useRouter()
 
   const navLinks = [
     { label: t('nav.services'), href: '#servicios' },
     { label: t('nav.process'), href: '#proceso' },
     { label: t('nav.platforms'), href: '#plataformas' },
     { label: t('nav.pricing'), href: '#precios' },
+    { label: t('nav.blog'), href: '/blog' },
     { label: t('nav.about'), href: '#sobre-mi' },
   ]
 
@@ -57,6 +61,12 @@ export default function Navbar() {
     e.preventDefault()
     const href = e.currentTarget.getAttribute('href')
     if (href?.startsWith('#')) {
+      // Si estamos en una página que no es home, navegar primero a home
+      if (pathname !== '/') {
+        router.push('/' + href)
+        return
+      }
+      
       const targetId = href.substring(1)
       const targetElement = document.getElementById(targetId)
       if (targetElement) {
@@ -123,7 +133,7 @@ export default function Navbar() {
               <Button
                 key={link.href}
                 href={link.href}
-                onClick={handleSmoothScroll}
+                onClick={link.href.startsWith('#') ? handleSmoothScroll : undefined}
                 sx={{
                   color: 'text.primary',
                   fontSize: '0.875rem',
@@ -208,7 +218,9 @@ export default function Navbar() {
                 component="a"
                 href={link.href}
                 onClick={(e) => {
-                  handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  if (link.href.startsWith('#')) {
+                    handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  }
                   handleLinkClick()
                 }}
               >

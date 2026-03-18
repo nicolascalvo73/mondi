@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${epilogue.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           Ir al contenido principal
         </a>
