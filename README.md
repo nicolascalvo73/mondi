@@ -146,6 +146,61 @@ Ver `CONTEXT.md` para más detalles.
 
 ## 📋 Changelog
 
+### [1.0.2] - 2026-03-18
+
+#### 🎯 Reposicionamiento: De negocio local a estudio nacional
+
+**Estrategia**: Posicionar a Mondi Studio como estudio nacional con base en Córdoba, manteniendo la identidad local como diferencial.
+
+#### 📝 Copy & Traducciones
+- **Hero location**: `"Córdoba, Argentina"` → `"Argentina"`
+- **Hero subtitle**: Agregado "Trabajamos con profesionales, emprendedores y PyMEs de todo el país"
+- **SobreMiSection**: Agregado "Trabajo desde Córdoba pero con clientes en todo el país"
+- **SobreMiSection**: Agregado "Sin importar dónde estés en Argentina"
+- **Footer tagline**: `"Comunicación directa, sin estructuras de agencia"` → `"Base en Córdoba, clientes en toda Argentina"`
+
+#### 🔍 SEO Nacional
+- **Title**: `"Diseño Web en Argentina"` → `"Diseño Web Profesional en Argentina"`
+- **Description**: Actualizada de alcance local a nacional
+- **Keywords**: Ampliados de 11 a 16 términos
+  - Agregados: `agencia web Argentina`, `diseño web Buenos Aires`, `diseño web Rosario`, `web profesional emprendedores Argentina`
+- **OpenGraph**: Títulos y descripciones actualizados a alcance nacional
+- **Twitter Card**: Descripciones actualizadas
+
+#### 🏗️ JSON-LD Schema Optimizado
+- **alternateName**: String → Array `["Mondi Studio Argentina", "Mondi Studio Córdoba", "Diseño web Argentina"]`
+- **founder.jobTitle**: `"Software Engineer"` → `"Desarrollador Frontend Senior"`
+- **founder.worksFor**: Agregado objeto Organization
+- **areaServed**: Ampliado de 5 a 7 ciudades (+ Tucumán, Santa Fe)
+- **serviceType**: Ampliado de 6 a 9 servicios (+ Configuración Tienda Nube, Shopify, Desarrollo VTEX)
+- **hasOfferCatalog**: Agregada 4ta oferta (Mantenimiento web mensual USD 80)
+- **paymentAccepted**: Agregado "Crypto"
+
+#### 🗺️ Sitemap Optimizado
+- **URLs**: `blog?slug=${slug}` → `blog/${slug}` (rutas limpias)
+- **lastModified**: Estático → Dinámico basado en `publishedAt` de cada post
+
+#### 📱 Blog Metadata Completa
+- **Nuevo archivo**: `app/blog/layout.tsx` para metadata (resuelve conflicto con `'use client'`)
+- **OpenGraph completo**: En blog y posts individuales con `type: 'article'`, `publishedTime`, `authors`
+- **Twitter Cards**: Configuradas en todos los posts
+- **Canonical URLs**: En todas las páginas del blog
+- **Imágenes dinámicas**: `post.mainImage?.asset?.url || '/og-image.png'`
+
+#### ⚙️ Variables de Entorno
+- **Nombre corregido**: `NEXT_PUBLIC_WHATSAPP` → `NEXT_PUBLIC_WHATSAPP_NUMBER`
+- **URL corregida**: `https://mondistudio.com.ar` → `https://www.mondistudio.com.ar`
+- **Reorganización**: Agrupado por categorías (Site, Sanity, Contacto, Google, Web3Forms)
+
+#### ✅ Identidad de Marca Preservada
+- Footer: `"Creado con 🤍 y maullidos 🐱 desde Córdoba, Argentina 🇦🇷"`
+- Chip "Hecho en Córdoba" en SobreMiSection
+- JSON-LD incluye "Mondi Studio Córdoba" en `alternateName`
+- Coordenadas geográficas de Córdoba preservadas
+- Testimonios con ubicaciones específicas intactos
+
+---
+
 ### [1.0.1] - 2026-03-18
 
 #### 💰 Precios
