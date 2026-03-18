@@ -43,8 +43,7 @@ export default function Footer() {
               Mondi Studio
             </Typography>
             <Typography variant="body2" sx={{ mb: 3, maxWidth: '28rem' }}>
-              Estudio de diseño y desarrollo web. Comunicación directa, sin estructuras
-              de agencia.
+              Estudio de diseño y desarrollo web. Base en Córdoba, clientes en toda Argentina.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
               <Link

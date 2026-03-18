@@ -46,9 +46,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       }
     }
 
+    const description = post.excerpt || post.title
+    const url = `https://www.mondistudio.com.ar/blog/${slug}`
+    const imageUrl = post.mainImage?.asset?.url || '/og-image.png'
+
     return {
-      title: `${post.title} - Mondi Studio`,
-      description: post.excerpt || post.title,
+      title: `${post.title} | Mondi Studio`,
+      description,
+      alternates: {
+        canonical: url,
+      },
+      openGraph: {
+        title: post.title,
+        description,
+        url,
+        type: 'article',
+        publishedTime: post.publishedAt,
+        authors: ['Mondi Studio'],
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description,
+        images: [imageUrl],
+      },
     }
   } catch (error) {
     console.error('Error generating metadata:', error)

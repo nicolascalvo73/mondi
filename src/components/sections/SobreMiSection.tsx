@@ -66,11 +66,10 @@ export default function SobreMiSection() {
               web sin la estructura (y los precios) de una agencia.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              Acá no hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos
-              juntos y te entrego tu proyecto. Simple.
+              Trabajo desde Córdoba pero con clientes en todo el país. No hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos juntos y te entrego tu proyecto. Simple.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-            Trabajamos en red con múltiples profesionales especializados en cada area para que tu proyecto sea completo y tenga todo lo que requiera.
+              Sin importar dónde estés en Argentina, trabajamos en red con múltiples profesionales especializados en cada área para que tu proyecto sea completo y tenga todo lo que requiera.
             </Typography>
             <Typography
               variant="body1"

@@ -1,21 +1,25 @@
 import { MetadataRoute } from 'next'
 import { client, isSanityConfigured } from '@/sanity/client'
 
-async function getBlogSlugs(): Promise<string[]> {
+interface SanityPost {
+  slug: { current: string }
+  publishedAt?: string
+}
+
+async function getBlogPosts(): Promise<SanityPost[]> {
   if (!isSanityConfigured) return []
   
   try {
-    const slugs = await client.fetch<{ slug: { current: string } }[]>(
-      `*[_type == "post" && defined(slug.current)]{ slug }` 
+    return await client.fetch<SanityPost[]>(
+      `*[_type == "post" && defined(slug.current)]{ slug, publishedAt }` 
     )
-    return slugs.map((s) => s.slug.current)
   } catch {
     return []
   }
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogSlugs = await getBlogSlugs()
+  const posts = await getBlogPosts()
   const now = new Date()
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -33,9 +37,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  const blogRoutes: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `https://www.mondistudio.com.ar/blog?slug=${slug}`,
-    lastModified: now,
+  const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `https://www.mondistudio.com.ar/blog/${post.slug.current}`,
+    lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))

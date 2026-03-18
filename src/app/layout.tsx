@@ -30,22 +30,27 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Mondi Studio — Diseño Web en Córdoba, Argentina',
+    default: 'Mondi Studio — Diseño Web Profesional en Argentina',
     template: '%s | Mondi Studio',
   },
-  description: 'Diseño y desarrollo web profesional en Córdoba. Landings, tiendas online (Tienda Nube, Shopify, VTEX, WooCommerce) y webs institucionales para PyMEs y profesionales. Entrega rápida, precios claros, sin estructuras de agencia.',
+  description: 'Diseño y desarrollo web profesional para negocios en toda Argentina. Landings, tiendas online (Tienda Nube, Shopify, VTEX, WooCommerce) y webs institucionales para PyMEs y profesionales. Entrega rápida, precios claros, sin estructuras de agencia.',
   metadataBase: new URL('https://www.mondistudio.com.ar'),
   keywords: [
+    'diseño web Argentina',
+    'desarrollo web Argentina',
+    'páginas web profesionales Argentina',
+    'tienda online Argentina',
+    'landing page Argentina',
     'diseño web Córdoba',
-    'desarrollo web Córdoba',
-    'páginas web Córdoba Argentina',
-    'tienda online Córdoba',
-    'Tienda Nube Córdoba',
-    'landing page Córdoba',
-    'web profesional PyMEs Córdoba',
-    'VTEX Córdoba',
+    'agencia web Argentina',
+    'Tienda Nube Argentina',
+    'VTEX Argentina',
     'Shopify Argentina',
-    'WooCommerce Córdoba',
+    'WooCommerce Argentina',
+    'web para PyMEs Argentina',
+    'diseño web Buenos Aires',
+    'diseño web Rosario',
+    'web profesional emprendedores Argentina',
     'Mondi Studio',
   ],
   authors: [{ name: 'Mondi Studio', url: 'https://www.mondistudio.com.ar' }],
@@ -66,22 +71,22 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.mondistudio.com.ar',
     siteName: 'Mondi Studio',
-    title: 'Mondi Studio — Diseño Web en Córdoba, Argentina',
-    description: 'Landings, tiendas online y webs para negocios en Córdoba. Comunicación directa, precios transparentes, sin estructuras de agencia.',
+    title: 'Mondi Studio — Diseño Web Profesional en Argentina',
+    description: 'Landings, tiendas online y webs para negocios en toda Argentina. Comunicación directa, precios transparentes, sin estructuras de agencia.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Mondi Studio — Diseño web profesional en Córdoba',
+        alt: 'Mondi Studio — Diseño web profesional en Argentina',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mondi Studio — Diseño Web en Córdoba',
-    description: 'Landings, tiendas online y webs para negocios en Córdoba.',
+    title: 'Mondi Studio — Diseño Web en Argentina',
+    description: 'Landings, tiendas online y webs para negocios en toda Argentina.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -132,11 +137,15 @@ export default function RootLayout({
               '@type': 'ProfessionalService',
               '@id': 'https://www.mondistudio.com.ar',
               name: 'Mondi Studio',
-              alternateName: 'Mondi Studio Córdoba',
+              alternateName: [
+                'Mondi Studio Argentina',
+                'Mondi Studio Córdoba',
+                'Diseño web Argentina',
+              ],
               url: 'https://www.mondistudio.com.ar',
               logo: 'https://www.mondistudio.com.ar/logo.svg',
               image: 'https://www.mondistudio.com.ar/og-image.png',
-              description: 'Estudio de diseño y desarrollo web en Córdoba, Argentina. Especializado en landings, tiendas online y webs institucionales para PyMEs y profesionales.',
+              description: 'Estudio de diseño y desarrollo web con base en Córdoba, Argentina. Trabajamos con negocios de todo el país. Especializado en landings, tiendas online y webs institucionales para PyMEs y profesionales.',
               telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
                 ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` 
                 : undefined,
@@ -144,7 +153,11 @@ export default function RootLayout({
               founder: {
                 '@type': 'Person',
                 name: 'Nicolás Calvo',
-                jobTitle: 'Software Engineer',
+                jobTitle: 'Desarrollador Frontend Senior',
+                worksFor: {
+                  '@type': 'Organization',
+                  name: 'Mondi Studio',
+                },
               },
               address: {
                 '@type': 'PostalAddress',
@@ -159,8 +172,13 @@ export default function RootLayout({
                 longitude: -64.1888,
               },
               areaServed: [
-                { '@type': 'City', name: 'Córdoba', 'address': { '@type': 'PostalAddress', addressCountry: 'AR' } },
                 { '@type': 'Country', name: 'Argentina' },
+                { '@type': 'City', name: 'Córdoba' },
+                { '@type': 'City', name: 'Buenos Aires' },
+                { '@type': 'City', name: 'Rosario' },
+                { '@type': 'City', name: 'Mendoza' },
+                { '@type': 'City', name: 'Tucumán' },
+                { '@type': 'City', name: 'Santa Fe' },
               ],
               serviceType: [
                 'Diseño web',
@@ -168,6 +186,9 @@ export default function RootLayout({
                 'Landing pages',
                 'Tiendas online',
                 'E-commerce',
+                'Configuración Tienda Nube',
+                'Configuración Shopify',
+                'Desarrollo VTEX',
                 'Mantenimiento web',
               ],
               hasOfferCatalog: {
@@ -178,8 +199,8 @@ export default function RootLayout({
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Landing Page',
-                      description: 'Página de aterrizaje optimizada para conversión',
+                      name: 'Landing Page profesional',
+                      description: 'Página de aterrizaje optimizada para conversión con diseño personalizado, formulario de contacto y SEO básico incluido.',
                     },
                     priceSpecification: {
                       '@type': 'PriceSpecification',
@@ -193,7 +214,7 @@ export default function RootLayout({
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Web institucional',
-                      description: 'Sitio web completo para empresas y profesionales',
+                      description: 'Sitio web completo para empresas y profesionales. Hasta 5 secciones, blog, galería y SEO optimizado.',
                     },
                     priceSpecification: {
                       '@type': 'PriceSpecification',
@@ -207,13 +228,27 @@ export default function RootLayout({
                     itemOffered: {
                       '@type': 'Service',
                       name: 'Tienda online',
-                      description: 'E-commerce en Tienda Nube, Shopify, WooCommerce o VTEX',
+                      description: 'E-commerce completo en Tienda Nube, Shopify, WooCommerce o VTEX. Incluye medios de pago y capacitación.',
                     },
                     priceSpecification: {
                       '@type': 'PriceSpecification',
                       price: '400',
                       priceCurrency: 'USD',
                       minPrice: '400',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Mantenimiento web mensual',
+                      description: 'Mantenimiento, actualizaciones, backups y soporte continuo para tu web.',
+                    },
+                    priceSpecification: {
+                      '@type': 'PriceSpecification',
+                      price: '80',
+                      priceCurrency: 'USD',
+                      minPrice: '80',
                     },
                   },
                 ],
@@ -229,7 +264,7 @@ export default function RootLayout({
               },
               priceRange: '$$',
               currenciesAccepted: 'USD, ARS',
-              paymentAccepted: 'Transferencia bancaria, Mercado Pago, PayPal',
+              paymentAccepted: 'Transferencia bancaria, Mercado Pago, PayPal, Crypto',
             }),
           }}
         />
