@@ -29,10 +29,31 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Mondi Studio — Diseño y desarrollo',
-  description: 'Estudio de diseño web. Landing pages, webs institucionales, tiendas online y mantenimiento. Comunicación directa, sin estructuras de agencia.',
-  keywords: ['diseño web', 'desarrollo web', 'Argentina', 'landing page', 'tienda online', 'Tienda Nube', 'Shopify', 'VTEX'],
-  authors: [{ name: 'Mondi Studio' }],
+  title: {
+    default: 'Mondi Studio — Diseño Web en Córdoba, Argentina',
+    template: '%s | Mondi Studio',
+  },
+  description: 'Diseño y desarrollo web profesional en Córdoba. Landings, tiendas online (Tienda Nube, Shopify, VTEX, WooCommerce) y webs institucionales para PyMEs y profesionales. Entrega rápida, precios claros, sin estructuras de agencia.',
+  metadataBase: new URL('https://www.mondistudio.com.ar'),
+  keywords: [
+    'diseño web Córdoba',
+    'desarrollo web Córdoba',
+    'páginas web Córdoba Argentina',
+    'tienda online Córdoba',
+    'Tienda Nube Córdoba',
+    'landing page Córdoba',
+    'web profesional PyMEs Córdoba',
+    'VTEX Córdoba',
+    'Shopify Argentina',
+    'WooCommerce Córdoba',
+    'Mondi Studio',
+  ],
+  authors: [{ name: 'Mondi Studio', url: 'https://www.mondistudio.com.ar' }],
+  creator: 'Mondi Studio',
+  publisher: 'Mondi Studio',
+  alternates: {
+    canonical: 'https://www.mondistudio.com.ar',
+  },
   icons: {
     icon: [
       {
@@ -41,13 +62,45 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'Mondi Studio — Diseño y desarrollo web en Córdoba',
-    description: 'Tu negocio, con la cara que merece.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://mondistudio.com.ar',
-    siteName: 'Mondi Studio',
-    locale: 'es_AR',
     type: 'website',
+    locale: 'es_AR',
+    url: 'https://www.mondistudio.com.ar',
+    siteName: 'Mondi Studio',
+    title: 'Mondi Studio — Diseño Web en Córdoba, Argentina',
+    description: 'Landings, tiendas online y webs para negocios en Córdoba. Comunicación directa, precios transparentes, sin estructuras de agencia.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mondi Studio — Diseño web profesional en Córdoba',
+        type: 'image/png',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mondi Studio — Diseño Web en Córdoba',
+    description: 'Landings, tiendas online y webs para negocios en Córdoba.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
+  },
+  category: 'technology',
 }
 
 export default function RootLayout({
@@ -71,6 +124,115 @@ export default function RootLayout({
             </ThemeContextProvider>
           </LanguageContextProvider>
         </AppRouterCacheProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              '@id': 'https://www.mondistudio.com.ar',
+              name: 'Mondi Studio',
+              alternateName: 'Mondi Studio Córdoba',
+              url: 'https://www.mondistudio.com.ar',
+              logo: 'https://www.mondistudio.com.ar/logo.svg',
+              image: 'https://www.mondistudio.com.ar/og-image.png',
+              description: 'Estudio de diseño y desarrollo web en Córdoba, Argentina. Especializado en landings, tiendas online y webs institucionales para PyMEs y profesionales.',
+              telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+                ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` 
+                : undefined,
+              email: 'hola@mondistudio.com.ar',
+              founder: {
+                '@type': 'Person',
+                name: 'Nicolás Calvo',
+                jobTitle: 'Desarrollador Frontend',
+              },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Córdoba',
+                addressRegion: 'Córdoba',
+                addressCountry: 'AR',
+                postalCode: '5000',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: -31.4201,
+                longitude: -64.1888,
+              },
+              areaServed: [
+                { '@type': 'City', name: 'Córdoba', 'address': { '@type': 'PostalAddress', addressCountry: 'AR' } },
+                { '@type': 'Country', name: 'Argentina' },
+              ],
+              serviceType: [
+                'Diseño web',
+                'Desarrollo web',
+                'Landing pages',
+                'Tiendas online',
+                'E-commerce',
+                'Mantenimiento web',
+              ],
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Servicios de Mondi Studio',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Landing Page',
+                      description: 'Página de aterrizaje optimizada para conversión',
+                    },
+                    priceSpecification: {
+                      '@type': 'PriceSpecification',
+                      price: '300',
+                      priceCurrency: 'USD',
+                      minPrice: '300',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Web institucional',
+                      description: 'Sitio web completo para empresas y profesionales',
+                    },
+                    priceSpecification: {
+                      '@type': 'PriceSpecification',
+                      price: '700',
+                      priceCurrency: 'USD',
+                      minPrice: '700',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Tienda online',
+                      description: 'E-commerce en Tienda Nube, Shopify, WooCommerce o VTEX',
+                    },
+                    priceSpecification: {
+                      '@type': 'PriceSpecification',
+                      price: '400',
+                      priceCurrency: 'USD',
+                      minPrice: '400',
+                    },
+                  },
+                ],
+              },
+              sameAs: [
+                'https://instagram.com/mondistudio',
+              ],
+              openingHoursSpecification: {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '09:00',
+                closes: '18:00',
+              },
+              priceRange: '$$',
+              currenciesAccepted: 'USD, ARS',
+              paymentAccepted: 'Transferencia bancaria, Mercado Pago, PayPal',
+            }),
+          }}
+        />
       </body>
     </html>
   )

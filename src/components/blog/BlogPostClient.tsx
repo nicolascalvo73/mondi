@@ -27,8 +27,43 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
     : null
 
   return (
-    <Container maxWidth="md" sx={{ pt: '7rem', pb: '8rem' }}>
-      <Breadcrumbs
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.excerpt,
+            image: post.mainImage?.asset?.url ?? 'https://www.mondistudio.com.ar/og-image.png',
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            author: {
+              '@type': 'Organization',
+              name: post.author ?? 'Mondi Studio',
+              url: 'https://www.mondistudio.com.ar',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Mondi Studio',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.mondistudio.com.ar/logo.svg',
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://www.mondistudio.com.ar/blog?slug=${post.slug.current}`,
+            },
+            url: `https://www.mondistudio.com.ar/blog?slug=${post.slug.current}`,
+            inLanguage: 'es-AR',
+            keywords: post.categories?.join(', '),
+          }),
+        }}
+      />
+      <Container maxWidth="md" sx={{ pt: '7rem', pb: '8rem' }}>
+        <Breadcrumbs
         aria-label="navegación"
         sx={{
           mb: '3rem',
@@ -217,5 +252,6 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
         </Box>
       </Box>
     </Container>
+    </>
   )
 }

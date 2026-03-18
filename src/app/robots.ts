@@ -1,8 +1,6 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mondistudio.com.ar'
-
   return {
     rules: [
       {
@@ -10,7 +8,16 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/studio/', '/api/'],
       },
+      {
+        userAgent: 'GPTBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        disallow: '/',
+      },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: 'https://www.mondistudio.com.ar/sitemap.xml',
+    host: 'https://www.mondistudio.com.ar',
   }
 }
