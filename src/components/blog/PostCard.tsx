@@ -32,7 +32,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   if (featured) {
     return (
       <Link
-        href={`/blog/${post.slug.current}`}
+        href={`/blog?slug=${post.slug.current}`}
         style={{ textDecoration: 'none', display: 'block' }}
       >
         <Box
@@ -188,7 +188,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   // Regular card
   return (
     <Link
-      href={`/blog/${post.slug.current}`}
+      href={`/blog?slug=${post.slug.current}`}
       style={{ textDecoration: 'none', display: 'block', height: '100%' }}
     >
       <Box
