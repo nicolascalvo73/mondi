@@ -47,6 +47,7 @@ export default function SobreMiSection() {
                 src="/Gemini_Generated_Image_r1k8m3r1k8m3r1k8.png"
                 alt="Mondiola"
                 fill
+                sizes="(max-width: 768px) 100vw, 40vw"
                 style={{ objectFit: 'cover', objectPosition: '-2rem center' }}
               />
             </Box>

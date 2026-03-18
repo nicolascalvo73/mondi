@@ -80,6 +80,7 @@ export default function HeroSection() {
                 src="/Gemini_Generated_Image_xregmqxregmqxreg.png"
                 alt="Mondi Studio"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{
                   objectFit: 'cover',
                 }}

@@ -254,6 +254,7 @@ export default function ContactoSection() {
                   src="/Gemini_Generated_Image_lidxullidxullidx.png"
                   alt="Decorative background"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: 'cover' }}
                 />
               </Box>

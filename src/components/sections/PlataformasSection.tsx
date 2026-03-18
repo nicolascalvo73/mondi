@@ -111,8 +111,8 @@ export default function PlataformasSection() {
                         height={48}
                         style={{ 
                           objectFit: plataforma.nombre === 'Empretienda' ? 'cover' : 'contain',
-                          width: plataforma.nombre === 'Empretienda' ? '100%' : 'auto',
-                          height: plataforma.nombre === 'Empretienda' ? '100%' : 'auto'
+                          width: 'auto',
+                          height: 'auto'
                         }}
                       />
                     </Box>
@@ -189,7 +189,7 @@ export default function PlataformasSection() {
                         alt={plataforma.nombre}
                         width={48}
                         height={48}
-                        style={{ objectFit: 'contain' }}
+                        style={{ objectFit: 'contain', width: 'auto', height: 'auto' }}
                       />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
