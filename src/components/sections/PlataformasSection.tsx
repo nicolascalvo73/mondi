@@ -1,25 +1,26 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Divider, Button } from '@mui/material'
+import Image from 'next/image'
 import { useTranslations } from '@/lib/useTranslations'
 
 export default function PlataformasSection() {
   const { t } = useTranslations()
   
   const tiendas = [
-    { nombre: 'Tienda Nube', ideal: t('platforms.stores.tiendanube') },
-    { nombre: 'Empretienda', ideal: t('platforms.stores.empretienda') },
-    { nombre: 'WooCommerce', ideal: t('platforms.stores.woocommerce') },
-    { nombre: 'Shopify', ideal: t('platforms.stores.shopify') },
-    { nombre: 'VTEX', ideal: t('platforms.stores.vtex'), badge: true },
+    { nombre: 'Tienda Nube', ideal: t('platforms.stores.tiendanube'), logo: '/logos/tiendanube.png' },
+    { nombre: 'Shopify', ideal: t('platforms.stores.shopify'), logo: '/logos/Shopify.png' },
+    { nombre: 'VTEX', ideal: t('platforms.stores.vtex'), badge: true, logo: '/logos/VTEX.png' },
+    { nombre: 'WooCommerce', ideal: t('platforms.stores.woocommerce'), logo: '/logos/woo.png' },
+    { nombre: 'Empretienda', ideal: t('platforms.stores.empretienda'), logo: '/logos/empretienda.png' },
   ]
 
   const webs = [
-    { nombre: 'Next.js', ideal: t('platforms.webs.nextjs') },
-    { nombre: 'IA Integration', ideal: t('platforms.webs.wordpress') },
-    { nombre: 'PayPal', ideal: t('platforms.webs.paypal') },
-    { nombre: 'Mercado Pago', ideal: t('platforms.webs.mercadopago') },
-    { nombre: 'Google Business', ideal: t('platforms.webs.googlebusiness') },
+    { nombre: 'SanityCMS', ideal: t('platforms.webs.blogging'), logo: '/logos/Sanity.png' },
+    { nombre: 'IA Integration', ideal: t('platforms.webs.wordpress'), logo: '/logos/ia_integration.png' },
+    { nombre: 'Mercado Pago', ideal: t('platforms.webs.mercadopago'), logo: '/logos/MERCADOPAGO.png' },
+    { nombre: 'Google Business', ideal: t('platforms.webs.googlebusiness'), logo: '/logos/googlebussiness.png' },
+    { nombre: 'PayPal', ideal: t('platforms.webs.paypal'), logo: '/logos/PayPal.svg' },
   ]
   return (
     <Box
@@ -92,17 +93,28 @@ export default function PlataformasSection() {
                         height: '4rem',
                         borderRadius: '0.5rem',
                         backgroundColor: (theme) =>
-                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
+                          theme.palette.mode === 'light' ? '#f0ede9' : '#d4d4d4',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
-                        fontSize: '1.5rem',
+                        position: 'relative',
+                        overflow: 'hidden',
                       }}
                     >
-                      🛒
+                      <Image
+                        src={plataforma.logo}
+                        alt={plataforma.nombre}
+                        width={48}
+                        height={48}
+                        style={{ 
+                          objectFit: plataforma.nombre === 'Empretienda' ? 'cover' : 'contain',
+                          width: plataforma.nombre === 'Empretienda' ? '100%' : 'auto',
+                          height: plataforma.nombre === 'Empretienda' ? '100%' : 'auto'
+                        }}
+                      />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
                       {plataforma.nombre}
@@ -161,17 +173,24 @@ export default function PlataformasSection() {
                         height: '4rem',
                         borderRadius: '0.5rem',
                         backgroundColor: (theme) =>
-                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
+                          theme.palette.mode === 'light' ? '#f0ede9' : '#d4d4d4',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
-                        fontSize: '1.5rem',
+                        position: 'relative',
+                        overflow: 'hidden',
                       }}
                     >
-                      🌐
+                      <Image
+                        src={plataforma.logo}
+                        alt={plataforma.nombre}
+                        width={48}
+                        height={48}
+                        style={{ objectFit: 'contain' }}
+                      />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
                       {plataforma.nombre}

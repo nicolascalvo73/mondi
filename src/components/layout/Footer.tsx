@@ -16,6 +16,8 @@ const navLinks = [
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+
   return (
     <Box
       component="footer"
@@ -61,7 +63,7 @@ export default function Footer() {
                 </Typography>
               </Link>
               <Link
-               href="https://wa.me/3516283916?text=Hola%20Mondi%20Studio"
+                href={`https://wa.me/${whatsappNumber}?text=Hola%20Mondi%20Studio`}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{

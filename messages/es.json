@@ -82,7 +82,8 @@
       "wordpress": "IA Integration",
       "paypal": "Pagos globales",
       "mercadopago": "Pagos online",
-      "googlebusiness": "Presencia local"
+      "googlebusiness": "Presencia local",
+      "blogging": "Blogging"
     },
     "cta": {
       "question": "¿No encontrás la plataforma que necesitás?",
@@ -97,7 +98,7 @@
     "plans": {
       "landing": {
         "name": "Landing Page",
-        "price": "USD 300",
+        "price": "USD 400",
         "description": "Ideal para lanzar un producto o servicio",
         "features": [
           "Diseño responsive",
@@ -109,7 +110,7 @@
       },
       "website": {
         "name": "Web completa",
-        "price": "USD 700",
+        "price": "USD 800",
         "description": "Para empresas que necesitan presencia profesional",
         "badge": "El más elegido",
         "features": [
@@ -124,7 +125,7 @@
       },
       "ecommerce": {
         "name": "Tienda Online",
-        "price": "USD 400",
+        "price": "USD 600",
         "description": "Configuración completa de tu e-commerce",
         "features": [
           "Setup en plataforma elegida",
