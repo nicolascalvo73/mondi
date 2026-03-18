@@ -170,7 +170,7 @@ NEXT_PUBLIC_SANITY_PROJECT_ID=tu_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 ```
 
-## 📝 Crear Nuevo Artículo
+## 📝 Crear Nuevo Artículo.
 
 1. Acceder al Studio de Sanity
 2. Click en "Create" → "Artículo"
