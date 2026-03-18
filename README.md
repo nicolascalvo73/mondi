@@ -144,4 +144,62 @@ Ver `CONTEXT.md` para más detalles.
 
 ---
 
+## 📋 Changelog
+
+### [1.0.0] - 2026-03-18
+
+#### 🎯 SEO & Optimización
+- **Metadata completo** con keywords geo-específicos para Córdoba
+- **JSON-LD Schema.org** para ProfessionalService y BlogPosting
+- **Sitemap dinámico** con rutas del blog desde Sanity CMS
+- **Robots.txt** optimizado con bloqueo de bots de IA (GPTBot, ChatGPT-User)
+- **OpenGraph y Twitter Cards** para redes sociales
+- **Google Search Console** integration preparada
+- **Canonical URLs** en todas las páginas
+- **Rich Snippets** con catálogo de servicios y precios
+
+#### 🎨 Mejoras de UI/UX
+- **Corrección de aspect ratio** en imágenes de logos (Tienda Nube, VTEX)
+- **Prop `sizes`** agregado a todas las imágenes con `fill` para mejor performance
+- **Versión visible** en el footer (v1.0.0)
+- **Título del blog** corregido de azul a negro para mejor legibilidad
+
+#### 🏗️ Arquitectura
+- **Next.js 15.1.6** con App Router
+- **TypeScript strict mode**
+- **Material UI 5** con styled-components
+- **Sanity CMS** para gestión de contenido del blog
+- **Cloudflare Pages** ready para deploy
+
+#### 📦 Componentes
+- Navbar con navegación sticky
+- Footer con información de contacto y versión
+- Hero Section con CTA optimizado
+- Secciones: Servicios, Proceso, Plataformas, Precios, Sobre Mí, Contacto
+- Blog con listado y vista de posts individuales
+- Sistema de temas (light/dark mode)
+- Internacionalización (es/en/pt) con next-intl
+
+#### 🔧 Configuración
+- Variables de entorno para Web3Forms, WhatsApp, Email
+- Sanity CMS configurado con schemas para posts
+- Build optimizado para static export
+- Webpack config para compatibilidad con React 19
+
+#### 📱 Accesibilidad
+- WCAG 2.1 AA compliant
+- Skip links y landmarks semánticos
+- Contraste mínimo 4.5:1
+- Touch targets 44×44px
+- Focus visible en todos los elementos interactivos
+
+#### 🌍 SEO Local
+- Geolocalización de Córdoba (-31.4201, -64.1888)
+- Keywords: "diseño web Córdoba", "tienda online Córdoba", "VTEX Córdoba"
+- Área de servicio: Córdoba + Argentina
+- Horarios de atención en schema
+- Métodos de pago especificados
+
+---
+
 **Hecho con ☕ y algo de maullido en Córdoba, Argentina**

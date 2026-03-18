@@ -111,8 +111,8 @@ export default function PlataformasSection() {
                         height={48}
                         style={{ 
                           objectFit: plataforma.nombre === 'Empretienda' ? 'cover' : 'contain',
-                          width: 'auto',
-                          height: 'auto'
+                          width: plataforma.nombre === 'Empretienda' ? '100%' : 'auto',
+                          height: plataforma.nombre === 'Empretienda' ? '100%' : 'auto'
                         }}
                       />
                     </Box>
@@ -189,7 +189,11 @@ export default function PlataformasSection() {
                         alt={plataforma.nombre}
                         width={48}
                         height={48}
-                        style={{ objectFit: 'contain', width: 'auto', height: 'auto' }}
+                        style={{ 
+                          objectFit: 'contain', 
+                          width: plataforma.nombre === 'PayPal' ? '60%' : plataforma.nombre === 'Mercado Pago' ? '150%' : 'auto', 
+                          height: 'auto' 
+                        }}
                       />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>

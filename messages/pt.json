@@ -139,7 +139,7 @@
     "maintenance": {
       "title": "Add-on: Manutenção mensal",
       "basic": {
-        "price": "USD 80/mês",
+        "price": "USD 60/mês",
         "name": "Manutenção básica",
         "features": [
           "Atualizações de segurança",
@@ -148,7 +148,7 @@
         ]
       },
       "premium": {
-        "price": "USD 150/mês",
+        "price": "USD 120/mês",
         "name": "Manutenção premium",
         "features": [
           "Tudo do plano básico",

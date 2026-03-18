@@ -61,7 +61,7 @@ export default function SobreMiSection() {
               </Box>
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              Soy desarrollador frontend con años de experiencia en agencias y proyectos enterprise.
+              Soy software engineer con años de experiencia en agencias y proyectos enterprise.
               En 2023 decidí hacer algo más cercano: trabajar directo con negocios que necesitan una
               web sin la estructura (y los precios) de una agencia.
             </Typography>

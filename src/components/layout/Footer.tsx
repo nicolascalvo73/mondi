@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Proceso', href: '#proceso' },
   { label: 'Plataformas', href: '#plataformas' },
   { label: 'Precios', href: '#precios' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Sobre mí', href: '#sobre-mi' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -124,6 +125,9 @@ export default function Footer() {
         >
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             © {currentYear} Mondi Studio. Todos los derechos reservados.
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary', opacity: 0.6 }}>
+            v1.0.0
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
            Creado con 🤍 y maullidos 🐱 desde Córdoba, Argentina 🇦🇷

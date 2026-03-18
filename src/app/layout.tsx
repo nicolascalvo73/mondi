@@ -144,7 +144,7 @@ export default function RootLayout({
               founder: {
                 '@type': 'Person',
                 name: 'Nicolás Calvo',
-                jobTitle: 'Desarrollador Frontend',
+                jobTitle: 'Software Engineer',
               },
               address: {
                 '@type': 'PostalAddress',

@@ -139,7 +139,7 @@
     "maintenance": {
       "title": "Add-on: Monthly maintenance",
       "basic": {
-        "price": "USD 80/month",
+        "price": "USD 60/month",
         "name": "Basic maintenance",
         "features": [
           "Security updates",
@@ -148,7 +148,7 @@
         ]
       },
       "premium": {
-        "price": "USD 150/month",
+        "price": "USD 120/month",
         "name": "Premium maintenance",
         "features": [
           "Everything in basic plan",
