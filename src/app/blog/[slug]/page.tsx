@@ -1,5 +1,7 @@
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { notFound, useRouter } from 'next/navigation'
 import { Container, Box } from '@mui/material'
 import { client, isSanityConfigured } from '@/sanity/client'
 import { getAllPostsQuery, getPostBySlugQuery } from '@/sanity/queries'
@@ -28,82 +30,54 @@ export async function generateStaticParams() {
   }
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
+export default function BlogPostPage({ params }: PageProps) {
+  const [post, setPost] = useState<SanityPost | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [notFoundState, setNotFoundState] = useState(false)
+  const router = useRouter()
 
-  if (!isSanityConfigured) {
-    return {
-      title: 'Blog - Mondi Studio',
-    }
-  }
+  useEffect(() => {
+    async function fetchPost() {
+      if (!isSanityConfigured) {
+        setNotFoundState(true)
+        setLoading(false)
+        return
+      }
 
-  try {
-    const post = await client.fetch<SanityPost>(getPostBySlugQuery, { slug })
-
-    if (!post) {
-      return {
-        title: 'Artículo no encontrado - Mondi Studio',
+      const resolvedParams = await params
+      try {
+        const data = await client.fetch<SanityPost>(getPostBySlugQuery, { slug: resolvedParams.slug })
+        if (!data) {
+          setNotFoundState(true)
+        } else {
+          setPost(data)
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error)
+        setNotFoundState(true)
+      } finally {
+        setLoading(false)
       }
     }
 
-    const description = post.excerpt || post.title
-    const url = `https://www.mondistudio.com.ar/blog/${slug}`
-    const imageUrl = post.mainImage?.asset?.url || '/og-image.png'
+    fetchPost()
+  }, [params])
 
-    return {
-      title: `${post.title} | Mondi Studio`,
-      description,
-      alternates: {
-        canonical: url,
-      },
-      openGraph: {
-        title: post.title,
-        description,
-        url,
-        type: 'article',
-        publishedTime: post.publishedAt,
-        authors: ['Mondi Studio'],
-        images: [
-          {
-            url: imageUrl,
-            width: 1200,
-            height: 630,
-            alt: post.title,
-          },
-        ],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: post.title,
-        description,
-        images: [imageUrl],
-      },
-    }
-  } catch (error) {
-    console.error('Error generating metadata:', error)
-    return {
-      title: 'Blog - Mondi Studio',
-    }
-  }
-}
-
-export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params
-
-  if (!isSanityConfigured) {
-    notFound()
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <Box component="main" id="main-content">
+          <Container maxWidth="md" sx={{ py: '5rem' }}>
+            <div>Cargando...</div>
+          </Container>
+        </Box>
+        <Footer />
+      </>
+    )
   }
 
-  let post: SanityPost | null = null
-
-  try {
-    post = await client.fetch<SanityPost>(getPostBySlugQuery, { slug })
-  } catch (error) {
-    console.error('Error fetching post:', error)
-    notFound()
-  }
-
-  if (!post) {
+  if (notFoundState || !post) {
     notFound()
   }
 
