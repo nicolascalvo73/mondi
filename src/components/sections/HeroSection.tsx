@@ -30,6 +30,7 @@ export default function HeroSection() {
               <Box
                 component="em"
                 sx={{
+                  fontFamily: 'var(--font-brand)',
                   fontStyle: 'italic',
                   color: 'primary.main',
                 }}

@@ -47,7 +47,7 @@ export default function ProcesoSection() {
           sx={{ mb: 2, textAlign: 'center', color: 'inherit' }}
         >
           Un proceso{' '}
-          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+          <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
             simple
           </Box>
         </Typography>

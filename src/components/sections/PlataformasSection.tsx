@@ -32,7 +32,7 @@ export default function PlataformasSection() {
         <Box sx={{ mb: 8 }}>
           <Typography variant="h2" component="h2" sx={{ mb: 2 }}>
             Plataformas con las que{' '}
-            <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+            <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
               trabajo
             </Box>
           </Typography>

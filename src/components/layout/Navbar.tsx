@@ -24,11 +24,12 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
 
 const navLinks = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Plataformas', href: '#plataformas' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Sobre mí', href: '#sobre-mi' },
+  { label: 'Servicios', href: '/#servicios' },
+  { label: 'Proceso', href: '/#proceso' },
+  { label: 'Plataformas', href: '/#plataformas' },
+  { label: 'Precios', href: '/#precios' },
+  { label: 'Sobre mí', href: '/#sobre-mi' },
+  { label: 'Blog', href: '/blog' },
 ]
 
 export default function Navbar() {
@@ -44,8 +45,15 @@ export default function Navbar() {
   }
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
     const href = e.currentTarget.getAttribute('href')
+    
+    // Si es un link externo (no anchor), permitir navegación normal
+    if (href && !href.startsWith('#')) {
+      return
+    }
+    
+    // Si es un anchor, hacer smooth scroll
+    e.preventDefault()
     if (href?.startsWith('#')) {
       const targetId = href.substring(1)
       const targetElement = document.getElementById(targetId)
@@ -90,10 +98,10 @@ export default function Navbar() {
             <Typography
               variant="h6"
               component="a"
-              href="#hero"
+              href="/#hero"
               onClick={handleSmoothScroll}
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-brand)',
                 fontWeight: 700,
                 fontSize: '1.125rem',
                 color: 'text.primary',
@@ -130,7 +138,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, alignItems: 'center' }}>
-            <Button variant="contained" color="primary" href="#contacto" onClick={handleSmoothScroll}>
+            <Button variant="contained" color="primary" href="/#contacto" onClick={handleSmoothScroll}>
               Hablemos
             </Button>
             <Fab
@@ -196,7 +204,7 @@ export default function Navbar() {
             <Button
               variant="contained"
               color="primary"
-              href="#contacto"
+              href="/#contacto"
               fullWidth
               onClick={(e) => {
                 handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)

@@ -22,7 +22,7 @@ export default function ServiciosSection() {
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
           Servicios que{' '}
-          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+          <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
             funcionan
           </Box>
         </Typography>

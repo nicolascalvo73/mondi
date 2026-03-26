@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Epilogue, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Epilogue, Fraunces, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
+import { LanguageContextProvider } from '@/lib/LanguageContext'
 import ThemeRegistry from '@/lib/ThemeRegistry'
 
 const epilogue = Epilogue({
@@ -27,7 +28,15 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-brand',
+  weight: ['600', '700'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mondistudio.com.ar'),
   title: 'Mondi Studio — Diseño y desarrollo',
   description: 'Estudio de diseño web. Landing pages, webs institucionales, tiendas online y mantenimiento. Comunicación directa, sin estructuras de agencia.',
   keywords: ['diseño web', 'desarrollo web', 'Argentina', 'landing page', 'tienda online', 'Tienda Nube', 'Shopify', 'VTEX'],
@@ -55,18 +64,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${epilogue.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
-      <body>
+    <html
+      lang="es"
+      className={`${epilogue.variable} ${jakarta.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           Ir al contenido principal
         </a>
         <AppRouterCacheProvider>
-          <ThemeContextProvider>
-            <ThemeRegistry>
-              <CssBaseline />
-              {children}
-            </ThemeRegistry>
-          </ThemeContextProvider>
+          <LanguageContextProvider>
+            <ThemeContextProvider>
+              <ThemeRegistry>
+                <CssBaseline />
+                {children}
+              </ThemeRegistry>
+            </ThemeContextProvider>
+          </LanguageContextProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Plataformas', href: '#plataformas' },
   { label: 'Precios', href: '#precios' },
   { label: 'Sobre mí', href: '#sobre-mi' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -32,7 +33,7 @@ export default function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-brand)',
                 fontWeight: 700,
                 mb: 2,
               }}
@@ -84,8 +85,11 @@ export default function Footer() {
               variant="h6"
               sx={{
                 fontFamily: 'var(--font-epilogue)',
-                fontWeight: 700,
-                mb: 2,
+                fontWeight: 600,
+                fontSize: '0.9375rem',
+                letterSpacing: '0.04em',
+                color: 'text.secondary',
+                mb: 1.5,
               }}
             >
               Navegación
@@ -121,7 +125,11 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            © {currentYear} Mondi Studio. Todos los derechos reservados.
+            © {currentYear}{' '}
+            <Box component="span" sx={{ fontFamily: 'var(--font-brand)' }}>
+              Mondi Studio
+            </Box>
+            . Todos los derechos reservados.
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
            Creado con 🤍 y maullidos 🐱 desde Córdoba, Argentina 🇦🇷

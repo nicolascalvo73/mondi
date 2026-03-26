@@ -53,7 +53,7 @@ export default function SobreMiSection() {
           <Grid item xs={12} md={7}>
             <Typography variant="h2" component="h2" sx={{ mb: 3 }}>
               Un desarrollador y un{' '}
-              <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+              <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
                 equipo completo
               </Box>
             </Typography>

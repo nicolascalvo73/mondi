@@ -81,7 +81,7 @@ export default function ContactoSection() {
             <Grid item xs={12} md={6} sx={{ p: 10 }}>
               <Typography variant="h2" component="h2" sx={{ mb: 2, color: '#f3f0eb' }}>
                 ¿
-                <Box component="em" sx={{ fontStyle: 'italic', color: '#ffb59a' }}>
+                <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: '#ffb59a' }}>
                   Arrancamos
                 </Box>
                 ?
