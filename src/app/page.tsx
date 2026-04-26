@@ -12,21 +12,21 @@ import SobreMiSection from '@/components/sections/SobreMiSection'
 import ContactoSection from '@/components/sections/ContactoSection'
 
 export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <Box component="main" id="main-content">
-        <HeroSection />
-        <ServiciosSection />
-        <ProcesoSection />
-        <PlataformasSection />
-        <PreciosSection />
-        <TestimoniosSection />
-        <SobreMiSection />
-        <ContactoSection />
-      </Box>
-      <Footer />
-      <WhatsAppButton />
-    </>
-  )
+	return (
+		<>
+			<Navbar />
+			<Box component='main' id='main-content'>
+				<HeroSection />
+				<ServiciosSection />
+				<ProcesoSection />
+				<PlataformasSection />
+				<PreciosSection />
+				<TestimoniosSection />
+				<SobreMiSection />
+				<ContactoSection />
+			</Box>
+			<Footer />
+			<WhatsAppButton />
+		</>
+	)
 }

@@ -1,6 +1,6 @@
 # Mondi Studio
 
-Sitio web oficial del estudio de diseño y desarrollo web Mondi Studio.
+Sitio web de diseño y desarrollo web Mondi Studio.
 
 ## 🚀 Stack Tecnológico
 
