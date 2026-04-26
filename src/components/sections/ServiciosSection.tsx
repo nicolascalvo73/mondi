@@ -7,8 +7,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BuildIcon from '@mui/icons-material/Build'
 import BusinessIcon from '@mui/icons-material/Business'
 import CodeIcon from '@mui/icons-material/Code'
+import { useTranslation } from '@/i18n/useTranslation'
 
 export default function ServiciosSection() {
+  const { t } = useTranslation()
+
   return (
     <Box
       component="section"
@@ -21,9 +24,9 @@ export default function ServiciosSection() {
     >
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
-          Servicios que{' '}
+          {t.servicios.title}{' '}
           <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            funcionan
+            {t.servicios.titleHighlight}
           </Box>
         </Typography>
         <Typography
@@ -36,8 +39,7 @@ export default function ServiciosSection() {
             color: 'text.secondary',
           }}
         >
-          Desde una landing que convierte hasta una tienda enterprise. Todo diseñado para que tu
-          negocio crezca.
+          {t.servicios.subtitle}
         </Typography>
 
         <Grid container spacing={3}>
@@ -69,15 +71,14 @@ export default function ServiciosSection() {
               <CardContent sx={{ p: 0, position: 'relative', zIndex: 1 }}>
                 <WebIcon sx={{ fontSize: '3rem', color: 'primary.main', mb: 2 }} />
                 <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
-                  Landing page + Web institucional
+                  {t.servicios.landing.title}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-                  Sitios diseñados para convertir visitantes en clientes. Optimizados para SEO,
-                  mobile y velocidad de carga.
+                  {t.servicios.landing.description}
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                   <Chip
-                    label="Next.js"
+                    label={t.servicios.landing.chips[0]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
@@ -86,7 +87,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="React"
+                    label={t.servicios.landing.chips[1]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
@@ -95,7 +96,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Responsive"
+                    label={t.servicios.landing.chips[2]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
@@ -104,7 +105,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="SEO"
+                    label={t.servicios.landing.chips[3]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
@@ -129,10 +130,10 @@ export default function ServiciosSection() {
               <CardContent sx={{ p: 0 }}>
                 <BuildIcon sx={{ fontSize: '3rem', mb: 2 }} />
                 <Typography variant="h3" component="h3" sx={{ mb: 2, color: 'inherit' }}>
-                  Mantenimiento
+                  {t.servicios.mantenimiento.title}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 3, opacity: 0.9 }}>
-                  Planes mensuales para que tu web esté siempre actualizada, segura y funcionando.
+                  {t.servicios.mantenimiento.description}
                 </Typography>
                 <Button
                   variant="outlined"
@@ -146,7 +147,7 @@ export default function ServiciosSection() {
                     },
                   }}
                 >
-                  Ver Planes
+                  {t.servicios.mantenimiento.cta}
                 </Button>
               </CardContent>
             </Card>
@@ -164,24 +165,17 @@ export default function ServiciosSection() {
               <CardContent sx={{ p: 0 }}>
                 <ShoppingCartIcon sx={{ fontSize: '3rem', color: 'secondary.main', mb: 2 }} />
                 <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
-                  Tiendas online
+                  {t.servicios.tiendas.title}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-                  Configuración completa en las mejores plataformas de e-commerce.
+                  {t.servicios.tiendas.description}
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    • Tienda Nube
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    • Empretienda
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    • WooCommerce
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    • Shopify
-                  </Typography>
+                  {t.servicios.tiendas.platforms.map((pl) => (
+                    <Typography variant="body2" sx={{ fontWeight: 600 }} key={pl}>
+                      • {pl}
+                    </Typography>
+                  ))}
                 </Box>
               </CardContent>
             </Card>
@@ -212,7 +206,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Enterprise"
+                    label={t.servicios.vtex.badge}
                     sx={{
                       backgroundColor: 'primary.main',
                       color: 'primary.contrastText',
@@ -221,11 +215,10 @@ export default function ServiciosSection() {
                   />
                 </Box>
                 <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
-                  VTEX Enterprise
+                  {t.servicios.vtex.title}
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-                  Desarrollo y mantenimiento de tiendas enterprise en VTEX. Integraciones,
-                  customizaciones y soporte técnico especializado.
+                  {t.servicios.vtex.description}
                 </Typography>
               </CardContent>
             </Card>
@@ -265,7 +258,7 @@ export default function ServiciosSection() {
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
                   <CodeIcon sx={{ fontSize: '3.5rem', color: 'primary.main' }} />
                   <Chip
-                    label="A medida"
+                    label={t.servicios.custom.badge}
                     sx={{
                       backgroundColor: 'secondary.main',
                       color: 'secondary.contrastText',
@@ -275,16 +268,14 @@ export default function ServiciosSection() {
                   />
                 </Box>
                 <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
-                  Software a medida de toda complejidad
+                  {t.servicios.custom.title}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary', maxWidth: '60rem' }}>
-                  Desarrollo de sistemas de gestión personalizados para empresas, hospitales, instituciones
-                  educativas y organizaciones de cualquier sector. Desde ERPs hasta plataformas especializadas,
-                  construimos soluciones que se adaptan exactamente a tus procesos y necesidades.
+                  {t.servicios.custom.description}
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                   <Chip
-                    label="Sistemas de gestión"
+                    label={t.servicios.custom.chips[0]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -292,7 +283,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="ERPs"
+                    label={t.servicios.custom.chips[1]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -300,7 +291,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Hospitales"
+                    label={t.servicios.custom.chips[2]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -308,7 +299,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Educación"
+                    label={t.servicios.custom.chips[3]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -316,7 +307,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Integraciones"
+                    label={t.servicios.custom.chips[4]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -324,7 +315,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="APIs"
+                    label={t.servicios.custom.chips[5]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
@@ -332,7 +323,7 @@ export default function ServiciosSection() {
                     }}
                   />
                   <Chip
-                    label="Cloud"
+                    label={t.servicios.custom.chips[6]}
                     sx={{
                       backgroundColor: (theme) =>
                         theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',

@@ -1,6 +1,7 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Divider, Button } from '@mui/material'
+import { useTranslation } from '@/i18n/useTranslation'
 
 const tiendas = [
   { nombre: 'Tienda Nube', ideal: 'PyMEs argentinas' },
@@ -19,6 +20,8 @@ const webs = [
 ]
 
 export default function PlataformasSection() {
+  const { t } = useTranslation()
+
   return (
     <Box
       component="section"
@@ -31,13 +34,13 @@ export default function PlataformasSection() {
       <Container maxWidth="lg">
         <Box sx={{ mb: 8 }}>
           <Typography variant="h2" component="h2" sx={{ mb: 2 }}>
-            Plataformas con las que{' '}
+            {t.plataformas.title}{' '}
             <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-              trabajo
+              {t.plataformas.titleHighlight}
             </Box>
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: '42rem' }}>
-            Elegimos la mejor tecnología para tu proyecto. Sin atarte a una sola opción.
+            {t.plataformas.subtitle}
           </Typography>
         </Box>
 
@@ -47,7 +50,7 @@ export default function PlataformasSection() {
             component="h3"
             sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
           >
-            Tiendas online
+            {t.plataformas.tiendasTitle}
           </Typography>
           <Grid container spacing={3}>
             {tiendas.map((plataforma) => (
@@ -106,7 +109,7 @@ export default function PlataformasSection() {
                       {plataforma.nombre}
                     </Typography>
                     <Chip
-                      label={`Ideal para: ${plataforma.ideal}`}
+                      label={`${t.plataformas.idealPara} ${plataforma.ideal}`}
                       size="small"
                       sx={{
                         fontSize: '0.625rem',
@@ -132,7 +135,7 @@ export default function PlataformasSection() {
             component="h3"
             sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
           >
-            Webs & dominios
+            {t.plataformas.websTitle}
           </Typography>
           <Grid container spacing={3}>
             {webs.map((plataforma) => (
@@ -175,7 +178,7 @@ export default function PlataformasSection() {
                       {plataforma.nombre}
                     </Typography>
                     <Chip
-                      label={`Ideal para: ${plataforma.ideal}`}
+                      label={`${t.plataformas.idealPara} ${plataforma.ideal}`}
                       size="small"
                       sx={{
                         fontSize: '0.625rem',
@@ -204,10 +207,10 @@ export default function PlataformasSection() {
           }}
         >
           <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
-            ¿No encontrás la plataforma que necesitás?
+            {t.plataformas.noEncontras}
           </Typography>
           <Button variant="contained" color="primary" href="#contacto">
-            Hablemos de tu proyecto
+            {t.plataformas.cta}
           </Button>
         </Box>
       </Container>

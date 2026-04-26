@@ -21,10 +21,15 @@ export function LanguageContextProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  useEffect(() => {
+    document.documentElement.lang = language
+  }, [language])
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)
     localStorage.setItem('language', lang)
     document.cookie = `language=${lang}; path=/; max-age=31536000`
+    document.documentElement.lang = lang
   }
 
   return (

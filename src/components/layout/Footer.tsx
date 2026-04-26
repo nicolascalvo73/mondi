@@ -3,18 +3,20 @@
 import { Container, Box, Grid, Typography, Link, Divider } from '@mui/material'
 import EmailIcon from '@mui/icons-material/Email'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
+import { useTranslation } from '@/i18n/useTranslation'
 
-const navLinks = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Plataformas', href: '#plataformas' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Sobre mí', href: '#sobre-mi' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contacto', href: '#contacto' },
+const navHrefs = [
+  { key: 'servicios' as const, href: '#servicios' },
+  { key: 'proceso' as const, href: '#proceso' },
+  { key: 'plataformas' as const, href: '#plataformas' },
+  { key: 'precios' as const, href: '#precios' },
+  { key: 'sobreMi' as const, href: '#sobre-mi' },
+  { key: 'blog' as const, href: '/blog' },
+  { key: 'hablemos' as const, href: '#contacto' },
 ]
 
 export default function Footer() {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -41,8 +43,7 @@ export default function Footer() {
               Mondi Studio
             </Typography>
             <Typography variant="body2" sx={{ mb: 3, maxWidth: '28rem' }}>
-              Estudio de diseño y desarrollo web. Comunicación directa, sin estructuras
-              de agencia.
+              {t.footer.description}
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
               <Link
@@ -75,7 +76,7 @@ export default function Footer() {
                 }}
               >
                 <WhatsAppIcon sx={{ fontSize: '1.25rem' }} />
-                <Typography variant="body2">WhatsApp</Typography>
+                <Typography variant="body2">{t.nav.hablemos}</Typography>
               </Link>
             </Box>
           </Grid>
@@ -92,10 +93,10 @@ export default function Footer() {
                 mb: 1.5,
               }}
             >
-              Navegación
+              {t.footer.navegacion}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-              {navLinks.map((link) => (
+              {navHrefs.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -106,7 +107,7 @@ export default function Footer() {
                     '&:hover': { color: 'primary.main' },
                   }}
                 >
-                  {link.label}
+                  {t.nav[link.key]}
                 </Link>
               ))}
             </Box>
@@ -129,10 +130,10 @@ export default function Footer() {
             <Box component="span" sx={{ fontFamily: 'var(--font-brand)' }}>
               Mondi Studio
             </Box>
-            . Todos los derechos reservados.
+            . {t.footer.derechos}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
-           Creado con 🤍 y maullidos 🐱 desde Córdoba, Argentina 🇦🇷
+           {t.footer.hechoCon}
           </Typography>
         </Box>
       </Container>

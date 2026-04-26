@@ -2,8 +2,11 @@
 
 import { Container, Grid, Box, Typography, Button, Chip, Paper } from '@mui/material'
 import Image from 'next/image'
+import { useTranslation } from '@/i18n/useTranslation'
 
 export default function HeroSection() {
+  const { t } = useTranslation()
+
   return (
     <Box
       component="section"
@@ -18,7 +21,7 @@ export default function HeroSection() {
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
             <Chip
-              label="Estudio de diseño web · Córdoba, Argentina"
+              label={t.hero.chip}
               sx={{
                 backgroundColor: '#cfe8dc',
                 color: '#354b43',
@@ -26,7 +29,7 @@ export default function HeroSection() {
               }}
             />
             <Typography variant="h1" component="h1" sx={{ mb: 3 }}>
-              Tu negocio, con la cara que{' '}
+              {t.hero.title}{' '}
               <Box
                 component="em"
                 sx={{
@@ -35,7 +38,7 @@ export default function HeroSection() {
                   color: 'primary.main',
                 }}
               >
-                merece
+                {t.hero.titleHighlight}
               </Box>
               .
             </Typography>
@@ -49,12 +52,11 @@ export default function HeroSection() {
                 color: 'text.secondary',
               }}
             >
-              Diseño y desarrollo web directo, sin vueltas. Landing pages, webs institucionales,
-              tiendas online y mantenimiento. Todo con comunicación clara y entregas en tiempo.
+              {t.hero.description}
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
               <Button variant="contained" color="primary" href="#contacto" size="large">
-                Quiero mi web
+                {t.hero.ctaPrimary}
               </Button>
               <Button
                 variant="outlined"
@@ -66,7 +68,7 @@ export default function HeroSection() {
                   color: 'text.primary',
                 }}
               >
-                Ver plataformas
+                {t.hero.ctaSecondary}
               </Button>
             </Box>
           </Grid>
@@ -112,7 +114,7 @@ export default function HeroSection() {
                 }}
               >
                 <Typography variant="caption" sx={{ display: 'block', mb: 0.5 }}>
-                  Director Creativo
+                  {t.hero.directorCreativo}
                 </Typography>
                 <Typography
                   sx={{
@@ -121,7 +123,7 @@ export default function HeroSection() {
                     fontSize: '0.9375rem',
                   }}
                 >
-                  "Miau miau, aprobado."
+                  {t.hero.quote}
                 </Typography>
               </Paper>
             </Box>

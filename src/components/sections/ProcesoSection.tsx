@@ -1,35 +1,13 @@
 'use client'
 
 import { Container, Grid, Box, Typography } from '@mui/material'
-
-const pasos = [
-  {
-    numero: '01',
-    titulo: 'Me contás tu negocio',
-    descripcion:
-      'Charlamos sobre qué necesitás, qué te gusta, y qué querés lograr con tu web. Sin formularios eternos.',
-  },
-  {
-    numero: '02',
-    titulo: 'Diseñamos juntos',
-    descripcion:
-      'Te muestro propuestas, ajustamos lo que haga falta. Vos decidís cómo queda tu proyecto.',
-  },
-  {
-    numero: '03',
-    titulo: 'Te entrego todo listo',
-    descripcion:
-      'Web funcionando, dominio configurado, hosting activo. Todo probado y listo para usar.',
-  },
-  {
-    numero: '04',
-    titulo: 'Te acompaño después',
-    descripcion:
-      'Si necesitás cambios, actualizaciones o tenés dudas, estoy disponible. Sin letra chica.',
-  },
-]
+import { useTranslation } from '@/i18n/useTranslation'
 
 export default function ProcesoSection() {
+  const { t } = useTranslation()
+
+  const pasos = t.proceso.steps
+
   return (
     <Box
       component="section"
@@ -46,9 +24,9 @@ export default function ProcesoSection() {
           component="h2"
           sx={{ mb: 2, textAlign: 'center', color: 'inherit' }}
         >
-          Un proceso{' '}
+          {t.proceso.title}{' '}
           <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            simple
+            {t.proceso.titleHighlight}
           </Box>
         </Typography>
         <Typography
@@ -61,7 +39,7 @@ export default function ProcesoSection() {
             opacity: 0.85,
           }}
         >
-          Sin complicaciones ni pasos innecesarios. Así trabajamos de principio a fin.
+          {t.proceso.subtitle}
         </Typography>
 
         <Grid container spacing={6}>
