@@ -1,21 +1,33 @@
 'use client'
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Divider, Button } from '@mui/material'
+import {
+  TiendaNubeLogo,
+  EmpretiendaLogo,
+  WooCommerceLogo,
+  ShopifyLogo,
+  VTEXLogo,
+  NextjsLogo,
+  WordPressLogo,
+  NICarLogo,
+  MercadoPagoLogo,
+  CloudflareLogo,
+} from './PlatformLogos'
 
 const tiendas = [
-  { nombre: 'Tienda Nube', ideal: 'PyMEs argentinas' },
-  { nombre: 'Empretienda', ideal: 'Emprendedores' },
-  { nombre: 'WooCommerce', ideal: 'WordPress' },
-  { nombre: 'Shopify', ideal: 'Internacional' },
-  { nombre: 'VTEX', ideal: 'Enterprise', badge: true },
+  { nombre: 'Tienda Nube', ideal: 'PyMEs argentinas', Logo: TiendaNubeLogo },
+  { nombre: 'Empretienda', ideal: 'Emprendedores', Logo: EmpretiendaLogo },
+  { nombre: 'WooCommerce', ideal: 'WordPress', Logo: WooCommerceLogo },
+  { nombre: 'Shopify', ideal: 'Internacional', Logo: ShopifyLogo },
+  { nombre: 'VTEX', ideal: 'Enterprise', badge: true, Logo: VTEXLogo },
 ]
 
 const webs = [
-  { nombre: 'Next.js', ideal: 'Performance' },
-  { nombre: 'WordPress', ideal: 'Gestión simple' },
-  { nombre: 'NIC.ar', ideal: 'Dominios .ar' },
-  { nombre: 'Mercado Pago', ideal: 'Pagos online' },
-  { nombre: 'Cloudflare', ideal: 'Seguridad' },
+  { nombre: 'Next.js', ideal: 'Performance', Logo: NextjsLogo },
+  { nombre: 'WordPress', ideal: 'Gestión simple', Logo: WordPressLogo },
+  { nombre: 'NIC.ar', ideal: 'Dominios .ar', Logo: NICarLogo },
+  { nombre: 'Mercado Pago', ideal: 'Pagos online', Logo: MercadoPagoLogo },
+  { nombre: 'Cloudflare', ideal: 'Seguridad', Logo: CloudflareLogo },
 ]
 
 export default function PlataformasSection() {
@@ -89,18 +101,16 @@ export default function PlataformasSection() {
                         width: '4rem',
                         height: '4rem',
                         borderRadius: '0.5rem',
-                        backgroundColor: (theme) =>
-                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
-                        fontSize: '1.5rem',
+                        overflow: 'hidden',
                       }}
                     >
-                      🛒
+                      <plataforma.Logo size={40} />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
                       {plataforma.nombre}
@@ -158,18 +168,16 @@ export default function PlataformasSection() {
                         width: '4rem',
                         height: '4rem',
                         borderRadius: '0.5rem',
-                        backgroundColor: (theme) =>
-                          theme.palette.mode === 'light' ? '#f0ede9' : '#3a3a37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
-                        fontSize: '1.5rem',
+                        overflow: 'hidden',
                       }}
                     >
-                      🌐
+                      <plataforma.Logo size={40} />
                     </Box>
                     <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
                       {plataforma.nombre}
