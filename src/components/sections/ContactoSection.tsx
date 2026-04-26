@@ -12,10 +12,17 @@ import {
   MenuItem,
   Alert,
 } from '@mui/material'
-import { useTranslation } from '@/i18n/useTranslation'
+
+const servicios = [
+  'Landing Page',
+  'Web Institucional',
+  'Tienda Online',
+  'Mantenimiento',
+  'VTEX Enterprise',
+  'Otro',
+]
 
 export default function ContactoSection() {
-  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     nombre: '',
     whatsapp: '',
@@ -73,19 +80,19 @@ export default function ContactoSection() {
           <Grid container>
             <Grid item xs={12} md={6} sx={{ p: 10 }}>
               <Typography variant="h2" component="h2" sx={{ mb: 2, color: '#f3f0eb' }}>
-                {t.contacto.title}
+                ¿
                 <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: '#ffb59a' }}>
-                  {t.contacto.titleHighlight}
+                  Arrancamos
                 </Box>
-                {t.contacto.titleEnd}
+                ?
               </Typography>
               <Typography variant="body1" sx={{ mb: 4, color: '#f3f0eb', opacity: 0.7 }}>
-                {t.contacto.subtitle}
+                Contame qué necesitás y te respondo en menos de 24 horas. Sin compromiso.
               </Typography>
 
               <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <TextField
-                  label={t.contacto.nombre}
+                  label="Tu nombre"
                   name="nombre"
                   required
                   fullWidth
@@ -104,12 +111,12 @@ export default function ContactoSection() {
                 />
 
                 <TextField
-                  label={t.contacto.whatsapp}
+                  label="Tu WhatsApp"
                   name="whatsapp"
                   type="tel"
                   required
                   fullWidth
-                  placeholder={t.contacto.whatsappPlaceholder}
+                  placeholder="Ej: +54 9 351 123 4567"
                   value={formData.whatsapp}
                   onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                   sx={{
@@ -125,7 +132,7 @@ export default function ContactoSection() {
                 />
 
                 <TextField
-                  label={t.contacto.negocio}
+                  label="Tu negocio (opcional)"
                   name="negocio"
                   fullWidth
                   value={formData.negocio}
@@ -144,7 +151,7 @@ export default function ContactoSection() {
 
                 <TextField
                   select
-                  label={t.contacto.servicio}
+                  label="¿Qué servicio te interesa?"
                   name="servicio"
                   required
                   fullWidth
@@ -162,7 +169,7 @@ export default function ContactoSection() {
                     '& .MuiSvgIcon-root': { color: '#f3f0eb' },
                   }}
                 >
-                  {t.contacto.servicios.map((servicio: string) => (
+                  {servicios.map((servicio) => (
                     <MenuItem key={servicio} value={servicio}>
                       {servicio}
                     </MenuItem>
@@ -170,7 +177,7 @@ export default function ContactoSection() {
                 </TextField>
 
                 <TextField
-                  label={t.contacto.mensaje}
+                  label="Contame sobre tu proyecto"
                   name="mensaje"
                   required
                   fullWidth
@@ -203,18 +210,18 @@ export default function ContactoSection() {
                     minHeight: '2.75rem',
                   }}
                 >
-                  {status === 'loading' ? t.contacto.enviando : t.contacto.enviar}
+                  {status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
                 </Button>
 
                 {status === 'success' && (
                   <Alert severity="success" sx={{ mt: 2 }}>
-                    {t.contacto.success}
+                    ¡Mensaje enviado! Te respondo en menos de 24 horas.
                   </Alert>
                 )}
 
                 {status === 'error' && (
                   <Alert severity="error" sx={{ mt: 2 }}>
-                    {t.contacto.error}{' '}
+                    Hubo un error. Probá escribirme directo a{' '}
                     {process.env.NEXT_PUBLIC_EMAIL || 'hola@mondistudio.com.ar'}
                   </Alert>
                 )}
@@ -277,7 +284,7 @@ export default function ContactoSection() {
                       margin: '0 auto',
                     }}
                   >
-                    {t.contacto.quote}
+                    "Cada proyecto es una oportunidad para hacer algo que funcione de verdad."
                   </Typography>
                 </Box>
               </Box>

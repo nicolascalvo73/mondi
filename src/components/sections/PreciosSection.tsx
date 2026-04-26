@@ -1,24 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider, CircularProgress } from '@mui/material'
+import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import { useLanguage } from '@/lib/LanguageContext'
-import { useTranslation } from '@/i18n/useTranslation'
-
-interface CotizacionBlue {
-  moneda: string
-  casa: string
-  nombre: string
-  compra: number
-  venta: number
-  fechaActualizacion: string
-}
 
 const planes = [
   {
     nombre: 'Landing Page',
-    precioUSD: 400,
+    precio: 'USD 300',
     descripcion: 'Ideal para lanzar un producto o servicio',
     caracteristicas: [
       'Diseño responsive',
@@ -29,8 +17,8 @@ const planes = [
     ],
   },
   {
-    nombre: 'Web a medida',
-    precioUSD: 800,
+    nombre: 'Web completa',
+    precio: 'USD 700',
     descripcion: 'Para empresas que necesitan presencia profesional',
     caracteristicas: [
       'Hasta 5 secciones',
@@ -45,7 +33,7 @@ const planes = [
   },
   {
     nombre: 'Tienda Online',
-    precioUSD: 500,
+    precio: 'USD 400',
     descripcion: 'Configuración completa de tu e-commerce',
     caracteristicas: [
       'Setup en plataforma elegida',
@@ -58,38 +46,6 @@ const planes = [
 ]
 
 export default function PreciosSection() {
-  const { language } = useLanguage()
-  const { t } = useTranslation()
-  const [cotizacion, setCotizacion] = useState<CotizacionBlue | null>(null)
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    let cancelled = false
-    async function fetchCotizacion() {
-      try {
-        setLoading(true)
-        const res = await fetch('https://dolarapi.com/v1/dolares/blue')
-        if (!res.ok) throw new Error('Error al obtener cotización')
-        const data: CotizacionBlue = await res.json()
-        if (!cancelled) setCotizacion(data)
-      } catch {
-        // Silenciosamente falla y deja precios en USD
-      } finally {
-        if (!cancelled) setLoading(false)
-      }
-    }
-    fetchCotizacion()
-    return () => { cancelled = true }
-  }, [])
-
-  function formatPrice(usd: number, suffix?: string) {
-    if (language === 'es' && cotizacion) {
-      const ars = usd * cotizacion.venta
-      return `ARS ${ars.toLocaleString('es-AR')}${suffix ? `/${suffix}` : ''}`
-    }
-    return `USD ${usd.toLocaleString('en-US')}${suffix ? `/${suffix}` : ''}`
-  }
-
   return (
     <Box
       component="section"
@@ -101,9 +57,9 @@ export default function PreciosSection() {
     >
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
-          {t.precios.title}{' '}
+          Precios{' '}
           <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            {t.precios.titleHighlight}
+            transparentes
           </Box>
         </Typography>
         <Typography
@@ -116,7 +72,7 @@ export default function PreciosSection() {
             color: 'text.secondary',
           }}
         >
-          {t.precios.subtitle}
+          Sin sorpresas ni costos ocultos. Sabés exactamente qué estás pagando.
         </Typography>
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
@@ -133,7 +89,7 @@ export default function PreciosSection() {
                 >
                 {plan.destacado && (
                   <Chip
-                  label={t.precios.elegido}
+                  label="El más elegido"
                   sx={{
                       position: 'absolute',
                       top: '-0.25rem',
@@ -158,7 +114,7 @@ export default function PreciosSection() {
                         fontStyle: 'italic',
                       }}
                     >
-                      {t.precios.desde}
+                      desde
                     </Typography>
                     <Typography
                       sx={{
@@ -168,19 +124,15 @@ export default function PreciosSection() {
                         color: 'primary.main',
                       }}
                     >
-                      {loading && language === 'es' ? (
-                        <CircularProgress size={20} sx={{ color: 'primary.main' }} />
-                      ) : (
-                        formatPrice(plan.precioUSD)
-                      )}
+                      {plan.precio}
                     </Typography>
                   </Box>
                   <Typography variant="body2" sx={{ mb: 4, color: 'text.secondary' }}>
-                    {t.precios.planes[planes.indexOf(plan)].descripcion}
+                    {plan.descripcion}
                   </Typography>
                   <Divider sx={{ mb: 3 }} />
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    {t.precios.planes[planes.indexOf(plan)].caracteristicas.map((caracteristica: string) => (
+                    {plan.caracteristicas.map((caracteristica) => (
                       <Box key={caracteristica} sx={{ display: 'flex', gap: 1.5 }}>
                         <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
                         <Typography variant="body2">{caracteristica}</Typography>
@@ -207,7 +159,7 @@ export default function PreciosSection() {
             component="h3"
             sx={{ mb: 3, fontFamily: 'var(--font-epilogue)' }}
           >
-            {t.precios.addonTitle}
+            Add-on: Mantenimiento mensual
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
@@ -220,27 +172,23 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                {loading && language === 'es' ? (
-                  <CircularProgress size={16} sx={{ color: 'primary.main' }} />
-                ) : (
-                  formatPrice(80, 'mes')
-                )}
+                USD 80/mes
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {t.precios.mantenimientoBasico}
+                Mantenimiento básico
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[0][0]}</Typography>
+                  <Typography variant="body2">Actualizaciones de seguridad</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[0][1]}</Typography>
+                  <Typography variant="body2">Backup semanal</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[0][2]}</Typography>
+                  <Typography variant="body2">Soporte por email</Typography>
                 </Box>
               </Box>
             </Grid>
@@ -254,31 +202,27 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                {loading && language === 'es' ? (
-                  <CircularProgress size={16} sx={{ color: 'primary.main' }} />
-                ) : (
-                  formatPrice(150, 'mes')
-                )}
+                USD 150/mes
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {t.precios.mantenimientoPremium}
+                Mantenimiento premium
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[1][0]}</Typography>
+                  <Typography variant="body2">Todo lo del plan básico</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[1][1]}</Typography>
+                  <Typography variant="body2">Cambios de contenido ilimitados</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[1][2]}</Typography>
+                  <Typography variant="body2">Soporte prioritario</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1.5 }}>
                   <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">{t.precios.mantenimiento[1][3]}</Typography>
+                  <Typography variant="body2">Reportes mensuales</Typography>
                 </Box>
               </Box>
             </Grid>
@@ -289,12 +233,10 @@ export default function PreciosSection() {
           variant="body2"
           sx={{ fontStyle: 'italic', color: 'text.secondary', textAlign: 'center', mb: 2 }}
         >
-          {t.precios.vtexNote}
+          Proyectos VTEX Enterprise: presupuesto personalizado según alcance y complejidad.
         </Typography>
         <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: 'text.secondary', mt: 2 }}>
-          {language === 'es' && cotizacion
-            ? `${t.precios.cotizacion}: $${cotizacion.venta.toLocaleString('es-AR')} ARS (venta). ${t.precios.metodoPago}`
-            : `Precios en dólares estadounidenses. ${t.precios.metodoPago}`}
+          Precios en dólares estadounidenses. Método de pago: transferencia, Mercado Pago, PayPal, crypto.
         </Typography>
       </Container>
     </Box>

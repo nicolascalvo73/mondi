@@ -3,7 +3,6 @@
 import { Container, Grid, Box, Typography, Card, CardContent, Avatar } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import { useState, useEffect } from 'react'
-import { useTranslation } from '@/i18n/useTranslation'
 
 const todosLosTestimonios = [
   {
@@ -86,7 +85,6 @@ function getRandomTestimonios(cantidad: number) {
 }
 
 export default function TestimoniosSection() {
-  const { t } = useTranslation()
   const [testimonios, setTestimonios] = useState(todosLosTestimonios.slice(0, 3))
 
   useEffect(() => {
@@ -105,9 +103,9 @@ export default function TestimoniosSection() {
     >
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
-          {t.testimonios.title}{' '}
+          Lo que dicen{' '}
           <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            {t.testimonios.titleHighlight}
+            mis clientes
           </Box>
         </Typography>
         <Typography
@@ -120,7 +118,7 @@ export default function TestimoniosSection() {
             color: 'text.secondary',
           }}
         >
-          {t.testimonios.subtitle}
+          Proyectos reales, clientes reales, resultados reales.
         </Typography>
 
         <Grid container spacing={4}>

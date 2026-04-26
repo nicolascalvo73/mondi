@@ -22,24 +22,19 @@ import CloseIcon from '@mui/icons-material/Close'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
-import { useLanguage } from '@/lib/LanguageContext'
-import { useTranslation } from '@/i18n/useTranslation'
-import FlagIcon from '@/components/FlagIcon'
 
-const navHrefs = [
-  { key: 'servicios' as const, href: '/#servicios' },
-  { key: 'proceso' as const, href: '/#proceso' },
-  { key: 'plataformas' as const, href: '/#plataformas' },
-  { key: 'precios' as const, href: '/#precios' },
-  { key: 'sobreMi' as const, href: '/#sobre-mi' },
-  { key: 'blog' as const, href: '/blog' },
+const navLinks = [
+  { label: 'Servicios', href: '/#servicios' },
+  { label: 'Proceso', href: '/#proceso' },
+  { label: 'Plataformas', href: '/#plataformas' },
+  { label: 'Precios', href: '/#precios' },
+  { label: 'Sobre mí', href: '/#sobre-mi' },
+  { label: 'Blog', href: '/blog' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { mode, toggleTheme } = useThemeMode()
-  const { language, setLanguage } = useLanguage()
-  const { t } = useTranslation()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -122,7 +117,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5, mx: 'auto' }}>
-            {navHrefs.map((link) => (
+            {navLinks.map((link) => (
               <Button
                 key={link.href}
                 href={link.href}
@@ -137,68 +132,15 @@ export default function Navbar() {
                   },
                 }}
               >
-                {t.nav[link.key]}
+                {link.label}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, alignItems: 'center' }}>
             <Button variant="contained" color="primary" href="/#contacto" onClick={handleSmoothScroll}>
-              {t.nav.hablemos}
+              Hablemos
             </Button>
-            <Box sx={{ display: 'flex', gap: 0.5 }}>
-              <Fab
-                size="small"
-                aria-label="Español"
-                onClick={() => setLanguage('es')}
-                sx={{
-                  width: '2.25rem',
-                  height: '2.25rem',
-                  minHeight: '2.25rem',
-                  fontSize: '1rem',
-                  boxShadow: language === 'es' ? 2 : 0,
-                  bgcolor: language === 'es' ? 'primary.main' : 'action.hover',
-                  color: language === 'es' ? 'primary.contrastText' : 'text.primary',
-                  '&:hover': { bgcolor: language === 'es' ? 'primary.dark' : 'action.selected' },
-                }}
-              >
-                <FlagIcon code="ar" />
-              </Fab>
-              <Fab
-                size="small"
-                aria-label="English"
-                onClick={() => setLanguage('en')}
-                sx={{
-                  width: '2.25rem',
-                  height: '2.25rem',
-                  minHeight: '2.25rem',
-                  fontSize: '1rem',
-                  boxShadow: language === 'en' ? 2 : 0,
-                  bgcolor: language === 'en' ? 'primary.main' : 'action.hover',
-                  color: language === 'en' ? 'primary.contrastText' : 'text.primary',
-                  '&:hover': { bgcolor: language === 'en' ? 'primary.dark' : 'action.selected' },
-                }}
-              >
-                <FlagIcon code="us" />
-              </Fab>
-              <Fab
-                size="small"
-                aria-label="Português"
-                onClick={() => setLanguage('pt')}
-                sx={{
-                  width: '2.25rem',
-                  height: '2.25rem',
-                  minHeight: '2.25rem',
-                  fontSize: '1rem',
-                  boxShadow: language === 'pt' ? 2 : 0,
-                  bgcolor: language === 'pt' ? 'primary.main' : 'action.hover',
-                  color: language === 'pt' ? 'primary.contrastText' : 'text.primary',
-                  '&:hover': { bgcolor: language === 'pt' ? 'primary.dark' : 'action.selected' },
-                }}
-              >
-                <FlagIcon code="br" />
-              </Fab>
-            </Box>
             <Fab
               size="small"
               color="primary"
@@ -216,7 +158,7 @@ export default function Navbar() {
 
           <IconButton
             color="inherit"
-            aria-label={t.nav.abrirMenu}
+            aria-label="abrir menú de navegación"
             edge="end"
             onClick={handleDrawerToggle}
             sx={{ display: { md: 'none' }, color: 'text.primary' }}
@@ -239,12 +181,12 @@ export default function Navbar() {
         }}
       >
         <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end' }}>
-          <IconButton onClick={handleDrawerToggle} aria-label={t.nav.cerrarMenu}>
+          <IconButton onClick={handleDrawerToggle} aria-label="cerrar menú">
             <CloseIcon />
           </IconButton>
         </Box>
         <List>
-          {navHrefs.map((link) => (
+          {navLinks.map((link) => (
             <ListItem key={link.href} disablePadding>
               <ListItemButton
                 component="a"
@@ -254,7 +196,7 @@ export default function Navbar() {
                   handleLinkClick()
                 }}
               >
-                <ListItemText primary={t.nav[link.key]} />
+                <ListItemText primary={link.label} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -269,63 +211,10 @@ export default function Navbar() {
                 handleLinkClick()
               }}
             >
-              {t.nav.hablemos}
+              Hablemos
             </Button>
           </ListItem>
-          {/* <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center', gap: 1 }}>
-            <Fab
-              size="small"
-              aria-label="Español"
-              onClick={() => setLanguage('es')}
-              sx={{
-                width: '2.25rem',
-                height: '2.25rem',
-                minHeight: '2.25rem',
-                fontSize: '1rem',
-                boxShadow: language === 'es' ? 2 : 0,
-                bgcolor: language === 'es' ? 'primary.main' : 'action.hover',
-                color: language === 'es' ? 'primary.contrastText' : 'text.primary',
-                '&:hover': { bgcolor: language === 'es' ? 'primary.dark' : 'action.selected' },
-              }}
-            >
-              <FlagIcon code="ar" />
-            </Fab>
-            <Fab
-              size="small"
-              aria-label="English"
-              onClick={() => setLanguage('en')}
-              sx={{
-                width: '2.25rem',
-                height: '2.25rem',
-                minHeight: '2.25rem',
-                fontSize: '1rem',
-                boxShadow: language === 'en' ? 2 : 0,
-                bgcolor: language === 'en' ? 'primary.main' : 'action.hover',
-                color: language === 'en' ? 'primary.contrastText' : 'text.primary',
-                '&:hover': { bgcolor: language === 'en' ? 'primary.dark' : 'action.selected' },
-              }}
-            >
-              <FlagIcon code="us" />
-            </Fab>
-            <Fab
-              size="small"
-              aria-label="Português"
-              onClick={() => setLanguage('pt')}
-              sx={{
-                width: '2.25rem',
-                height: '2.25rem',
-                minHeight: '2.25rem',
-                fontSize: '1rem',
-                boxShadow: language === 'pt' ? 2 : 0,
-                bgcolor: language === 'pt' ? 'primary.main' : 'action.hover',
-                color: language === 'pt' ? 'primary.contrastText' : 'text.primary',
-                '&:hover': { bgcolor: language === 'pt' ? 'primary.dark' : 'action.selected' },
-              }}
-            >
-              <FlagIcon code="br" />
-            </Fab>
-          </ListItem> */}
-          {/* <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center' }}>
+          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center' }}>
             <Fab
               size="small"
               color="primary"
@@ -339,7 +228,7 @@ export default function Navbar() {
             >
               {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
             </Fab>
-          </ListItem> */}
+          </ListItem>
         </List>
       </Drawer>
     </AppBar>

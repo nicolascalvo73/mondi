@@ -2,7 +2,6 @@
 
 import { Fab, keyframes } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { useTranslation } from '@/i18n/useTranslation';
 
 const pulse = keyframes`
   0% {
@@ -17,14 +16,13 @@ const pulse = keyframes`
 `;
 
 export default function WhatsAppButton() {
-  const { t } = useTranslation();
   const whatsappNumber =
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5493516283916";
 
   return (
     <Fab
       color="primary"
-      aria-label={t.whatsapp}
+      aria-label="Escribinos por WhatsApp"
       href="https://wa.me/3516283916?text=Hola%20Mondi%20Studio"
       target="_blank"
       rel="noopener noreferrer"

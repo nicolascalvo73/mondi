@@ -6,31 +6,15 @@ import ForumIcon from '@mui/icons-material/Forum'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import Image from 'next/image'
-import { useTranslation } from '@/i18n/useTranslation'
+
+const valores = [
+  { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
+  { icono: ForumIcon, texto: 'Comunicación directa' },
+  { icono: VerifiedIcon, texto: 'Sin letra chica' },
+  { icono: LocationOnIcon, texto: 'Hecho en Córdoba' },
+]
 
 export default function SobreMiSection() {
-  const { t } = useTranslation()
-
-  const iconMap = {
-    'Entrega en tiempo': AccessTimeIcon,
-    'On-time delivery': AccessTimeIcon,
-    'Entrega no prazo': AccessTimeIcon,
-    'Comunicación directa': ForumIcon,
-    'Direct communication': ForumIcon,
-    'Comunicação direta': ForumIcon,
-    'Sin letra chica': VerifiedIcon,
-    'No fine print': VerifiedIcon,
-    'Sem letras miúdas': VerifiedIcon,
-    'Hecho en Córdoba': LocationOnIcon,
-    'Made in Córdoba': LocationOnIcon,
-    'Feito em Córdoba': LocationOnIcon,
-  }
-
-  const valores = t.sobreMi.valores.map((texto) => ({
-    icono: iconMap[texto as keyof typeof iconMap] || VerifiedIcon,
-    texto,
-  }))
-
   return (
     <Box
       component="section"
@@ -68,25 +52,28 @@ export default function SobreMiSection() {
 
           <Grid item xs={12} md={7}>
             <Typography variant="h2" component="h2" sx={{ mb: 3 }}>
-              {t.sobreMi.title}{' '}
+              Un desarrollador y un{' '}
               <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-                {t.sobreMi.titleHighlight}
+                equipo completo
               </Box>
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              {t.sobreMi.p1}
+              Soy desarrollador frontend con años de experiencia en agencias y proyectos enterprise.
+              En 2023 decidí hacer algo más cercano: trabajar directo con negocios que necesitan una
+              web sin la estructura (y los precios) de una agencia.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              {t.sobreMi.p2}
+              Acá no hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos
+              juntos y te entrego tu proyecto. Simple.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              {t.sobreMi.p3}
+            Trabajamos en red con múltiples profesionales especializados en cada area para que tu proyecto sea completo y tenga todo lo que requiera.
             </Typography>
             <Typography
               variant="body1"
               sx={{ mb: 4, fontStyle: 'italic', color: 'text.secondary' }}
             >
-              {t.sobreMi.p4}
+              Ah, y Mondiola (mi gato) supervisa cada proyecto. Es exigente, pero justo.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
