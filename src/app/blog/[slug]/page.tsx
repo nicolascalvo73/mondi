@@ -1,7 +1,4 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { notFound, useRouter } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { Container, Box } from '@mui/material'
 import { client, isSanityConfigured } from '@/sanity/client'
 import { getAllPostsQuery, getPostBySlugQuery } from '@/sanity/queries'
@@ -16,68 +13,30 @@ interface PageProps {
 
 export async function generateStaticParams() {
   if (!isSanityConfigured) {
-    return []
+    return [{ slug: '__placeholder__' }]
   }
-
   try {
     const posts = await client.fetch<SanityPost[]>(getAllPostsQuery)
-    return posts.map((post) => ({
-      slug: post.slug.current,
-    }))
-  } catch (error) {
-    console.error('Error generating static params:', error)
-    return []
+    const slugs = posts
+      .map((post) => post.slug?.current)
+      .filter((slug): slug is string => Boolean(slug))
+
+    return slugs.length > 0 ? slugs.map((slug) => ({ slug })) : [{ slug: '__placeholder__' }]
+  } catch {
+    return [{ slug: '__placeholder__' }]
   }
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const [post, setPost] = useState<SanityPost | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [notFoundState, setNotFoundState] = useState(false)
-  const router = useRouter()
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params
 
-  useEffect(() => {
-    async function fetchPost() {
-      if (!isSanityConfigured) {
-        setNotFoundState(true)
-        setLoading(false)
-        return
-      }
-
-      const resolvedParams = await params
-      try {
-        const data = await client.fetch<SanityPost>(getPostBySlugQuery, { slug: resolvedParams.slug })
-        if (!data) {
-          setNotFoundState(true)
-        } else {
-          setPost(data)
-        }
-      } catch (error) {
-        console.error('Error fetching post:', error)
-        setNotFoundState(true)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchPost()
-  }, [params])
-
-  if (loading) {
-    return (
-      <>
-        <Navbar />
-        <Box component="main" id="main-content">
-          <Container maxWidth="md" sx={{ py: '5rem' }}>
-            <div>Cargando...</div>
-          </Container>
-        </Box>
-        <Footer />
-      </>
-    )
+  if (!isSanityConfigured) {
+    notFound()
   }
 
-  if (notFoundState || !post) {
+  const post = await client.fetch<SanityPost>(getPostBySlugQuery, { slug })
+
+  if (!post) {
     notFound()
   }
 
