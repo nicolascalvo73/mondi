@@ -6,15 +6,17 @@ import ForumIcon from '@mui/icons-material/Forum'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import Image from 'next/image'
-
-const valores = [
-  { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
-  { icono: ForumIcon, texto: 'Comunicación directa' },
-  { icono: VerifiedIcon, texto: 'Sin letra chica' },
-  { icono: LocationOnIcon, texto: 'Hecho en Córdoba' },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function SobreMiSection() {
+  const { t } = useTranslations()
+  
+  const valores = [
+    { icono: AccessTimeIcon, texto: 'Entrega en tiempo' },
+    { icono: ForumIcon, texto: 'Comunicación directa' },
+    { icono: VerifiedIcon, texto: 'Sin letra chica' },
+    { icono: LocationOnIcon, texto: 'Hecho en Córdoba' },
+  ]
   return (
     <Box
       component="section"
@@ -45,6 +47,7 @@ export default function SobreMiSection() {
                 src="/Gemini_Generated_Image_r1k8m3r1k8m3r1k8.png"
                 alt="Mondiola"
                 fill
+                sizes="(max-width: 768px) 100vw, 40vw"
                 style={{ objectFit: 'cover', objectPosition: '-2rem center' }}
               />
             </Box>
@@ -52,22 +55,21 @@ export default function SobreMiSection() {
 
           <Grid item xs={12} md={7}>
             <Typography variant="h2" component="h2" sx={{ mb: 3 }}>
-              Un desarrollador y un{' '}
-              <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-                equipo completo
+              {t('about.title')}{' '}
+              <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+                {t('about.titleHighlight')}
               </Box>
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              Soy desarrollador frontend con años de experiencia en agencias y proyectos enterprise.
+              Soy software engineer con años de experiencia en agencias y proyectos enterprise.
               En 2023 decidí hacer algo más cercano: trabajar directo con negocios que necesitan una
               web sin la estructura (y los precios) de una agencia.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-              Acá no hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos
-              juntos y te entrego tu proyecto. Simple.
+              Trabajo desde Córdoba pero con clientes en todo el país. No hay "equipo de ventas" ni "gerente de cuenta". Me escribís, charlamos, diseñamos juntos y te entrego tu proyecto. Simple.
             </Typography>
             <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
-            Trabajamos en red con múltiples profesionales especializados en cada area para que tu proyecto sea completo y tenga todo lo que requiera.
+              Sin importar dónde estés en Argentina, trabajamos en red con múltiples profesionales especializados en cada área para que tu proyecto sea completo y tenga todo lo que requiera.
             </Typography>
             <Typography
               variant="body1"

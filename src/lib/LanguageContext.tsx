@@ -2,33 +2,38 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-export type Language = 'es' | 'pt' | 'en'
+type Language = 'es' | 'pt' | 'en'
 
 interface LanguageContextType {
   language: Language
-  setLanguage: (lang: Language) => void
+  cycleLanguage: () => void
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageContextProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('es')
+  const [language, setLanguage] = useState<Language>('es')
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') as Language
-    if (savedLanguage && ['es', 'pt', 'en'].includes(savedLanguage)) {
-      setLanguageState(savedLanguage)
+    if (savedLanguage) {
+      setLanguage(savedLanguage)
     }
   }, [])
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang)
-    localStorage.setItem('language', lang)
-    document.cookie = `language=${lang}; path=/; max-age=31536000`
+  const cycleLanguage = () => {
+    setLanguage((prevLanguage) => {
+      const languages: Language[] = ['es', 'pt', 'en']
+      const currentIndex = languages.indexOf(prevLanguage)
+      const nextIndex = (currentIndex + 1) % languages.length
+      const newLanguage = languages[nextIndex]
+      localStorage.setItem('language', newLanguage)
+      return newLanguage
+    })
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, cycleLanguage }}>
       {children}
     </LanguageContext.Provider>
   )
@@ -36,8 +41,8 @@ export function LanguageContextProvider({ children }: { children: ReactNode }) {
 
 export function useLanguage() {
   const context = useContext(LanguageContext)
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageContextProvider')
+  if (!context) {
+    throw new Error('useLanguage must be used within LanguageContextProvider')
   }
   return context
 }

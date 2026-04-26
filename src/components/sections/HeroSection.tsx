@@ -2,8 +2,11 @@
 
 import { Container, Grid, Box, Typography, Button, Chip, Paper } from '@mui/material'
 import Image from 'next/image'
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function HeroSection() {
+  const { t } = useTranslations()
+  
   return (
     <Box
       component="section"
@@ -18,7 +21,7 @@ export default function HeroSection() {
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
             <Chip
-              label="Estudio de diseño web · Córdoba, Argentina"
+              label={t('hero.location')}
               sx={{
                 backgroundColor: '#cfe8dc',
                 color: '#354b43',
@@ -26,18 +29,7 @@ export default function HeroSection() {
               }}
             />
             <Typography variant="h1" component="h1" sx={{ mb: 3 }}>
-              Tu negocio, con la cara que{' '}
-              <Box
-                component="em"
-                sx={{
-                  fontFamily: 'var(--font-brand)',
-                  fontStyle: 'italic',
-                  color: 'primary.main',
-                }}
-              >
-                merece
-              </Box>
-              .
+              {t('hero.title')}
             </Typography>
             <Typography
               variant="body1"
@@ -49,12 +41,11 @@ export default function HeroSection() {
                 color: 'text.secondary',
               }}
             >
-              Diseño y desarrollo web directo, sin vueltas. Landing pages, webs institucionales,
-              tiendas online y mantenimiento. Todo con comunicación clara y entregas en tiempo.
+              {t('hero.subtitle')}
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
               <Button variant="contained" color="primary" href="#contacto" size="large">
-                Quiero mi web
+                {t('hero.cta')}
               </Button>
               <Button
                 variant="outlined"
@@ -66,7 +57,7 @@ export default function HeroSection() {
                   color: 'text.primary',
                 }}
               >
-                Ver plataformas
+                {t('hero.platforms')}
               </Button>
             </Box>
           </Grid>
@@ -89,6 +80,7 @@ export default function HeroSection() {
                 src="/Gemini_Generated_Image_xregmqxregmqxreg.png"
                 alt="Mondi Studio"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{
                   objectFit: 'cover',
                 }}

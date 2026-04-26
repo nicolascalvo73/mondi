@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "platforms": "Platforms",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "about": "About me",
+    "contact": "Let's talk"
+  },
+  "hero": {
+    "location": "Web design studio · Córdoba, Argentina",
+    "title": "Your business, with the face it deserves",
+    "subtitle": "Web design and development without agency structures. Direct communication, real results.",
+    "cta": "View services",
+    "platforms": "View platforms"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "designed for you",
+    "description": "Web solutions adapted to your business. No rigid packages or hidden costs.",
+    "landing": {
+      "title": "Landing Page",
+      "description": "A page focused on converting visitors into customers. Perfect for launching products or services.",
+      "features": ["Next.js", "React", "Responsive", "SEO"]
+    },
+    "ecommerce": {
+      "title": "Online stores",
+      "description": "Your store ready to sell. Complete setup on Tienda Nube, Shopify or WooCommerce.",
+      "ideal": "Ideal for entrepreneurs and SMEs"
+    },
+    "vtex": {
+      "title": "VTEX Enterprise",
+      "description": "Development and maintenance of VTEX stores. For companies that need scale and customization.",
+      "badge": "Enterprise"
+    },
+    "custom": {
+      "title": "Custom software",
+      "description": "Customized web systems. CRMs, dashboards, integrations and more.",
+      "features": ["Systems", "ERPs", "Dashboards", "Integrations"]
+    }
+  },
+  "process": {
+    "title": "How I",
+    "titleHighlight": "work",
+    "subtitle": "Simple, direct and straightforward.",
+    "steps": {
+      "talk": {
+        "title": "We talk",
+        "description": "You tell me what you need and I tell you if I can help. No commitments."
+      },
+      "quote": {
+        "title": "Quote",
+        "description": "I give you a clear price and estimated time. No surprises."
+      },
+      "build": {
+        "title": "Development",
+        "description": "I work on your project and show you progress."
+      },
+      "deliver": {
+        "title": "Delivery",
+        "description": "You receive your working website and I explain how to use it."
+      }
+    }
+  },
+  "platforms": {
+    "title": "Platforms I work with",
+    "titleHighlight": "",
+    "subtitle": "We choose the best technology for your project. Without tying you to a single option.",
+    "ecommerce": "E-commerce platforms",
+    "web": "Webs & integrations",
+    "idealFor": "Ideal for",
+    "stores": {
+      "tiendanube": "Argentine SMEs",
+      "empretienda": "Entrepreneurs",
+      "woocommerce": "WordPress",
+      "shopify": "International",
+      "vtex": "Enterprise"
+    },
+    "webs": {
+      "nextjs": "Performance",
+      "wordpress": "IA Integration",
+      "paypal": "Global payments",
+      "mercadopago": "Online payments",
+      "googlebusiness": "Local presence",
+      "blogging": "Blogging"
+    },
+    "cta": {
+      "question": "Can't find the platform you need?",
+      "button": "Let's talk about your project"
+    }
+  },
+  "pricing": {
+    "title": "Transparent",
+    "titleHighlight": "pricing",
+    "subtitle": "No surprises or hidden costs. You know exactly what you're paying for.",
+    "from": "from",
+    "plans": {
+      "landing": {
+        "name": "Landing Page",
+        "price": "USD 400",
+        "description": "Ideal for launching a product or service",
+        "features": [
+          "Responsive design",
+          "Contact form",
+          "Basic SEO",
+          "1 year hosting included",
+          ".com.ar domain included"
+        ]
+      },
+      "website": {
+        "name": "Complete website",
+        "price": "USD 800",
+        "description": "For companies that need professional presence",
+        "badge": "Most popular",
+        "features": [
+          "Up to 5 sections",
+          "Custom design",
+          "Optimized SEO",
+          "Integrated blog",
+          "1 year hosting included",
+          ".com.ar domain included",
+          "Usage training"
+        ]
+      },
+      "ecommerce": {
+        "name": "Online Store",
+        "price": "USD 600",
+        "description": "Complete setup of your e-commerce",
+        "features": [
+          "Setup on chosen platform",
+          "Theme design",
+          "Product upload (up to 50)",
+          "Payment methods",
+          "Complete training"
+        ]
+      }
+    },
+    "maintenance": {
+      "title": "Add-on: Monthly maintenance",
+      "basic": {
+        "price": "USD 60/month",
+        "name": "Basic maintenance",
+        "features": [
+          "Security updates",
+          "Weekly backup",
+          "Email support"
+        ]
+      },
+      "premium": {
+        "price": "USD 120/month",
+        "name": "Premium maintenance",
+        "features": [
+          "Everything in basic plan",
+          "Unlimited content changes",
+          "Priority support",
+          "Monthly reports"
+        ]
+      }
+    },
+    "vtexNote": "VTEX Enterprise projects: customized quote according to scope and complexity.",
+    "paymentNote": "Prices in US dollars. Payment method: wire transfer, Mercado Pago, PayPal, crypto."
+  },
+  "testimonials": {
+    "title": "What my",
+    "titleHighlight": "clients say",
+    "subtitle": "Real projects, real clients, real results.",
+    "clients": [
+      {
+        "name": "María González",
+        "role": "Owner",
+        "company": "Café del Centro · Córdoba",
+        "text": "I needed a website quickly for my coffee shop and Mondi delivered it in two weeks. It turned out beautiful and my customers use it to see the menu and make reservations.",
+        "initials": "MG"
+      },
+      {
+        "name": "Lucas Fernández",
+        "role": "Founder",
+        "company": "Tienda Verde · Villa María",
+        "text": "He set up my complete Tienda Nube, uploaded the products and taught me how to manage it. Now I sell online without depending on anyone and without marketplace commissions.",
+        "initials": "LF"
+      },
+      {
+        "name": "Ana Rodríguez",
+        "role": "Director",
+        "company": "Law Firm · Córdoba",
+        "text": "Direct communication, no nonsense. He explained everything and always responded quickly. The website turned out exactly as I imagined. I have a professional and functional first-class website.",
+        "initials": "AR"
+      },
+      {
+        "name": "Carlos Martínez",
+        "role": "CEO",
+        "company": "TechSolutions · Buenos Aires",
+        "text": "He developed our VTEX platform with complex integrations. The technical level is excellent and he met all deadlines. Very professional.",
+        "initials": "CM"
+      },
+      {
+        "name": "Sofía Pérez",
+        "role": "Owner",
+        "company": "Boutique Luna · Rosario",
+        "text": "My Shopify store turned out amazing. He helped me with all the setup, payments and even trained me to manage it myself. Highly recommended.",
+        "initials": "SP"
+      },
+      {
+        "name": "Diego Ramírez",
+        "role": "Manager",
+        "company": "HR Consulting · Mendoza",
+        "text": "He made our consulting firm's institutional website in record time. Modern design, fast and with everything we needed. Excellent work.",
+        "initials": "DR"
+      },
+      {
+        "name": "Valentina Torres",
+        "role": "Founder",
+        "company": "Creative Studio · Córdoba",
+        "text": "I needed a portfolio that would showcase my work professionally. The result exceeded my expectations. The website is beautiful and works perfectly.",
+        "initials": "VT"
+      },
+      {
+        "name": "Martín Silva",
+        "role": "Director",
+        "company": "Dental Clinic · San Juan",
+        "text": "He developed the online appointment system for our clinic. Now patients book through the website and we save hours of phone calls. Great.",
+        "initials": "MS"
+      },
+      {
+        "name": "Laura Benítez",
+        "role": "Owner",
+        "company": "Corporate Catering · Salta",
+        "text": "My landing page turned out beautiful and now I receive orders via WhatsApp directly from the website. Simple, effective and exactly what I needed.",
+        "initials": "LB"
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "me"
+  },
+  "contact": {
+    "title": "Let's talk about your",
+    "titleHighlight": "project",
+    "subtitle": "Tell me what you need and I'll respond in less than 24 hours.",
+    "form": {
+      "name": "Your name",
+      "whatsapp": "Your WhatsApp",
+      "whatsappPlaceholder": "E.g: +1 555 123 4567",
+      "business": "Your business",
+      "service": "What do you need?",
+      "services": {
+        "landing": "Landing Page",
+        "website": "Corporate Website",
+        "ecommerce": "Online Store",
+        "maintenance": "Maintenance",
+        "vtex": "VTEX Enterprise",
+        "other": "Other"
+      },
+      "message": "Tell me more",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent! I'll respond soon.",
+      "error": "There was an error. Try again or write to me on WhatsApp."
+    }
+  },
+  "blog": {
+    "title": "Thoughts,",
+    "titleCode": "Code",
+    "titleCoffee": "Coffee",
+    "subtitle": "A space to talk about design, strategy and the future of the web",
+    "categories": {
+      "all": "All",
+      "design": "Design",
+      "business": "Business",
+      "tech": "Tech",
+      "corner": "Mondiola's Corner"
+    },
+    "empty": {
+      "title": "Coming Soon",
+      "description": "We're preparing quality content for you"
+    },
+    "featured": "Featured Post",
+    "readArticle": "Read article",
+    "readMore": "Read more",
+    "readTime": "min read",
+    "backToBlog": "Back to blog",
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "by": "by"
+  }
+}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   AppBar,
   Toolbar,
@@ -22,19 +23,31 @@ import CloseIcon from '@mui/icons-material/Close'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
+import { useLanguage } from '@/lib/LanguageContext'
+import { useTranslations } from '@/lib/useTranslations'
 
-const navLinks = [
-  { label: 'Servicios', href: '/#servicios' },
-  { label: 'Proceso', href: '/#proceso' },
-  { label: 'Plataformas', href: '/#plataformas' },
-  { label: 'Precios', href: '/#precios' },
-  { label: 'Sobre mí', href: '/#sobre-mi' },
-  { label: 'Blog', href: '/blog' },
-]
+const flagEmojis = {
+  es: '🇦🇷',
+  pt: '🇧🇷',
+  en: '🇺🇸',
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { mode, toggleTheme } = useThemeMode()
+  const { language, cycleLanguage } = useLanguage()
+  const { t } = useTranslations()
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const navLinks = [
+    { label: t('nav.services'), href: '#servicios' },
+    { label: t('nav.process'), href: '#proceso' },
+    { label: t('nav.platforms'), href: '#plataformas' },
+    { label: t('nav.pricing'), href: '#precios' },
+    { label: t('nav.blog'), href: '/blog' },
+    { label: t('nav.about'), href: '#sobre-mi' },
+  ]
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -45,16 +58,15 @@ export default function Navbar() {
   }
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = e.currentTarget.getAttribute('href')
-    
-    // Si es un link externo (no anchor), permitir navegación normal
-    if (href && !href.startsWith('#')) {
-      return
-    }
-    
-    // Si es un anchor, hacer smooth scroll
     e.preventDefault()
+    const href = e.currentTarget.getAttribute('href')
     if (href?.startsWith('#')) {
+      // Si estamos en una página que no es home, navegar primero a home
+      if (pathname !== '/') {
+        router.push('/' + href)
+        return
+      }
+      
       const targetId = href.substring(1)
       const targetElement = document.getElementById(targetId)
       if (targetElement) {
@@ -98,10 +110,10 @@ export default function Navbar() {
             <Typography
               variant="h6"
               component="a"
-              href="/#hero"
+              href="#hero"
               onClick={handleSmoothScroll}
               sx={{
-                fontFamily: 'var(--font-brand)',
+                fontFamily: 'var(--font-epilogue)',
                 fontWeight: 700,
                 fontSize: '1.125rem',
                 color: 'text.primary',
@@ -121,7 +133,7 @@ export default function Navbar() {
               <Button
                 key={link.href}
                 href={link.href}
-                onClick={handleSmoothScroll}
+                onClick={link.href.startsWith('#') ? handleSmoothScroll : undefined}
                 sx={{
                   color: 'text.primary',
                   fontSize: '0.875rem',
@@ -138,9 +150,23 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, alignItems: 'center' }}>
-            <Button variant="contained" color="primary" href="/#contacto" onClick={handleSmoothScroll}>
-              Hablemos
+            <Button variant="contained" color="primary" href="#contacto" onClick={handleSmoothScroll}>
+              {t('nav.contact')}
             </Button>
+            <Fab
+              size="small"
+              color="primary"
+              aria-label="Cambiar idioma"
+              onClick={cycleLanguage}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+                fontSize: '1.25rem',
+              }}
+            >
+              {flagEmojis[language]}
+            </Fab>
             <Fab
               size="small"
               color="primary"
@@ -192,7 +218,9 @@ export default function Navbar() {
                 component="a"
                 href={link.href}
                 onClick={(e) => {
-                  handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  if (link.href.startsWith('#')) {
+                    handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
+                  }
                   handleLinkClick()
                 }}
               >
@@ -204,17 +232,31 @@ export default function Navbar() {
             <Button
               variant="contained"
               color="primary"
-              href="/#contacto"
+              href="#contacto"
               fullWidth
               onClick={(e) => {
                 handleSmoothScroll(e as React.MouseEvent<HTMLAnchorElement>)
                 handleLinkClick()
               }}
             >
-              Hablemos
+              {t('nav.contact')}
             </Button>
           </ListItem>
-          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center' }}>
+          <ListItem disablePadding sx={{ mt: 2, px: 2, display: 'flex', justifyContent: 'center', gap: 1.5 }}>
+            <Fab
+              size="small"
+              color="primary"
+              aria-label="Cambiar idioma"
+              onClick={cycleLanguage}
+              sx={{
+                width: '2.5rem',
+                height: '2.5rem',
+                minHeight: '2.5rem',
+                fontSize: '1.25rem',
+              }}
+            >
+              {flagEmojis[language]}
+            </Fab>
             <Fab
               size="small"
               color="primary"

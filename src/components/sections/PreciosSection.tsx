@@ -2,50 +2,33 @@
 
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-
-const planes = [
-  {
-    nombre: 'Landing Page',
-    precio: 'USD 300',
-    descripcion: 'Ideal para lanzar un producto o servicio',
-    caracteristicas: [
-      'Diseño responsive',
-      'Formulario de contacto',
-      'SEO básico',
-      'Hosting incluido 1 año',
-      'Dominio .com.ar incluido',
-    ],
-  },
-  {
-    nombre: 'Web completa',
-    precio: 'USD 700',
-    descripcion: 'Para empresas que necesitan presencia profesional',
-    caracteristicas: [
-      'Hasta 5 secciones',
-      'Diseño personalizado',
-      'SEO optimizado',
-      'Blog integrado',
-      'Hosting incluido 1 año',
-      'Dominio .com.ar incluido',
-      'Capacitación de uso',
-    ],
-    destacado: true,
-  },
-  {
-    nombre: 'Tienda Online',
-    precio: 'USD 400',
-    descripcion: 'Configuración completa de tu e-commerce',
-    caracteristicas: [
-      'Setup en plataforma elegida',
-      'Diseño de tema',
-      'Carga de productos (hasta 50)',
-      'Medios de pago',
-      'Capacitación completa',
-    ],
-  },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function PreciosSection() {
+  const { t } = useTranslations()
+  
+  const planes = [
+    {
+      nombre: t('pricing.plans.landing.name'),
+      precio: t('pricing.plans.landing.price'),
+      descripcion: t('pricing.plans.landing.description'),
+      caracteristicas: t('pricing.plans.landing.features') as unknown as string[],
+    },
+    {
+      nombre: t('pricing.plans.website.name'),
+      precio: t('pricing.plans.website.price'),
+      descripcion: t('pricing.plans.website.description'),
+      caracteristicas: t('pricing.plans.website.features') as unknown as string[],
+      destacado: true,
+      badge: t('pricing.plans.website.badge'),
+    },
+    {
+      nombre: t('pricing.plans.ecommerce.name'),
+      precio: t('pricing.plans.ecommerce.price'),
+      descripcion: t('pricing.plans.ecommerce.description'),
+      caracteristicas: t('pricing.plans.ecommerce.features') as unknown as string[],
+    },
+  ]
   return (
     <Box
       component="section"
@@ -57,9 +40,9 @@ export default function PreciosSection() {
     >
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
-          Precios{' '}
-          <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            transparentes
+          {t('pricing.title')}{' '}
+          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+            {t('pricing.titleHighlight')}
           </Box>
         </Typography>
         <Typography
@@ -72,7 +55,7 @@ export default function PreciosSection() {
             color: 'text.secondary',
           }}
         >
-          Sin sorpresas ni costos ocultos. Sabés exactamente qué estás pagando.
+          {t('pricing.subtitle')}
         </Typography>
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
@@ -89,7 +72,7 @@ export default function PreciosSection() {
                 >
                 {plan.destacado && (
                   <Chip
-                  label="El más elegido"
+                  label={(plan as any).badge}
                   sx={{
                       position: 'absolute',
                       top: '-0.25rem',
@@ -114,7 +97,7 @@ export default function PreciosSection() {
                         fontStyle: 'italic',
                       }}
                     >
-                      desde
+                      {t('pricing.from')}
                     </Typography>
                     <Typography
                       sx={{
@@ -159,7 +142,7 @@ export default function PreciosSection() {
             component="h3"
             sx={{ mb: 3, fontFamily: 'var(--font-epilogue)' }}
           >
-            Add-on: Mantenimiento mensual
+            {t('pricing.maintenance.title')}
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
@@ -172,24 +155,18 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                USD 80/mes
+                {t('pricing.maintenance.basic.price')}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Mantenimiento básico
+                {t('pricing.maintenance.basic.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Actualizaciones de seguridad</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Backup semanal</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Soporte por email</Typography>
-                </Box>
+                {(t('pricing.maintenance.basic.features') as unknown as string[]).map((feature) => (
+                  <Box key={feature} sx={{ display: 'flex', gap: 1.5 }}>
+                    <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
+                    <Typography variant="body2">{feature}</Typography>
+                  </Box>
+                ))}
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -202,28 +179,18 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                USD 150/mes
+                {t('pricing.maintenance.premium.price')}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Mantenimiento premium
+                {t('pricing.maintenance.premium.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Todo lo del plan básico</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Cambios de contenido ilimitados</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Soporte prioritario</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1.5 }}>
-                  <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
-                  <Typography variant="body2">Reportes mensuales</Typography>
-                </Box>
+                {(t('pricing.maintenance.premium.features') as unknown as string[]).map((feature) => (
+                  <Box key={feature} sx={{ display: 'flex', gap: 1.5 }}>
+                    <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
+                    <Typography variant="body2">{feature}</Typography>
+                  </Box>
+                ))}
               </Box>
             </Grid>
           </Grid>
@@ -233,10 +200,10 @@ export default function PreciosSection() {
           variant="body2"
           sx={{ fontStyle: 'italic', color: 'text.secondary', textAlign: 'center', mb: 2 }}
         >
-          Proyectos VTEX Enterprise: presupuesto personalizado según alcance y complejidad.
+          {t('pricing.vtexNote')}
         </Typography>
         <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: 'text.secondary', mt: 2 }}>
-          Precios en dólares estadounidenses. Método de pago: transferencia, Mercado Pago, PayPal, crypto.
+          {t('pricing.paymentNote')}
         </Typography>
       </Container>
     </Box>

@@ -1,35 +1,33 @@
 'use client'
 
 import { Container, Grid, Box, Typography } from '@mui/material'
-
-const pasos = [
-  {
-    numero: '01',
-    titulo: 'Me contás tu negocio',
-    descripcion:
-      'Charlamos sobre qué necesitás, qué te gusta, y qué querés lograr con tu web. Sin formularios eternos.',
-  },
-  {
-    numero: '02',
-    titulo: 'Diseñamos juntos',
-    descripcion:
-      'Te muestro propuestas, ajustamos lo que haga falta. Vos decidís cómo queda tu proyecto.',
-  },
-  {
-    numero: '03',
-    titulo: 'Te entrego todo listo',
-    descripcion:
-      'Web funcionando, dominio configurado, hosting activo. Todo probado y listo para usar.',
-  },
-  {
-    numero: '04',
-    titulo: 'Te acompaño después',
-    descripcion:
-      'Si necesitás cambios, actualizaciones o tenés dudas, estoy disponible. Sin letra chica.',
-  },
-]
+import { useTranslations } from '@/lib/useTranslations'
 
 export default function ProcesoSection() {
+  const { t } = useTranslations()
+  
+  const pasos = [
+    {
+      numero: '01',
+      titulo: t('process.steps.talk.title'),
+      descripcion: t('process.steps.talk.description'),
+    },
+    {
+      numero: '02',
+      titulo: t('process.steps.quote.title'),
+      descripcion: t('process.steps.quote.description'),
+    },
+    {
+      numero: '03',
+      titulo: t('process.steps.build.title'),
+      descripcion: t('process.steps.build.description'),
+    },
+    {
+      numero: '04',
+      titulo: t('process.steps.deliver.title'),
+      descripcion: t('process.steps.deliver.description'),
+    },
+  ]
   return (
     <Box
       component="section"
@@ -46,9 +44,9 @@ export default function ProcesoSection() {
           component="h2"
           sx={{ mb: 2, textAlign: 'center', color: 'inherit' }}
         >
-          Un proceso{' '}
-          <Box component="em" sx={{ fontFamily: 'var(--font-brand)', fontStyle: 'italic', color: 'primary.main' }}>
-            simple
+          {t('process.title')}{' '}
+          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+            {t('process.titleHighlight')}
           </Box>
         </Typography>
         <Typography
@@ -61,7 +59,7 @@ export default function ProcesoSection() {
             opacity: 0.85,
           }}
         >
-          Sin complicaciones ni pasos innecesarios. Así trabajamos de principio a fin.
+          {t('process.subtitle')}
         </Typography>
 
         <Grid container spacing={6}>

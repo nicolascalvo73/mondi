@@ -1,0 +1,6 @@
+# Cloudflare Pages ignore file
+# Exclude large cache files that exceed 25 MiB limit
+
+.next/cache/
+.next/trace
+node_modules/
