@@ -116,8 +116,10 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                 key={category}
                 label={category}
                 sx={{
-                  backgroundColor: '#cfe8dc',
-                  color: '#354b43',
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                  color: (theme) =>
+                    theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                   fontWeight: 700,
                   fontSize: '0.75rem',
                   height: '1.75rem',
@@ -132,7 +134,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           variant="h1"
           component="h1"
           sx={{
-            fontFamily: 'var(--font-epilogue)',
+            fontFamily: 'var(--font-unbounded)',
             fontSize: { xs: '2.5rem', md: '3.5rem' },
             fontWeight: 700,
             fontStyle: 'italic',

@@ -35,7 +35,7 @@ export default function PlataformasSection() {
         <Box sx={{ mb: 8 }}>
           <Typography variant="h2" component="h2" sx={{ mb: 2 }}>
             {t('platforms.title')}{' '}
-            <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+            <Box component="em" sx={{ color: 'primary.main' }}>
               {t('platforms.titleHighlight')}
             </Box>
           </Typography>
@@ -48,7 +48,7 @@ export default function PlataformasSection() {
           <Typography
             variant="h4"
             component="h3"
-            sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
+            sx={{ mb: 4, fontFamily: 'var(--font-unbounded)' }}
           >
             {t('platforms.ecommerce')}
           </Typography>
@@ -98,6 +98,7 @@ export default function PlataformasSection() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
+                        mx: { xs: 'auto', md: 0 },
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
                         position: 'relative',
@@ -144,7 +145,7 @@ export default function PlataformasSection() {
           <Typography
             variant="h4"
             component="h3"
-            sx={{ mb: 4, fontFamily: 'var(--font-epilogue)' }}
+            sx={{ mb: 4, fontFamily: 'var(--font-unbounded)' }}
           >
             {t('platforms.web')}
           </Typography>
@@ -178,6 +179,7 @@ export default function PlataformasSection() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         mb: 2,
+                        mx: { xs: 'auto', md: 0 },
                         filter: 'grayscale(1)',
                         transition: 'filter 0.3s ease',
                         position: 'relative',

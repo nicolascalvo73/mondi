@@ -2,37 +2,35 @@
 
 export default function BlogLoading() {
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
-      {/* Header skeleton */}
-      <div style={{ 
-        width: '120px',
-        height: '48px',
-        backgroundColor: '#f0f0f0',
-        borderRadius: '8px',
+    <div style={{ maxWidth: '75rem', margin: '0 auto', padding: '4rem 2rem' }}>
+      <div style={{
+        width: '7.5rem',
+        height: '3rem',
+        backgroundColor: '#f0ede9',
+        borderRadius: '1rem',
         marginBottom: '0.5rem',
         animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       }} />
-      <div style={{ 
-        width: '400px',
-        height: '28px',
-        backgroundColor: '#f0f0f0',
-        borderRadius: '8px',
+      <div style={{
+        width: '25rem',
+        height: '1.75rem',
+        backgroundColor: '#f0ede9',
+        borderRadius: '1rem',
         marginBottom: '3rem',
         animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       }} />
-      
-      {/* Cards skeleton */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
-        gap: '2rem' 
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
+        gap: '2rem'
       }}>
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div 
+          <div
             key={i}
-            style={{ 
-              border: '1px solid #e0e0e0',
-              borderRadius: '12px',
+            style={{
+              border: '0.0625rem solid rgba(224, 191, 180, 0.25)',
+              borderRadius: '1rem',
               padding: '1.5rem',
               display: 'flex',
               flexDirection: 'column',
@@ -40,50 +38,33 @@ export default function BlogLoading() {
               backgroundColor: '#fff',
             }}
           >
-            {/* Title skeleton */}
-            <div style={{ 
+            <div style={{
               width: '80%',
-              height: '24px',
-              backgroundColor: '#f0f0f0',
-              borderRadius: '6px',
+              height: '1.5rem',
+              backgroundColor: '#f0ede9',
+              borderRadius: '0.375rem',
               animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               animationDelay: `${i * 0.1}s`
             }} />
-            
-            {/* Excerpt skeleton */}
+
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ 
-                width: '100%',
-                height: '16px',
-                backgroundColor: '#f0f0f0',
-                borderRadius: '4px',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                animationDelay: `${i * 0.1}s`
-              }} />
-              <div style={{ 
-                width: '90%',
-                height: '16px',
-                backgroundColor: '#f0f0f0',
-                borderRadius: '4px',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                animationDelay: `${i * 0.1}s`
-              }} />
-              <div style={{ 
-                width: '70%',
-                height: '16px',
-                backgroundColor: '#f0f0f0',
-                borderRadius: '4px',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                animationDelay: `${i * 0.1}s`
-              }} />
+              {[1, 2, 3].map((j) => (
+                <div key={j} style={{
+                  width: j === 3 ? '70%' : j === 2 ? '90%' : '100%',
+                  height: '1rem',
+                  backgroundColor: '#f0ede9',
+                  borderRadius: '0.25rem',
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  animationDelay: `${i * 0.1}s`
+                }} />
+              ))}
             </div>
-            
-            {/* Date skeleton */}
-            <div style={{ 
-              width: '120px',
-              height: '14px',
-              backgroundColor: '#f0f0f0',
-              borderRadius: '4px',
+
+            <div style={{
+              width: '7.5rem',
+              height: '0.875rem',
+              backgroundColor: '#f0ede9',
+              borderRadius: '0.25rem',
               animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               animationDelay: `${i * 0.1}s`
             }} />
@@ -93,12 +74,8 @@ export default function BlogLoading() {
 
       <style jsx>{`
         @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
         }
       `}</style>
     </div>

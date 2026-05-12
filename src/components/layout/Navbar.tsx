@@ -25,11 +25,12 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useThemeMode } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useTranslations } from '@/lib/useTranslations'
+import FlagIcon from '@/components/FlagIcon'
 
-const flagEmojis = {
-  es: '🇦🇷',
-  pt: '🇧🇷',
-  en: '🇺🇸',
+const flagCodes: Record<string, 'ar' | 'br' | 'us'> = {
+  es: 'ar',
+  pt: 'br',
+  en: 'us',
 }
 
 export default function Navbar() {
@@ -113,7 +114,7 @@ export default function Navbar() {
               href="#hero"
               onClick={handleSmoothScroll}
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-unbounded)',
                 fontWeight: 700,
                 fontSize: '1.125rem',
                 color: 'text.primary',
@@ -162,10 +163,11 @@ export default function Navbar() {
                 width: '2.5rem',
                 height: '2.5rem',
                 minHeight: '2.5rem',
-                fontSize: '1.25rem',
+                overflow: 'hidden',
+                p: 0,
               }}
             >
-              {flagEmojis[language]}
+              <FlagIcon code={flagCodes[language]} size={40} />
             </Fab>
             <Fab
               size="small"
@@ -252,10 +254,11 @@ export default function Navbar() {
                 width: '2.5rem',
                 height: '2.5rem',
                 minHeight: '2.5rem',
-                fontSize: '1.25rem',
+                overflow: 'hidden',
+                p: 0,
               }}
             >
-              {flagEmojis[language]}
+              <FlagIcon code={flagCodes[language]} size={40} />
             </Fab>
             <Fab
               size="small"

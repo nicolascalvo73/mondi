@@ -41,7 +41,7 @@ export default function PreciosSection() {
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
           {t('pricing.title')}{' '}
-          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+          <Box component="em" sx={{ color: 'primary.main' }}>
             {t('pricing.titleHighlight')}
           </Box>
         </Typography>
@@ -140,7 +140,7 @@ export default function PreciosSection() {
           <Typography
             variant="h4"
             component="h3"
-            sx={{ mb: 3, fontFamily: 'var(--font-epilogue)' }}
+            sx={{ mb: 3, fontFamily: 'var(--font-unbounded)' }}
           >
             {t('pricing.maintenance.title')}
           </Typography>

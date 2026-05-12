@@ -20,7 +20,7 @@ const components: PortableTextComponents = {
         sx={{
           mt: '3rem',
           mb: '1rem',
-          fontFamily: 'var(--font-epilogue)',
+          fontFamily: 'var(--font-unbounded)',
         }}
       >
         {children}
@@ -33,7 +33,7 @@ const components: PortableTextComponents = {
         sx={{
           mt: '2rem',
           mb: '0.75rem',
-          fontFamily: 'var(--font-epilogue)',
+          fontFamily: 'var(--font-unbounded)',
         }}
       >
         {children}

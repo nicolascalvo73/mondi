@@ -20,10 +20,10 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
       href={`/blog/${post.slug.current}`}
       style={{ textDecoration: 'none' }}
     >
-      <article 
+      <article
         style={{
-          border: '1px solid #e0e0e0',
-          borderRadius: '12px',
+          border: '0.0625rem solid rgba(224, 191, 180, 0.25)',
+          borderRadius: '1rem',
           overflow: 'hidden',
           height: '100%',
           display: 'flex',
@@ -31,9 +31,9 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           transition: 'all 0.2s',
           cursor: 'pointer',
           backgroundColor: '#fff',
-          borderColor: isHovered ? '#E8622A' : '#e0e0e0',
-          transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
-          boxShadow: isHovered ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+          borderColor: isHovered ? '#E8622A' : 'rgba(224, 191, 180, 0.25)',
+          transform: isHovered ? 'translateY(-0.125rem)' : 'translateY(0)',
+          boxShadow: isHovered ? '0 0.25rem 0.75rem rgba(0,0,0,0.1)' : 'none',
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -41,7 +41,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         {post.mainImage?.asset && (
           <div style={{
             width: '100%',
-            height: '200px',
+            height: '12.5rem',
             overflow: 'hidden',
             backgroundColor: '#f5f5f5',
           }}>
@@ -66,7 +66,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             fontWeight: 700,
             marginBottom: '0.75rem',
             color: '#1a1a1a',
-            fontFamily: 'var(--font-epilogue), sans-serif'
+            fontFamily: 'var(--font-unbounded), sans-serif'
           }}>
             {post.title}
           </h2>
@@ -78,7 +78,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             lineHeight: 1.6,
             marginBottom: '1rem',
             flex: 1,
-            fontFamily: 'var(--font-jakarta), sans-serif'
+            fontFamily: 'var(--font-inter), sans-serif'
           }}>
             {post.excerpt}
           </p>
@@ -88,7 +88,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           <time style={{
             fontSize: '0.875rem',
             color: '#999',
-            fontFamily: 'var(--font-jakarta), sans-serif'
+            fontFamily: 'var(--font-inter), sans-serif'
           }}>
             {formatDate(post.publishedAt, language, {
               year: 'numeric',

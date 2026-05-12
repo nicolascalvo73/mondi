@@ -84,7 +84,7 @@ export default function ContactoSection() {
             <Grid item xs={12} md={6} sx={{ p: 10 }}>
               <Typography variant="h2" component="h2" sx={{ mb: 2, color: '#f3f0eb' }}>
                 {t('contact.title')}{' '}
-                <Box component="em" sx={{ fontStyle: 'italic', color: '#ffb59a' }}>
+                <Box component="em" sx={{ color: '#ffb59a' }}>
                   {t('contact.titleHighlight')}
                 </Box>
               </Typography>
@@ -279,7 +279,7 @@ export default function ContactoSection() {
                 >
                   <Typography
                     sx={{
-                      fontFamily: 'var(--font-epilogue)',
+                      fontFamily: 'var(--font-unbounded)',
                       fontSize: '1.5rem',
                       fontStyle: 'italic',
                       color: 'primary.contrastText',

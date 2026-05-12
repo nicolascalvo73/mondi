@@ -45,7 +45,7 @@ export default function ProcesoSection() {
           sx={{ mb: 2, textAlign: 'center', color: 'inherit' }}
         >
           {t('process.title')}{' '}
-          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+          <Box component="em" sx={{ color: 'primary.main' }}>
             {t('process.titleHighlight')}
           </Box>
         </Typography>
@@ -68,7 +68,7 @@ export default function ProcesoSection() {
               <Box sx={{ position: 'relative' }}>
                 <Typography
                   sx={{
-                    fontFamily: 'var(--font-epilogue)',
+                    fontFamily: 'var(--font-unbounded)',
                     fontSize: 'clamp(5rem, 10vw, 8rem)',
                     fontWeight: 700,
                     color: 'rgba(248, 245, 240, 0.06)',

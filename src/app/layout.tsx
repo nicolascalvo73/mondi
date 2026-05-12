@@ -1,22 +1,21 @@
 import type { Metadata } from 'next'
-import { Epilogue, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Unbounded, Inter, JetBrains_Mono } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
 import { LanguageContextProvider } from '@/lib/LanguageContext'
 import ThemeRegistry from '@/lib/ThemeRegistry'
 
-const epilogue = Epilogue({
+const unbounded = Unbounded({
   subsets: ['latin'],
-  variable: '--font-epilogue',
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
+  variable: '--font-unbounded',
+  weight: ['400', '700', '900'],
   display: 'swap',
 })
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-jakarta',
+  variable: '--font-inter',
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
@@ -114,7 +113,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${epilogue.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
+    <html lang="es" className={`${unbounded.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body suppressHydrationWarning>
         <a className="skip-link" href="#main-content">
           Ir al contenido principal

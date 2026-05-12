@@ -34,7 +34,7 @@ export default function TestimoniosSection() {
       <Container maxWidth="lg">
         <Typography variant="h2" component="h2" sx={{ mb: 2, textAlign: 'center' }}>
           {t('testimonials.title')}{' '}
-          <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+          <Box component="em" sx={{ color: 'primary.main' }}>
             {t('testimonials.titleHighlight')}
           </Box>
         </Typography>
@@ -79,7 +79,7 @@ export default function TestimoniosSection() {
                   <Typography
                     variant="body1"
                     sx={{
-                      fontFamily: 'var(--font-epilogue)',
+                      fontFamily: 'var(--font-unbounded)',
                       fontStyle: 'italic',
                       color: 'text.secondary',
                       mb: 3,

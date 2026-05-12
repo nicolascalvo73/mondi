@@ -23,8 +23,10 @@ export default function HeroSection() {
             <Chip
               label={t('hero.location')}
               sx={{
-                backgroundColor: '#cfe8dc',
-                color: '#354b43',
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                color: (theme) =>
+                  theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                 mb: 3,
               }}
             />
@@ -77,7 +79,7 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src="/Gemini_Generated_Image_xregmqxregmqxreg.png"
+                src="/Gemini_Generated_Image_xregmqxregmqxreg copy.png"
                 alt="Mondi Studio"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -108,7 +110,7 @@ export default function HeroSection() {
                 </Typography>
                 <Typography
                   sx={{
-                    fontFamily: 'var(--font-epilogue)',
+                    fontFamily: 'var(--font-unbounded)',
                     fontStyle: 'italic',
                     fontSize: '0.9375rem',
                   }}
