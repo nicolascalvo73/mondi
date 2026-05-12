@@ -56,7 +56,7 @@ export default function SobreMiSection() {
           <Grid item xs={12} md={7}>
             <Typography variant="h2" component="h2" sx={{ mb: 3 }}>
               {t('about.title')}{' '}
-              <Box component="em" sx={{ fontStyle: 'italic', color: 'primary.main' }}>
+              <Box component="em" sx={{ color: 'primary.main' }}>
                 {t('about.titleHighlight')}
               </Box>
             </Typography>
@@ -87,12 +87,15 @@ export default function SobreMiSection() {
                     icon={<IconComponent />}
                     label={valor.texto}
                     sx={{
-                      backgroundColor: '#cfe8dc',
-                      color: '#354b43',
+                      backgroundColor: (theme) =>
+                        theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                      color: (theme) =>
+                        theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                       fontWeight: 600,
                       px: 1,
                       '& .MuiChip-icon': {
-                        color: '#354b43',
+                        color: (theme) =>
+                          theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                       },
                     }}
                   />

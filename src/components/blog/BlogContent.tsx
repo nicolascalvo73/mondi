@@ -51,7 +51,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
           <p style={{ 
             fontSize: '1.125rem', 
             color: '#666',
-            fontFamily: 'var(--font-jakarta), sans-serif'
+            fontFamily: 'var(--font-inter), sans-serif'
           }}>
             No hay posts en esta categoría.
           </p>

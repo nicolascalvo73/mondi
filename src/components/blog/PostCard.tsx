@@ -131,7 +131,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             <Typography
               variant="h2"
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-unbounded)',
                 fontSize: { xs: '1.875rem', md: '2.25rem' },
                 fontWeight: 700,
                 lineHeight: 1.2,
@@ -279,7 +279,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           <Typography
             variant="h3"
             sx={{
-              fontFamily: 'var(--font-epilogue)',
+              fontFamily: 'var(--font-unbounded)',
               fontSize: '1.5rem',
               fontWeight: 700,
               lineHeight: 1.3,

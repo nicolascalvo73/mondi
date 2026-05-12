@@ -27,7 +27,7 @@ export default function CategoryFilter({
         onClick={() => onSelectCategory(null)}
         color={selectedCategory === null ? 'primary' : 'default'}
         sx={{
-          fontFamily: 'var(--font-jakarta), sans-serif',
+          fontFamily: 'var(--font-inter), sans-serif',
           fontWeight: selectedCategory === null ? 600 : 400,
           cursor: 'pointer',
           '&:hover': {
@@ -42,7 +42,7 @@ export default function CategoryFilter({
           onClick={() => onSelectCategory(category)}
           color={selectedCategory === category ? 'primary' : 'default'}
           sx={{
-            fontFamily: 'var(--font-jakarta), sans-serif',
+            fontFamily: 'var(--font-inter), sans-serif',
             fontWeight: selectedCategory === category ? 600 : 400,
             cursor: 'pointer',
             '&:hover': {

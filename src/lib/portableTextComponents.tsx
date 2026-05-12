@@ -11,7 +11,7 @@ export const portableTextComponents: PortableTextComponents = {
         marginBottom: '1rem',
         lineHeight: 1.3,
         color: '#1a1a1a',
-        fontFamily: 'var(--font-epilogue), sans-serif'
+        fontFamily: 'var(--font-unbounded), sans-serif'
       }}>
         {children}
       </h2>
@@ -24,7 +24,7 @@ export const portableTextComponents: PortableTextComponents = {
         marginBottom: '0.75rem',
         lineHeight: 1.4,
         color: '#1a1a1a',
-        fontFamily: 'var(--font-epilogue), sans-serif'
+        fontFamily: 'var(--font-unbounded), sans-serif'
       }}>
         {children}
       </h3>
@@ -49,7 +49,7 @@ export const portableTextComponents: PortableTextComponents = {
         marginBottom: '1.25rem',
         lineHeight: 1.8,
         color: '#333',
-        fontFamily: 'var(--font-jakarta), sans-serif'
+        fontFamily: 'var(--font-inter), sans-serif'
       }}>
         {children}
       </p>
@@ -62,7 +62,7 @@ export const portableTextComponents: PortableTextComponents = {
         marginBottom: '1.5rem',
         paddingLeft: '1.5rem',
         lineHeight: 1.8,
-        fontFamily: 'var(--font-jakarta), sans-serif'
+        fontFamily: 'var(--font-inter), sans-serif'
       }}>
         {children}
       </ul>
@@ -73,7 +73,7 @@ export const portableTextComponents: PortableTextComponents = {
         marginBottom: '1.5rem',
         paddingLeft: '1.5rem',
         lineHeight: 1.8,
-        fontFamily: 'var(--font-jakarta), sans-serif'
+        fontFamily: 'var(--font-inter), sans-serif'
       }}>
         {children}
       </ol>
@@ -137,7 +137,7 @@ export const portableTextComponents: PortableTextComponents = {
               style={{
                 width: '100%',
                 height: 'auto',
-                borderRadius: '8px',
+                borderRadius: '0.5rem',
                 display: 'block'
               }}
             />
@@ -148,7 +148,7 @@ export const portableTextComponents: PortableTextComponents = {
                 color: '#666',
                 textAlign: 'center',
                 fontStyle: 'italic',
-                fontFamily: 'var(--font-jakarta), sans-serif'
+                fontFamily: 'var(--font-inter), sans-serif'
               }}>
                 {value.caption}
               </figcaption>

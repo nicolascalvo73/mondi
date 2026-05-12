@@ -35,7 +35,7 @@ export default function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-unbounded)',
                 fontWeight: 700,
                 mb: 2,
               }}
@@ -85,7 +85,7 @@ export default function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontFamily: 'var(--font-epilogue)',
+                fontFamily: 'var(--font-unbounded)',
                 fontWeight: 700,
                 mb: 2,
               }}
