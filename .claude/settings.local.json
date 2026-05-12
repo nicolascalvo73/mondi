@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "Bash(xargs sed -i 's/font-epilogue/font-unbounded/g; s/font-jakarta/font-inter/g')"
+      "Bash(xargs sed -i 's/font-epilogue/font-unbounded/g; s/font-jakarta/font-inter/g')",
+      "Bash(npm show *)",
+      "Bash(npm install *)"
     ]
   }
 }
