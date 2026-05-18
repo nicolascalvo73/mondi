@@ -4,6 +4,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
 import { LanguageContextProvider } from '@/lib/LanguageContext'
+import { DolarBlueProvider } from '@/lib/DolarBlueContext'
 import ThemeRegistry from '@/lib/ThemeRegistry'
 
 const unbounded = Unbounded({
@@ -29,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Mondi Studio — Diseño Web Profesional en Argentina',
+    default: 'Mondi Studio',
     template: '%s | Mondi Studio',
   },
   description: 'Diseño y desarrollo web profesional para negocios en toda Argentina. Landings, tiendas online (Tienda Nube, Shopify, VTEX, WooCommerce) y webs institucionales para PyMEs y profesionales. Entrega rápida, precios claros, sin estructuras de agencia.',
@@ -70,14 +71,14 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.mondistudio.com.ar',
     siteName: 'Mondi Studio',
-    title: 'Mondi Studio — Diseño Web Profesional en Argentina',
+    title: 'Mondi Studio',
     description: 'Landings, tiendas online y webs para negocios en toda Argentina. Comunicación directa, precios transparentes, sin estructuras de agencia.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Mondi Studio — Diseño web profesional en Argentina',
+        alt: 'Mondi Studio',
         type: 'image/png',
       },
     ],
@@ -120,12 +121,14 @@ export default function RootLayout({
         </a>
         <AppRouterCacheProvider>
           <LanguageContextProvider>
-            <ThemeContextProvider>
-              <ThemeRegistry>
-                <CssBaseline />
-                {children}
-              </ThemeRegistry>
-            </ThemeContextProvider>
+            <DolarBlueProvider>
+              <ThemeContextProvider>
+                <ThemeRegistry>
+                  <CssBaseline />
+                  {children}
+                </ThemeRegistry>
+              </ThemeContextProvider>
+            </DolarBlueProvider>
           </LanguageContextProvider>
         </AppRouterCacheProvider>
         <script
