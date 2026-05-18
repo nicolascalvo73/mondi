@@ -3,9 +3,31 @@
 import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { useTranslations } from '@/lib/useTranslations'
+import { useDolarBlue } from '@/lib/DolarBlueContext'
+
+function toARS(usdString: string, venta: number): string | null {
+  const match = usdString.match(/USD\s*([\d.]+)/)
+  if (!match) return null
+  const usd = parseFloat(match[1])
+  const ars = Math.round(usd * venta)
+  return `$ ${ars.toLocaleString('es-AR')}`
+}
 
 export default function PreciosSection() {
-  const { t } = useTranslations()
+  const { t, language } = useTranslations()
+  const { dolarBlue } = useDolarBlue()
+  const showARS = language === 'es' && dolarBlue !== null
+
+  const displayPrice = (usdString: string) => {
+    if (!showARS) return usdString
+    return toARS(usdString, dolarBlue!.venta) ?? usdString
+  }
+
+  const displayMaintPrice = (usdString: string) => {
+    if (!showARS) return usdString
+    const ars = toARS(usdString, dolarBlue!.venta)
+    return ars ? `${ars}/mes` : usdString
+  }
   
   const planes = [
     {
@@ -107,7 +129,7 @@ export default function PreciosSection() {
                         color: 'primary.main',
                       }}
                     >
-                      {plan.precio}
+                      {displayPrice(plan.precio)}
                     </Typography>
                   </Box>
                   <Typography variant="body2" sx={{ mb: 4, color: 'text.secondary' }}>
@@ -155,7 +177,7 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                {t('pricing.maintenance.basic.price')}
+                {displayMaintPrice(t('pricing.maintenance.basic.price'))}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {t('pricing.maintenance.basic.name')}
@@ -179,7 +201,7 @@ export default function PreciosSection() {
                   mb: 1,
                 }}
               >
-                {t('pricing.maintenance.premium.price')}
+                {displayMaintPrice(t('pricing.maintenance.premium.price'))}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {t('pricing.maintenance.premium.name')}
