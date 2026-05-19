@@ -1,22 +1,21 @@
 # Configuración de Cloudflare Pages
 
-Este proyecto usa Next.js con `output: 'export'` para generar un sitio estático.
-
 ## Configuración en Cloudflare Pages Dashboard
 
 ### Build Settings:
-- **Framework preset**: None (o Next.js Static HTML Export)
-- **Build command**: `npm run build`
-- **Build output directory**: `out`
+- **Framework preset**: Next.js
+- **Build command**: `bash build.sh`
+- **Build output directory**: `.next`
 - **Root directory**: `/`
 
 ### Environment Variables:
-Agregar las siguientes variables de entorno en Cloudflare Pages:
+```
+NODE_VERSION=20
+GITHUB_TOKEN=<personal_access_token_con_acceso_a_mondilabs>
+```
 
-```
-NODE_VERSION=18.17.0
-NPM_FLAGS=--legacy-peer-deps
-```
+> `GITHUB_TOKEN` solo es necesario si `mondilabs` es un repo privado.
+> Crear en GitHub: Settings → Developer settings → Personal access tokens → con permiso `repo`.
 
 ### Variables de entorno de la aplicación:
 ```
@@ -25,29 +24,17 @@ NEXT_PUBLIC_EMAIL=tu_email_aqui
 NEXT_PUBLIC_WHATSAPP=tu_numero_aqui
 ```
 
-## Notas Importantes
+## Cómo funciona el embed de mondilabs
 
-1. **NO usar @cloudflare/next-on-pages**: Este proyecto usa static export, no necesita adaptadores de Cloudflare.
+`build.sh` hace:
+1. Clona `mondilabs` y lo compila (Vite, con `base: '/labs/'`)
+2. Copia el dist a `public/labs/`
+3. Compila mondi (Next.js) — incluye `public/labs/` en el deploy
 
-2. **El archivo `.npmrc`** contiene `legacy-peer-deps=true` para resolver conflictos de dependencias durante el build.
-
-3. **El directorio de salida es `out/`**: Cloudflare Pages debe servir los archivos desde este directorio.
-
-4. **Imágenes no optimizadas**: Las imágenes usan `unoptimized: true` porque el static export no soporta optimización de imágenes de Next.js.
-
-## Troubleshooting
-
-Si el build falla con errores de dependencias:
-- Verificar que `NPM_FLAGS=--legacy-peer-deps` esté configurado en las variables de entorno
-- Verificar que el archivo `.npmrc` esté en el repositorio
-- Asegurar que `NODE_VERSION=18.17.0` esté configurado
+Cloudflare sirve `/labs/` desde `public/labs/index.html` directamente.
 
 ## Deploy Manual
 
-Para probar el build localmente:
 ```bash
-npm install --legacy-peer-deps
-npm run build
+bash build.sh
 ```
-
-El sitio estático estará en el directorio `out/`
