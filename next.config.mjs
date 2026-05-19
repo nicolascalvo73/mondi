@@ -10,6 +10,15 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['@sanity/vision', 'sanity'],
+  async redirects() {
+    return [
+      {
+        source: '/labs',
+        destination: '/labs/',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 export default nextConfig
