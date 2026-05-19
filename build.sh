@@ -18,6 +18,4 @@ mkdir -p public/labs
 cp -r _mondilabs_temp/dist/. public/labs/
 rm -rf _mondilabs_temp
 
-# Build mondi (Next.js)
-npm install --legacy-peer-deps
 npm run build
