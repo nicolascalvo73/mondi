@@ -17,15 +17,43 @@ import {
   Avatar,
   Typography,
   Fab,
+  keyframes,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
+import Image from 'next/image'
 import { useThemeMode } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useTranslations } from '@/lib/useTranslations'
 import FlagIcon from '@/components/FlagIcon'
+
+const labsCrazy = keyframes`
+  0%   { transform: scale(1)    rotate(0deg);   filter: hue-rotate(0deg)   drop-shadow(0 0 4px #863bff); }
+  10%  { transform: scale(1.22) rotate(-18deg); filter: hue-rotate(60deg)  drop-shadow(0 0 14px #ff3b8a); }
+  20%  { transform: scale(0.82) rotate(24deg);  filter: hue-rotate(120deg) drop-shadow(0 0 8px  #3bffe0); }
+  30%  { transform: scale(1.3)  rotate(-30deg); filter: hue-rotate(180deg) drop-shadow(0 0 18px #ffcc3b); }
+  40%  { transform: scale(0.88) rotate(32deg);  filter: hue-rotate(240deg) drop-shadow(0 0 6px  #ff3b3b); }
+  52%  { transform: scale(1.18) rotate(-12deg); filter: hue-rotate(300deg) drop-shadow(0 0 22px #3b8aff); }
+  64%  { transform: scale(0.92) rotate(18deg);  filter: hue-rotate(360deg) drop-shadow(0 0 10px #863bff); }
+  76%  { transform: scale(1.12) rotate(-22deg); filter: hue-rotate(300deg) drop-shadow(0 0 16px #ff3baa); }
+  88%  { transform: scale(1.05) rotate(8deg);   filter: hue-rotate(60deg)  drop-shadow(0 0 28px #863bff); }
+  100% { transform: scale(1)    rotate(0deg);   filter: hue-rotate(0deg)   drop-shadow(0 0 4px  #863bff); }
+`
+
+const labsFab = {
+  width: '2.5rem',
+  height: '2.5rem',
+  minHeight: '2.5rem',
+  overflow: 'hidden',
+  p: 0,
+  background: 'linear-gradient(135deg, #863bff 0%, #47bfff 100%)',
+  '&:hover': {
+    animation: `${labsCrazy} 0.7s ease-in-out infinite`,
+    background: 'linear-gradient(135deg, #863bff 0%, #47bfff 100%)',
+  },
+}
 
 const flagCodes: Record<string, 'ar' | 'br' | 'us'> = {
   es: 'ar',
@@ -182,6 +210,15 @@ export default function Navbar() {
             >
               {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
             </Fab>
+            <Fab
+              size="small"
+              component="a"
+              href="/labs"
+              aria-label="Ir a Mondi Labs"
+              sx={labsFab}
+            >
+              <Image src="/mondilabs-icon.svg" alt="Mondi Labs" width={28} height={28} />
+            </Fab>
           </Box>
 
           <IconButton
@@ -272,6 +309,15 @@ export default function Navbar() {
               }}
             >
               {mode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+            </Fab>
+            <Fab
+              size="small"
+              component="a"
+              href="/labs"
+              aria-label="Ir a Mondi Labs"
+              sx={labsFab}
+            >
+              <Image src="/mondilabs-icon.svg" alt="Mondi Labs" width={28} height={28} />
             </Fab>
           </ListItem>
         </List>
