@@ -10,22 +10,6 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['@sanity/vision', 'sanity'],
-  async redirects() {
-    return [
-      {
-        source: '/labs',
-        destination: '/labs/',
-        permanent: false,
-      },
-    ]
-  },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        { source: '/labs/', destination: '/labs/index.html' },
-      ],
-    }
-  },
 }
 
 export default nextConfig
