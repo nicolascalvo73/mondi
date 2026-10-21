@@ -3,7 +3,7 @@
     "services": "Servicios",
     "process": "Proceso",
     "platforms": "Plataformas",
-    "pricing": "Precios",
+    "pricing": "Planes",
     "blog": "Blog",
     "about": "Sobre mí",
     "contact": "Hablemos"
@@ -38,6 +38,14 @@
       "title": "Software a medida",
       "description": "Sistemas web personalizados. CRMs, dashboards, integraciones y más.",
       "features": ["Sistemas", "ERPs", "Dashboards", "Integraciones"]
+    },
+    "reservations": {
+      "title": "Reservas y turnos",
+      "description": "Tu agenda online, con reservas y cobro de seña. Tus clientes sacan turno solos, las 24 horas."
+    },
+    "events": {
+      "title": "Eventos y congresos",
+      "description": "Landing para tu evento con venta de entradas y acreditaciones integrada."
     }
   },
   "process": {
@@ -91,14 +99,13 @@
     }
   },
   "pricing": {
-    "title": "Precios",
-    "titleHighlight": "transparentes",
-    "subtitle": "Sin sorpresas ni costos ocultos. Sabés exactamente qué estás pagando.",
-    "from": "desde",
+    "title": "Presupuestos",
+    "titleHighlight": "claros",
+    "subtitle": "Cada proyecto es distinto. Contame qué necesitás y te paso una cotización cerrada, sin sorpresas ni costos ocultos.",
+    "quoteCta": "Contactame para cotizar",
     "plans": {
       "landing": {
         "name": "Landing Page",
-        "price": "USD 400",
         "description": "Ideal para lanzar un producto o servicio",
         "features": [
           "Diseño responsive",
@@ -110,7 +117,6 @@
       },
       "website": {
         "name": "Web completa",
-        "price": "USD 800",
         "description": "Para empresas que necesitan presencia profesional",
         "badge": "El más elegido",
         "features": [
@@ -125,7 +131,6 @@
       },
       "ecommerce": {
         "name": "Tienda Online",
-        "price": "USD 600",
         "description": "Configuración completa de tu e-commerce",
         "features": [
           "Setup en plataforma elegida",
@@ -134,12 +139,35 @@
           "Medios de pago",
           "Capacitación completa"
         ]
+      },
+      "reservations": {
+        "name": "Reservas y turnos",
+        "description": "Para centros de estética, peluquerías, consultorios y cualquier negocio que trabaje con agenda.",
+        "features": [
+          "Landing personalizada",
+          "Agenda online integrada",
+          "Reserva por servicio y profesional",
+          "Cobro de seña con Mercado Pago",
+          "Confirmación y recordatorio automático",
+          "Capacitación de uso"
+        ]
+      },
+      "events": {
+        "name": "Eventos y congresos",
+        "description": "Para congresos, convenciones, jornadas y eventos con inscripción o venta de entradas.",
+        "features": [
+          "Landing del evento con agenda y oradores",
+          "Venta de entradas o acreditaciones",
+          "Distintos tipos de ticket (general, VIP, estudiante)",
+          "Cobro online",
+          "Gestión de inscriptos",
+          "Diseño responsive"
+        ]
       }
     },
     "maintenance": {
       "title": "Add-on: Mantenimiento mensual",
       "basic": {
-        "price": "USD 60/mes",
         "name": "Mantenimiento básico",
         "features": [
           "Actualizaciones de seguridad",
@@ -148,7 +176,6 @@
         ]
       },
       "premium": {
-        "price": "USD 120/mes",
         "name": "Mantenimiento premium",
         "features": [
           "Todo lo del plan básico",
@@ -159,77 +186,7 @@
       }
     },
     "vtexNote": "Proyectos VTEX Enterprise: presupuesto personalizado según alcance y complejidad.",
-    "paymentNote": "Precios en dólares estadounidenses. Método de pago: transferencia, Mercado Pago, PayPal, crypto."
-  },
-  "testimonials": {
-    "title": "Lo que dicen",
-    "titleHighlight": "mis clientes",
-    "subtitle": "Proyectos reales, clientes reales, resultados reales.",
-    "clients": [
-      {
-        "name": "María González",
-        "role": "Dueña",
-        "company": "Café del Centro · Córdoba",
-        "text": "Necesitaba una web rápido para mi cafetería y Mondi la entregó en dos semanas. Quedó hermosa y mis clientes la usan para ver el menú y reservar.",
-        "initials": "MG"
-      },
-      {
-        "name": "Lucas Fernández",
-        "role": "Fundador",
-        "company": "Tienda Verde · Villa María",
-        "text": "Configuró mi Tienda Nube completa, subió los productos y me enseñó a gestionarla. Ahora vendo online sin depender de nadie y sin las comisiones de mercadolibre.",
-        "initials": "LF"
-      },
-      {
-        "name": "Ana Rodríguez",
-        "role": "Directora",
-        "company": "Estudio Jurídico · Córdoba",
-        "text": "Comunicación directa, sin vueltas. Me explicó todo y siempre respondió rápido. La web quedó exactamente como la imaginaba. Tengo un sitio web profesional y funcional de primer nivel.",
-        "initials": "AR"
-      },
-      {
-        "name": "Carlos Martínez",
-        "role": "CEO",
-        "company": "TechSolutions · Buenos Aires",
-        "text": "Desarrolló nuestra plataforma VTEX con integraciones complejas. El nivel técnico es excelente y cumplió con todos los plazos. Muy profesional.",
-        "initials": "CM"
-      },
-      {
-        "name": "Sofía Pérez",
-        "role": "Propietaria",
-        "company": "Boutique Luna · Rosario",
-        "text": "Mi tienda Shopify quedó increíble. Me ayudó con todo el setup, los pagos y hasta me capacitó para administrarla sola. Súper recomendable.",
-        "initials": "SP"
-      },
-      {
-        "name": "Diego Ramírez",
-        "role": "Gerente",
-        "company": "Consultora RH · Mendoza",
-        "text": "Hizo la web institucional de nuestra consultora en tiempo récord. Diseño moderno, rápida y con todo lo que necesitábamos. Excelente trabajo.",
-        "initials": "DR"
-      },
-      {
-        "name": "Valentina Torres",
-        "role": "Fundadora",
-        "company": "Estudio Creativo · Córdoba",
-        "text": "Necesitaba un portfolio que mostrara mis trabajos de forma profesional. El resultado superó mis expectativas. La web es hermosa y funciona perfecto.",
-        "initials": "VT"
-      },
-      {
-        "name": "Martín Silva",
-        "role": "Director",
-        "company": "Clínica Dental · San Juan",
-        "text": "Desarrolló el sistema de turnos online para nuestra clínica. Ahora los pacientes reservan desde la web y nos ahorramos horas de llamadas. Genial.",
-        "initials": "MS"
-      },
-      {
-        "name": "Laura Benítez",
-        "role": "Dueña",
-        "company": "Catering Empresarial · Salta",
-        "text": "Mi landing page quedó preciosa y ahora recibo pedidos por WhatsApp directo desde la web. Simple, efectivo y justo lo que necesitaba.",
-        "initials": "LB"
-      }
-    ]
+    "paymentNote": "Método de pago: transferencia, Mercado Pago, PayPal, crypto."
   },
   "about": {
     "title": "Sobre",

@@ -23,7 +23,8 @@ export default function SobreMiSection() {
       id="sobre-mi"
       sx={{
         py: 12,
-        backgroundColor: 'background.paper',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'light' ? '#f6f3ee' : '#1a1a17',
       }}
     >
       <Container maxWidth="lg">

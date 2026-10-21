@@ -4,7 +4,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
 import { LanguageContextProvider } from '@/lib/LanguageContext'
-import { DolarBlueProvider } from '@/lib/DolarBlueContext'
 import ThemeRegistry from '@/lib/ThemeRegistry'
 
 const unbounded = Unbounded({
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
     default: 'Mondi Studio',
     template: '%s | Mondi Studio',
   },
-  description: 'Diseño y desarrollo web profesional para negocios en toda Argentina. Landings, tiendas online (Tienda Nube, Shopify, VTEX, WooCommerce) y webs institucionales para PyMEs y profesionales. Entrega rápida, precios claros, sin estructuras de agencia.',
+  description: 'Diseño y desarrollo web para PyMEs argentinas: landings, tiendas online, reservas de turnos y venta de entradas para eventos. Presupuestos claros, sin agencia.',
   metadataBase: new URL('https://www.mondistudio.com.ar'),
   keywords: [
     'diseño web Argentina',
@@ -51,6 +50,9 @@ export const metadata: Metadata = {
     'diseño web Buenos Aires',
     'diseño web Rosario',
     'web profesional emprendedores Argentina',
+    'turnos online Argentina',
+    'reservas online estética',
+    'venta de entradas eventos Argentina',
     'Mondi Studio',
   ],
   authors: [{ name: 'Mondi Studio', url: 'https://www.mondistudio.com.ar' }],
@@ -77,7 +79,7 @@ export const metadata: Metadata = {
     url: 'https://www.mondistudio.com.ar',
     siteName: 'Mondi Studio',
     title: 'Mondi Studio',
-    description: 'Landings, tiendas online y webs para negocios en toda Argentina. Comunicación directa, precios transparentes, sin estructuras de agencia.',
+    description: 'Landings, tiendas online, reservas de turnos y venta de entradas para eventos. Comunicación directa, presupuestos claros, sin estructuras de agencia.',
     images: [
       {
         url: '/og-image.png',
@@ -91,7 +93,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mondi Studio — Diseño Web en Argentina',
-    description: 'Landings, tiendas online y webs para negocios en toda Argentina.',
+    description: 'Landings, tiendas online, reservas de turnos y venta de entradas para eventos, para negocios en toda Argentina.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -126,14 +128,12 @@ export default function RootLayout({
         </a>
         <AppRouterCacheProvider>
           <LanguageContextProvider>
-            <DolarBlueProvider>
-              <ThemeContextProvider>
-                <ThemeRegistry>
-                  <CssBaseline />
-                  {children}
-                </ThemeRegistry>
-              </ThemeContextProvider>
-            </DolarBlueProvider>
+            <ThemeContextProvider>
+              <ThemeRegistry>
+                <CssBaseline />
+                {children}
+              </ThemeRegistry>
+            </ThemeContextProvider>
           </LanguageContextProvider>
         </AppRouterCacheProvider>
         <script
@@ -197,6 +197,8 @@ export default function RootLayout({
                 'Configuración Shopify',
                 'Desarrollo VTEX',
                 'Mantenimiento web',
+                'Reservas y turnos online',
+                'Venta de entradas para eventos',
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
@@ -209,12 +211,6 @@ export default function RootLayout({
                       name: 'Landing Page profesional',
                       description: 'Página de aterrizaje optimizada para conversión con diseño personalizado, formulario de contacto y SEO básico incluido.',
                     },
-                    priceSpecification: {
-                      '@type': 'PriceSpecification',
-                      price: '300',
-                      priceCurrency: 'USD',
-                      minPrice: '300',
-                    },
                   },
                   {
                     '@type': 'Offer',
@@ -222,12 +218,6 @@ export default function RootLayout({
                       '@type': 'Service',
                       name: 'Web institucional',
                       description: 'Sitio web completo para empresas y profesionales. Hasta 5 secciones, blog, galería y SEO optimizado.',
-                    },
-                    priceSpecification: {
-                      '@type': 'PriceSpecification',
-                      price: '700',
-                      priceCurrency: 'USD',
-                      minPrice: '700',
                     },
                   },
                   {
@@ -237,12 +227,6 @@ export default function RootLayout({
                       name: 'Tienda online',
                       description: 'E-commerce completo en Tienda Nube, Shopify, WooCommerce o VTEX. Incluye medios de pago y capacitación.',
                     },
-                    priceSpecification: {
-                      '@type': 'PriceSpecification',
-                      price: '400',
-                      priceCurrency: 'USD',
-                      minPrice: '400',
-                    },
                   },
                   {
                     '@type': 'Offer',
@@ -251,11 +235,21 @@ export default function RootLayout({
                       name: 'Mantenimiento web mensual',
                       description: 'Mantenimiento, actualizaciones, backups y soporte continuo para tu web.',
                     },
-                    priceSpecification: {
-                      '@type': 'PriceSpecification',
-                      price: '80',
-                      priceCurrency: 'USD',
-                      minPrice: '80',
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Reservas y turnos online',
+                      description: 'Agenda online con reserva por servicio y profesional, cobro de seña con Mercado Pago y recordatorios automáticos.',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Eventos y congresos',
+                      description: 'Landing de evento con venta de entradas o acreditaciones, distintos tipos de ticket y gestión de inscriptos.',
                     },
                   },
                 ],
@@ -269,8 +263,6 @@ export default function RootLayout({
                 opens: '09:00',
                 closes: '18:00',
               },
-              priceRange: '$$',
-              currenciesAccepted: 'USD, ARS',
               paymentAccepted: 'Transferencia bancaria, Mercado Pago, PayPal, Crypto',
             }),
           }}

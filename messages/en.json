@@ -3,7 +3,7 @@
     "services": "Services",
     "process": "Process",
     "platforms": "Platforms",
-    "pricing": "Pricing",
+    "pricing": "Plans",
     "blog": "Blog",
     "about": "About me",
     "contact": "Let's talk"
@@ -38,6 +38,14 @@
       "title": "Custom software",
       "description": "Customized web systems. CRMs, dashboards, integrations and more.",
       "features": ["Systems", "ERPs", "Dashboards", "Integrations"]
+    },
+    "reservations": {
+      "title": "Bookings & appointments",
+      "description": "Your online schedule, with bookings and deposit payments. Your customers book themselves, 24/7."
+    },
+    "events": {
+      "title": "Events & conferences",
+      "description": "Landing page for your event with integrated ticket sales and credentials."
     }
   },
   "process": {
@@ -91,14 +99,13 @@
     }
   },
   "pricing": {
-    "title": "Transparent",
-    "titleHighlight": "pricing",
-    "subtitle": "No surprises or hidden costs. You know exactly what you're paying for.",
-    "from": "from",
+    "title": "Clear",
+    "titleHighlight": "quotes",
+    "subtitle": "Every project is different. Tell me what you need and I'll send you a closed quote, no surprises or hidden costs.",
+    "quoteCta": "Contact me for a quote",
     "plans": {
       "landing": {
         "name": "Landing Page",
-        "price": "USD 400",
         "description": "Ideal for launching a product or service",
         "features": [
           "Responsive design",
@@ -110,7 +117,6 @@
       },
       "website": {
         "name": "Complete website",
-        "price": "USD 800",
         "description": "For companies that need professional presence",
         "badge": "Most popular",
         "features": [
@@ -125,7 +131,6 @@
       },
       "ecommerce": {
         "name": "Online Store",
-        "price": "USD 600",
         "description": "Complete setup of your e-commerce",
         "features": [
           "Setup on chosen platform",
@@ -134,12 +139,35 @@
           "Payment methods",
           "Complete training"
         ]
+      },
+      "reservations": {
+        "name": "Bookings & appointments",
+        "description": "For beauty centers, hair salons, clinics and any business that works with a schedule.",
+        "features": [
+          "Custom landing page",
+          "Integrated online booking",
+          "Booking by service and professional",
+          "Deposit payment via Mercado Pago",
+          "Automatic confirmation and reminder",
+          "Usage training"
+        ]
+      },
+      "events": {
+        "name": "Events & conferences",
+        "description": "For conferences, conventions, workshops and events with registration or ticket sales.",
+        "features": [
+          "Event landing page with agenda and speakers",
+          "Ticket or credential sales",
+          "Different ticket types (general, VIP, student)",
+          "Online payment",
+          "Attendee management",
+          "Responsive design"
+        ]
       }
     },
     "maintenance": {
       "title": "Add-on: Monthly maintenance",
       "basic": {
-        "price": "USD 60/month",
         "name": "Basic maintenance",
         "features": [
           "Security updates",
@@ -148,7 +176,6 @@
         ]
       },
       "premium": {
-        "price": "USD 120/month",
         "name": "Premium maintenance",
         "features": [
           "Everything in basic plan",
@@ -159,77 +186,7 @@
       }
     },
     "vtexNote": "VTEX Enterprise projects: customized quote according to scope and complexity.",
-    "paymentNote": "Prices in US dollars. Payment method: wire transfer, Mercado Pago, PayPal, crypto."
-  },
-  "testimonials": {
-    "title": "What my",
-    "titleHighlight": "clients say",
-    "subtitle": "Real projects, real clients, real results.",
-    "clients": [
-      {
-        "name": "María González",
-        "role": "Owner",
-        "company": "Café del Centro · Córdoba",
-        "text": "I needed a website quickly for my coffee shop and Mondi delivered it in two weeks. It turned out beautiful and my customers use it to see the menu and make reservations.",
-        "initials": "MG"
-      },
-      {
-        "name": "Lucas Fernández",
-        "role": "Founder",
-        "company": "Tienda Verde · Villa María",
-        "text": "He set up my complete Tienda Nube, uploaded the products and taught me how to manage it. Now I sell online without depending on anyone and without marketplace commissions.",
-        "initials": "LF"
-      },
-      {
-        "name": "Ana Rodríguez",
-        "role": "Director",
-        "company": "Law Firm · Córdoba",
-        "text": "Direct communication, no nonsense. He explained everything and always responded quickly. The website turned out exactly as I imagined. I have a professional and functional first-class website.",
-        "initials": "AR"
-      },
-      {
-        "name": "Carlos Martínez",
-        "role": "CEO",
-        "company": "TechSolutions · Buenos Aires",
-        "text": "He developed our VTEX platform with complex integrations. The technical level is excellent and he met all deadlines. Very professional.",
-        "initials": "CM"
-      },
-      {
-        "name": "Sofía Pérez",
-        "role": "Owner",
-        "company": "Boutique Luna · Rosario",
-        "text": "My Shopify store turned out amazing. He helped me with all the setup, payments and even trained me to manage it myself. Highly recommended.",
-        "initials": "SP"
-      },
-      {
-        "name": "Diego Ramírez",
-        "role": "Manager",
-        "company": "HR Consulting · Mendoza",
-        "text": "He made our consulting firm's institutional website in record time. Modern design, fast and with everything we needed. Excellent work.",
-        "initials": "DR"
-      },
-      {
-        "name": "Valentina Torres",
-        "role": "Founder",
-        "company": "Creative Studio · Córdoba",
-        "text": "I needed a portfolio that would showcase my work professionally. The result exceeded my expectations. The website is beautiful and works perfectly.",
-        "initials": "VT"
-      },
-      {
-        "name": "Martín Silva",
-        "role": "Director",
-        "company": "Dental Clinic · San Juan",
-        "text": "He developed the online appointment system for our clinic. Now patients book through the website and we save hours of phone calls. Great.",
-        "initials": "MS"
-      },
-      {
-        "name": "Laura Benítez",
-        "role": "Owner",
-        "company": "Corporate Catering · Salta",
-        "text": "My landing page turned out beautiful and now I receive orders via WhatsApp directly from the website. Simple, effective and exactly what I needed.",
-        "initials": "LB"
-      }
-    ]
+    "paymentNote": "Payment method: wire transfer, Mercado Pago, PayPal, crypto."
   },
   "about": {
     "title": "About",

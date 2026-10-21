@@ -1,44 +1,20 @@
 'use client'
 
-import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider } from '@mui/material'
+import { Container, Grid, Box, Typography, Card, CardContent, Chip, Paper, Divider, Button } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { useTranslations } from '@/lib/useTranslations'
-import { useDolarBlue } from '@/lib/DolarBlueContext'
-
-function toARS(usdString: string, venta: number): string | null {
-  const match = usdString.match(/USD\s*([\d.]+)/)
-  if (!match) return null
-  const usd = parseFloat(match[1])
-  const ars = Math.round(usd * venta)
-  return `$ ${ars.toLocaleString('es-AR')}`
-}
 
 export default function PreciosSection() {
-  const { t, language } = useTranslations()
-  const { dolarBlue } = useDolarBlue()
-  const showARS = language === 'es' && dolarBlue !== null
+  const { t } = useTranslations()
 
-  const displayPrice = (usdString: string) => {
-    if (!showARS) return usdString
-    return toARS(usdString, dolarBlue!.venta) ?? usdString
-  }
-
-  const displayMaintPrice = (usdString: string) => {
-    if (!showARS) return usdString
-    const ars = toARS(usdString, dolarBlue!.venta)
-    return ars ? `${ars}/mes` : usdString
-  }
-  
   const planes = [
     {
       nombre: t('pricing.plans.landing.name'),
-      precio: t('pricing.plans.landing.price'),
       descripcion: t('pricing.plans.landing.description'),
       caracteristicas: t('pricing.plans.landing.features') as unknown as string[],
     },
     {
       nombre: t('pricing.plans.website.name'),
-      precio: t('pricing.plans.website.price'),
       descripcion: t('pricing.plans.website.description'),
       caracteristicas: t('pricing.plans.website.features') as unknown as string[],
       destacado: true,
@@ -46,9 +22,18 @@ export default function PreciosSection() {
     },
     {
       nombre: t('pricing.plans.ecommerce.name'),
-      precio: t('pricing.plans.ecommerce.price'),
       descripcion: t('pricing.plans.ecommerce.description'),
       caracteristicas: t('pricing.plans.ecommerce.features') as unknown as string[],
+    },
+    {
+      nombre: t('pricing.plans.reservations.name'),
+      descripcion: t('pricing.plans.reservations.description'),
+      caracteristicas: t('pricing.plans.reservations.features') as unknown as string[],
+    },
+    {
+      nombre: t('pricing.plans.events.name'),
+      descripcion: t('pricing.plans.events.description'),
+      caracteristicas: t('pricing.plans.events.features') as unknown as string[],
     },
   ]
   return (
@@ -82,11 +67,13 @@ export default function PreciosSection() {
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
           {planes.map((plan) => (
-            <Grid item xs={12} md={4} key={plan.nombre}>
+            <Grid item xs={12} sm={6} md={4} key={plan.nombre}>
               <Card
                 sx={{
                   height: '100%',
                   p: 4,
+                  display: 'flex',
+                  flexDirection: 'column',
                   borderTop: plan.destacado ? '0.25rem solid' : 'none',
                   borderTopColor: plan.destacado ? 'primary.main' : 'transparent',
                   position: 'relative',
@@ -105,38 +92,15 @@ export default function PreciosSection() {
                     }}
                   />
                 )}
-                <CardContent sx={{ p: 0 }}>
+                <CardContent sx={{ p: 0, display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <Typography variant="h4" component="h3" sx={{ mb: 1 }}>
                     {plan.nombre}
                   </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, mb: 1 }}>
-                    <Typography
-                      component="span"
-                      sx={{
-                        fontSize: '0.875rem',
-                        fontWeight: 500,
-                        color: '#9e9e9e',
-                        fontStyle: 'italic',
-                      }}
-                    >
-                      {t('pricing.from')}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '2rem',
-                        fontWeight: 700,
-                        color: 'primary.main',
-                      }}
-                    >
-                      {displayPrice(plan.precio)}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" sx={{ mb: 4, color: 'text.secondary' }}>
+                  <Typography variant="body2" sx={{ mb: 3, color: 'text.secondary' }}>
                     {plan.descripcion}
                   </Typography>
                   <Divider sx={{ mb: 3 }} />
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4, flex: 1 }}>
                     {plan.caracteristicas.map((caracteristica) => (
                       <Box key={caracteristica} sx={{ display: 'flex', gap: 1.5 }}>
                         <CheckCircleIcon sx={{ fontSize: '1.25rem', color: 'primary.main' }} />
@@ -144,6 +108,9 @@ export default function PreciosSection() {
                       </Box>
                     ))}
                   </Box>
+                  <Button variant="contained" color="primary" href="#contacto" sx={{ alignSelf: 'flex-start' }}>
+                    {t('pricing.quoteCta')}
+                  </Button>
                 </CardContent>
               </Card>
             </Grid>
@@ -168,18 +135,7 @@ export default function PreciosSection() {
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '1.5rem',
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                {displayMaintPrice(t('pricing.maintenance.basic.price'))}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="h6" component="p" sx={{ mb: 1, color: 'primary.main' }}>
                 {t('pricing.maintenance.basic.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
@@ -192,18 +148,7 @@ export default function PreciosSection() {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '1.5rem',
-                  fontWeight: 700,
-                  color: 'primary.main',
-                  mb: 1,
-                }}
-              >
-                {displayMaintPrice(t('pricing.maintenance.premium.price'))}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="h6" component="p" sx={{ mb: 1, color: 'primary.main' }}>
                 {t('pricing.maintenance.premium.name')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
@@ -216,6 +161,14 @@ export default function PreciosSection() {
               </Box>
             </Grid>
           </Grid>
+          <Button
+            variant="contained"
+            color="primary"
+            href="#contacto"
+            sx={{ mt: 4 }}
+          >
+            {t('pricing.quoteCta')}
+          </Button>
         </Paper>
 
         <Typography

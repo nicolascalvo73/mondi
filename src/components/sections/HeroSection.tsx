@@ -46,7 +46,7 @@ export default function HeroSection() {
               {t('hero.subtitle')}
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-              <Button variant="contained" color="primary" href="#contacto" size="large">
+              <Button variant="contained" color="primary" href="#servicios" size="large">
                 {t('hero.cta')}
               </Button>
               <Button

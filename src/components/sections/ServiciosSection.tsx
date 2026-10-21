@@ -7,6 +7,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import BuildIcon from '@mui/icons-material/Build'
 import BusinessIcon from '@mui/icons-material/Business'
 import CodeIcon from '@mui/icons-material/Code'
+import EventAvailableIcon from '@mui/icons-material/EventAvailable'
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber'
 import { useTranslations } from '@/lib/useTranslations'
 
 export default function ServiciosSection() {
@@ -112,7 +114,7 @@ export default function ServiciosSection() {
                 </Typography>
                 <Button
                   variant="outlined"
-                  href="#precios"
+                  href="#contacto"
                   sx={{
                     color: 'primary.contrastText',
                     borderColor: 'primary.contrastText',
@@ -122,7 +124,7 @@ export default function ServiciosSection() {
                     },
                   }}
                 >
-                  {t('pricing.from')}
+                  {t('pricing.quoteCta')}
                 </Button>
               </CardContent>
             </Card>
@@ -264,6 +266,75 @@ export default function ServiciosSection() {
                         backgroundColor: (theme) =>
                           theme.palette.mode === 'light' ? '#e0bfb4' : '#594139',
                         color: 'text.primary',
+                      }}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Card
+              sx={{
+                height: '100%',
+                p: 5,
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+              }}
+            >
+              <CardContent sx={{ p: 0 }}>
+                <EventAvailableIcon sx={{ fontSize: '3rem', color: 'secondary.main', mb: 2 }} />
+                <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
+                  {t('services.reservations.title')}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+                  {t('services.reservations.description')}
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                  {['Agenda', 'Señas', 'Recordatorios'].map((feature) => (
+                    <Chip
+                      key={feature}
+                      label={feature}
+                      sx={{
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#f6f3ee' : '#1a1a17',
+                        color: 'text.primary',
+                      }}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Card
+              sx={{
+                height: '100%',
+                p: 5,
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light' ? '#e5e2dd' : '#2a2a27',
+              }}
+            >
+              <CardContent sx={{ p: 0 }}>
+                <ConfirmationNumberIcon sx={{ fontSize: '3rem', color: 'primary.main', mb: 2 }} />
+                <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
+                  {t('services.events.title')}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
+                  {t('services.events.description')}
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                  {['Entradas', 'Acreditaciones', 'Inscripciones'].map((feature) => (
+                    <Chip
+                      key={feature}
+                      label={feature}
+                      sx={{
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === 'light' ? '#cfe8dc' : '#354b43',
+                        color: (theme) =>
+                          theme.palette.mode === 'light' ? '#354b43' : '#cfe8dc',
                       }}
                     />
                   ))}
