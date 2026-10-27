@@ -81,8 +81,6 @@ function LabCard({ project, name, cta, hidden }: { project: LabProject; name: st
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          filter: active ? 'grayscale(0)' : 'grayscale(1)',
-          transition: 'filter 0.4s ease',
         }}
       />
       {loaded && (
