@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Container, Grid, Box, Typography } from '@mui/material'
+import { Container, Box, Typography } from '@mui/material'
 import { useTranslations } from '@/lib/useTranslations'
 import { labsProjects, type LabProject } from '@/lib/labsProjects'
 
-function LabCard({ project, name, cta }: { project: LabProject; name: string; cta: string }) {
+function LabCard({ project, name, cta, hidden }: { project: LabProject; name: string; cta: string; hidden?: boolean }) {
   const cardRef = useRef<HTMLAnchorElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [active, setActive] = useState(false)
@@ -15,12 +15,12 @@ function LabCard({ project, name, cta }: { project: LabProject; name: string; ct
 
   useEffect(() => {
     setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    // En dispositivos sin hover, se activa la card que está centrada en pantalla
+    // En dispositivos sin hover, se activa la card que pasa por el centro de la pantalla
     if (!window.matchMedia('(hover: none)').matches) return
     const el = cardRef.current
     if (!el) return
     const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), {
-      rootMargin: '-35% 0px -35% 0px',
+      rootMargin: '0px -42% 0px -42%',
     })
     observer.observe(el)
     return () => observer.disconnect()
@@ -47,6 +47,7 @@ function LabCard({ project, name, cta }: { project: LabProject; name: string; ct
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${cta}: ${name}`}
+      tabIndex={hidden ? -1 : undefined}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       onFocus={() => setActive(true)}
@@ -54,7 +55,9 @@ function LabCard({ project, name, cta }: { project: LabProject; name: string; ct
       sx={{
         position: 'relative',
         display: 'block',
-        aspectRatio: '16 / 10',
+        flex: '0 0 auto',
+        width: { xs: '14rem', md: '17rem' },
+        aspectRatio: '9 / 16',
         borderRadius: 3,
         overflow: 'hidden',
         backgroundColor: 'background.paper',
@@ -137,8 +140,29 @@ function LabCard({ project, name, cta }: { project: LabProject; name: string; ct
 export default function LabsSection() {
   const { t } = useTranslations()
 
+  const renderSet = (hidden: boolean) => (
+    <Box
+      aria-hidden={hidden || undefined}
+      sx={{
+        display: hidden ? { xs: 'flex', '@media (prefers-reduced-motion: reduce)': 'none' } : 'flex',
+        gap: 3,
+        pr: 3,
+      }}
+    >
+      {labsProjects.map((project) => (
+        <LabCard
+          key={project.slug}
+          project={project}
+          name={t(`labs.projects.${project.slug}`)}
+          cta={t('labs.visit')}
+          hidden={hidden}
+        />
+      ))}
+    </Box>
+  )
+
   return (
-    <Box component="section" id="labs" sx={{ py: 12, backgroundColor: 'background.default' }}>
+    <Box component="section" id="labs" sx={{ py: 12, backgroundColor: 'background.default', overflow: 'hidden' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 8 }}>
           <Typography variant="h2" component="h2" sx={{ mb: 2 }}>
@@ -151,14 +175,32 @@ export default function LabsSection() {
             {t('labs.subtitle')}
           </Typography>
         </Box>
-        <Grid container spacing={3}>
-          {labsProjects.map((project) => (
-            <Grid item xs={12} sm={6} md={4} key={project.slug}>
-              <LabCard project={project} name={t(`labs.projects.${project.slug}`)} cta={t('labs.visit')} />
-            </Grid>
-          ))}
-        </Grid>
       </Container>
+      <Box
+        sx={{
+          py: 2,
+          maskImage: 'linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)',
+          '@media (prefers-reduced-motion: reduce)': { overflowX: 'auto' },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            width: 'max-content',
+            '@keyframes labsScroll': {
+              from: { transform: 'translateX(0)' },
+              to: { transform: 'translateX(-50%)' },
+            },
+            animation: 'labsScroll 50s linear infinite',
+            '&:hover, &:focus-within': { animationPlayState: 'paused' },
+            '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+          }}
+        >
+          {renderSet(false)}
+          {renderSet(true)}
+        </Box>
+      </Box>
     </Box>
   )
 }
