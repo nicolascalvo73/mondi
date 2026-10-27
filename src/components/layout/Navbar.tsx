@@ -61,6 +61,7 @@ export default function Navbar() {
     { label: t('nav.services'), href: '#servicios' },
     { label: t('nav.process'), href: '#proceso' },
     { label: t('nav.platforms'), href: '#plataformas' },
+    { label: t('nav.labs'), href: '#labs' },
     { label: t('nav.pricing'), href: '#precios' },
     { label: t('nav.blog'), href: '/blog' },
     { label: t('nav.about'), href: '#sobre-mi' },

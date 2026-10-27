@@ -6,7 +6,8 @@
     "pricing": "Planes",
     "blog": "Blog",
     "about": "Sobre mí",
-    "contact": "Hablemos"
+    "contact": "Hablemos",
+    "labs": "Labs"
   },
   "hero": {
     "location": "Estudio de diseño web · Argentina",
@@ -22,7 +23,12 @@
     "landing": {
       "title": "Landing Page",
       "description": "Una página enfocada en convertir visitantes en clientes. Perfecta para lanzar productos o servicios.",
-      "features": ["Next.js", "React", "Responsive", "SEO"]
+      "features": [
+        "Next.js",
+        "React",
+        "Responsive",
+        "SEO"
+      ]
     },
     "ecommerce": {
       "title": "Tiendas online",
@@ -37,7 +43,12 @@
     "custom": {
       "title": "Software a medida",
       "description": "Sistemas web personalizados. CRMs, dashboards, integraciones y más.",
-      "features": ["Sistemas", "ERPs", "Dashboards", "Integraciones"]
+      "features": [
+        "Sistemas",
+        "ERPs",
+        "Dashboards",
+        "Integraciones"
+      ]
     },
     "reservations": {
       "title": "Reservas y turnos",
@@ -243,5 +254,20 @@
       "blog": "Blog"
     },
     "by": "por"
+  },
+  "labs": {
+    "title": "Propuestas que",
+    "titleHighlight": "ya están vivas",
+    "subtitle": "Webs reales para negocios reales. Pasá el mouse para verlas en acción y hacé click para visitarlas.",
+    "visit": "Ver proyecto",
+    "projects": {
+      "quimica-dalton": "Química Dalton",
+      "ransser": "Ransser",
+      "retiro-yoga-swami": "Retiro de Yoga con Swami",
+      "mg-customs": "MG Customs",
+      "wanaku": "Wanaku Moto",
+      "impluvium": "IMPLUVIUM ac",
+      "mondi": "Mondi Studio"
+    }
   }
 }

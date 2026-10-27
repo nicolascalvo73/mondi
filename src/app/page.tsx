@@ -6,6 +6,7 @@ import HeroSection from '@/components/sections/HeroSection'
 import ServiciosSection from '@/components/sections/ServiciosSection'
 import ProcesoSection from '@/components/sections/ProcesoSection'
 import PlataformasSection from '@/components/sections/PlataformasSection'
+import LabsSection from '@/components/sections/LabsSection'
 import PreciosSection from '@/components/sections/PreciosSection'
 import SobreMiSection from '@/components/sections/SobreMiSection'
 import ContactoSection from '@/components/sections/ContactoSection'
@@ -19,6 +20,7 @@ export default function Home() {
 				<ServiciosSection />
 				<ProcesoSection />
 				<PlataformasSection />
+				<LabsSection />
 				<PreciosSection />
 				<SobreMiSection />
 				<ContactoSection />

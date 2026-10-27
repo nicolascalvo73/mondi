@@ -6,7 +6,8 @@
     "pricing": "Planos",
     "blog": "Blog",
     "about": "Sobre mim",
-    "contact": "Vamos conversar"
+    "contact": "Vamos conversar",
+    "labs": "Labs"
   },
   "hero": {
     "location": "Estúdio de design web · Córdoba, Argentina",
@@ -22,7 +23,12 @@
     "landing": {
       "title": "Landing Page",
       "description": "Uma página focada em converter visitantes em clientes. Perfeita para lançar produtos ou serviços.",
-      "features": ["Next.js", "React", "Responsivo", "SEO"]
+      "features": [
+        "Next.js",
+        "React",
+        "Responsivo",
+        "SEO"
+      ]
     },
     "ecommerce": {
       "title": "Lojas online",
@@ -37,7 +43,12 @@
     "custom": {
       "title": "Software sob medida",
       "description": "Sistemas web personalizados. CRMs, dashboards, integrações e mais.",
-      "features": ["Sistemas", "ERPs", "Dashboards", "Integrações"]
+      "features": [
+        "Sistemas",
+        "ERPs",
+        "Dashboards",
+        "Integrações"
+      ]
     },
     "reservations": {
       "title": "Reservas e agendamentos",
@@ -243,5 +254,20 @@
       "blog": "Blog"
     },
     "by": "por"
+  },
+  "labs": {
+    "title": "Propostas que",
+    "titleHighlight": "já estão no ar",
+    "subtitle": "Sites reais para negócios reais. Passe o mouse para vê-los em ação e clique para visitar.",
+    "visit": "Ver projeto",
+    "projects": {
+      "quimica-dalton": "Química Dalton",
+      "ransser": "Ransser",
+      "retiro-yoga-swami": "Retiro de Yoga com Swami",
+      "mg-customs": "MG Customs",
+      "wanaku": "Wanaku Moto",
+      "impluvium": "IMPLUVIUM ac",
+      "mondi": "Mondi Studio"
+    }
   }
 }
