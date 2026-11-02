@@ -12,5 +12,6 @@ export const labsProjects: LabProject[] = [
 	{ slug: 'mg-customs', url: 'https://labs.mondistudio.com.ar/mg-customs/' },
 	{ slug: 'wanaku', url: 'https://labs.mondistudio.com.ar/wanaku/' },
 	{ slug: 'impluvium', url: 'https://labs.mondistudio.com.ar/impluvium/' },
+	{ slug: 'dillom', url: 'https://labs.mondistudio.com.ar/dillom/' },
 	{ slug: 'mondi', url: 'https://www.mondistudio.com.ar/' },
 ]
