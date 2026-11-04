@@ -104,6 +104,7 @@ export default function Home({ lang }: { lang: Lang }) {
             </section>
 
             <section className="about">
+              <div className="about__inner">
               <div className="mono" data-fade>
                 {c.about.tag}
               </div>
@@ -115,6 +116,7 @@ export default function Home({ lang }: { lang: Lang }) {
                   <li key={s}>{s}</li>
                 ))}
               </ul>
+              </div>
             </section>
 
             <section id="services" className="services">
@@ -129,7 +131,7 @@ export default function Home({ lang }: { lang: Lang }) {
               </div>
               <div className="services__list" data-services>
                 {c.services.items.map((s, i) => (
-                  <a key={s.title} href="#contact" className="service" data-service data-cursor="link">
+                  <a key={s.title} href="#contact" className="service" data-service data-cursor="link" style={{ ["--i" as string]: i }}>
                     <div className="service__head">
                       <span className="mono">S/ 00{i + 1}</span>
                       <span className="service__arrow" aria-hidden="true">
@@ -158,7 +160,7 @@ export default function Home({ lang }: { lang: Lang }) {
               </div>
               <ul className="cases__list" data-cases>
                 {c.cases.items.map((k, i) => (
-                  <li key={k.slug}>
+                  <li key={k.slug} style={{ ["--i" as string]: i }}>
                     <a
                       className={`case case--${k.slug}`}
                       href={`https://labs.mondistudio.com.ar/${k.slug}/`}
@@ -202,7 +204,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 </div>
                 <ol className="process__grid" data-process-list>
                   {c.process.steps.map((s, i) => (
-                    <li key={s.title} className="step" data-fade>
+                    <li key={s.title} className="step" data-step data-fade style={{ ["--i" as string]: i }}>
                       <span className="step__num">0{i + 1}</span>
                       <div>
                         <h3 className="step__title">{s.title}</h3>

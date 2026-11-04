@@ -521,12 +521,14 @@ main {
 /* Manifiesto (cortina sobre el hero) */
 .about {
   position: relative;
-  display: flex;
-  flex-direction: column;
   background: var(--bg);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  padding: clamp(5rem, 9vw, 7.5rem) var(--gutter) clamp(6rem, 10vw, 9rem);
+}
+.about__inner {
+  display: flex;
+  flex-direction: column;
   min-height: 100svh;
+  padding: clamp(5rem, 9vw, 7.5rem) var(--gutter) clamp(6rem, 10vw, 9rem);
 }
 .about__text {
   margin-top: 2rem;
@@ -1001,3 +1003,32 @@ main {
 .process { z-index: 5; }
 .contact { z-index: 6; }
 .site-footer { z-index: 7; }
+
+/* ───── Touch: el apilado usa position: sticky (scroll nativo) ───── */
+html.stack-sticky .hero {
+  position: sticky;
+  top: 0;
+}
+html.stack-sticky .about {
+  height: 260svh;
+}
+html.stack-sticky .about__inner {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+}
+html.stack-sticky .services__list > .service,
+html.stack-sticky .cases__list > li,
+html.stack-sticky .process__grid > .step {
+  position: sticky;
+  top: calc(1rem + var(--i) * 3.5rem);
+}
+@media (min-width: 56.25rem) {
+  html.stack-sticky .services__list > .service,
+  html.stack-sticky .cases__list > li,
+  html.stack-sticky .process__grid > .step {
+    top: calc(1rem + var(--i) * 4.5rem);
+  }
+}

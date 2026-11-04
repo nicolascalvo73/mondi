@@ -30,6 +30,7 @@ export default function Motion() {
       },
       (ctx) => {
         const { motion, fine, wide } = ctx.conditions as { motion: boolean; fine: boolean; wide: boolean }
+        const sticky = !fine
         const preloader = $('[data-preloader]')[0]
         if (!motion) {
           root.classList.remove('js')
@@ -39,6 +40,10 @@ export default function Motion() {
 
         const header = $('[data-header]')[0]
         const cleanups: Array<() => void> = []
+        if (sticky) {
+          root.classList.add('stack-sticky')
+          cleanups.push(() => root.classList.remove('stack-sticky'))
+        }
 
         /* ───── Scroll suave (solo con mouse) ───── */
         const smoother = fine
@@ -140,8 +145,13 @@ export default function Motion() {
         const build = () => {
           if (!alive) return
           ctx.add(() => {
+            /* Con mouse: pines de ScrollTrigger (sobre ScrollSmoother).
+               En touch: position: sticky en CSS (scroll nativo, sin tirones) y GSAP solo anima el escalado. */
+            const stackStep = wide ? 4.5 : 3.5
+            const topOf = (i: number) => (sticky ? 0 : header.offsetHeight) + remPx() + i * remPx() * stackStep
+
             /* Secciones tipo cortina: se fijan al llegar al fondo y la siguiente se monta encima */
-            if (wide) {
+            if (!sticky) {
               $('[data-curtain]').forEach((el) => {
                 ScrollTrigger.create({
                   trigger: el,
@@ -151,13 +161,12 @@ export default function Motion() {
                   pinSpacing: false,
                 })
               })
+            }
 
-              /* Tarjetas apiladas (servicios y casos): cada una se fija un escalón más abajo
-                 y la que queda tapada se achica y se oscurece */
-              const stack = (list: HTMLElement, cards: HTMLElement[], stepRem: number) => {
-                const step = remPx() * stepRem
-                const topOf = (i: number) => header.offsetHeight + remPx() + i * step
-                cards.forEach((card, i) => {
+            /* Tarjetas apiladas: cada una se fija un escalón más abajo y la que queda tapada se achica y oscurece */
+            const stack = (list: HTMLElement, cards: HTMLElement[]) => {
+              cards.forEach((card, i) => {
+                if (!sticky) {
                   ScrollTrigger.create({
                     trigger: card,
                     start: () => `top top+=${topOf(i)}`,
@@ -167,29 +176,31 @@ export default function Motion() {
                     pinSpacing: false,
                     invalidateOnRefresh: true,
                   })
-                  const next = cards[i + 1]
-                  if (next) {
-                    gsap.to(card, {
-                      scale: 0.94,
-                      filter: 'brightness(0.7)',
-                      ease: 'none',
-                      scrollTrigger: {
-                        trigger: next,
-                        start: () => `top top+=${topOf(i + 1) + card.offsetHeight * 0.55}`,
-                        end: () => `top top+=${topOf(i + 1)}`,
-                        scrub: true,
-                        invalidateOnRefresh: true,
-                      },
-                    })
-                  }
-                })
-              }
-              stack($('[data-services]')[0], $('[data-service]'), 4.5)
-              stack($('[data-cases]')[0], $('[data-case]'), 4.5)
+                }
+                const next = cards[i + 1]
+                if (next) {
+                  gsap.to(card, {
+                    scale: 0.94,
+                    filter: 'brightness(0.7)',
+                    ease: 'none',
+                    scrollTrigger: {
+                      trigger: next,
+                      start: () => `top top+=${topOf(i + 1) + card.offsetHeight * 0.55}`,
+                      end: () => `top top+=${topOf(i + 1)}`,
+                      scrub: true,
+                      invalidateOnRefresh: true,
+                    },
+                  })
+                }
+              })
+            }
+            stack($('[data-services]')[0], $('[data-service]'))
+            stack($('[data-cases]')[0], $('[data-case]'))
 
-              /* Proceso: el título queda fijo mientras pasan los pasos */
-              const head = $('[data-process-head]')[0]
-              const plist = $('[data-process-list]')[0]
+            /* Proceso: en escritorio el título queda fijo; en pantallas chicas o touch los pasos se apilan */
+            const head = $('[data-process-head]')[0]
+            const plist = $('[data-process-list]')[0]
+            if (wide && !sticky) {
               ScrollTrigger.create({
                 trigger: head,
                 start: () => `top top+=${header.offsetHeight + remPx()}`,
@@ -199,6 +210,8 @@ export default function Motion() {
                 pinSpacing: false,
                 invalidateOnRefresh: true,
               })
+            } else if (!wide) {
+              stack(plist, $('[data-step]'))
             }
 
             /* Titulares: entrada palabra por palabra */
@@ -232,9 +245,9 @@ export default function Motion() {
                       opacity: 1,
                       ease: 'none',
                       stagger: 0.12,
-                      scrollTrigger: wide
-                        ? { trigger: section, start: 'top top', end: '+=1800', pin: true, scrub: 1, refreshPriority: 10 }
-                        : { trigger: el, start: 'top 85%', end: 'bottom center', scrub: 1 },
+                      scrollTrigger: sticky
+                        ? { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 1 }
+                        : { trigger: section, start: 'top top', end: '+=1800', pin: true, scrub: 1, refreshPriority: 10 },
                     },
                   ),
               })
