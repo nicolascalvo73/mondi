@@ -103,7 +103,7 @@ export default function Home({ lang }: { lang: Lang }) {
               </div>
             </section>
 
-            <section className="about" data-curtain>
+            <section className="about">
               <div className="mono" data-fade>
                 {c.about.tag}
               </div>
@@ -156,29 +156,33 @@ export default function Home({ lang }: { lang: Lang }) {
                   {c.cases.tag}
                 </span>
               </div>
-              <ul className="cases__list">
+              <ul className="cases__list" data-cases>
                 {c.cases.items.map((k, i) => (
                   <li key={k.slug}>
                     <a
-                      className="case"
+                      className={`case case--${k.slug}`}
                       href={`https://labs.mondistudio.com.ar/${k.slug}/`}
                       target="_blank"
                       rel="noopener"
+                      data-case
                       data-cursor="big"
-                      data-fade
                     >
-                      <span className="case__num mono">0{i + 1}</span>
-                      <div className="case__main">
-                        <div className="case__name">{k.name}</div>
-                        <div className="case__meta">{k.meta}</div>
+                      <div className="case__info">
+                        <div className="case__top">
+                          <span className="mono">0{i + 1}</span>
+                          <span className="case__go" aria-hidden="true">
+                            ↗
+                          </span>
+                        </div>
+                        <div>
+                          <div className="case__name">{k.name}</div>
+                          <div className="case__meta">{k.meta}</div>
+                        </div>
                       </div>
                       <div className="case__thumb" data-clip>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={`/casos/${k.slug}.webp`} alt={k.alt} width={960} height={600} loading="lazy" />
+                        <img src={`/casos/${k.slug}.webp`} alt={k.alt} width={960} height={600} loading="lazy" data-parallax />
                       </div>
-                      <span className="case__go" aria-hidden="true">
-                        ↗
-                      </span>
                     </a>
                   </li>
                 ))}
@@ -186,24 +190,28 @@ export default function Home({ lang }: { lang: Lang }) {
             </section>
 
             <section id="process" className="process">
-              <div className="section-head">
-                <h2 className="section-title" data-words>
-                  <span>{c.process.title[0]}</span>
-                  <span>{c.process.title[1]}</span>
-                </h2>
-                <span className="mono" data-fade>
-                  {c.process.tag}
-                </span>
+              <div className="process__wrap">
+                <div className="process__head" data-process-head>
+                  <h2 className="section-title" data-words>
+                    <span>{c.process.title[0]}</span>
+                    <span>{c.process.title[1]}</span>
+                  </h2>
+                  <span className="mono" data-fade>
+                    {c.process.tag}
+                  </span>
+                </div>
+                <ol className="process__grid" data-process-list>
+                  {c.process.steps.map((s, i) => (
+                    <li key={s.title} className="step" data-fade>
+                      <span className="step__num">0{i + 1}</span>
+                      <div>
+                        <h3 className="step__title">{s.title}</h3>
+                        <p className="step__text">{s.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <ol className="process__grid">
-                {c.process.steps.map((s, i) => (
-                  <li key={s.title} className="step" data-fade>
-                    <span className="step__num">0{i + 1}</span>
-                    <h3 className="step__title">{s.title}</h3>
-                    <p className="step__text">{s.text}</p>
-                  </li>
-                ))}
-              </ol>
             </section>
 
             <section id="contact" className="contact">

@@ -152,20 +152,52 @@ export default function Motion() {
                 })
               })
 
-              /* Servicios apilados: cada tarjeta se fija un escalón más abajo */
-              const list = $('[data-services]')[0]
-              const step = remPx() * 4.5
-              $('[data-service]').forEach((card, i) => {
-                const top = () => header.offsetHeight + remPx() + i * step
-                ScrollTrigger.create({
-                  trigger: card,
-                  start: () => `top top+=${top()}`,
-                  endTrigger: list,
-                  end: () => `bottom top+=${top() + card.offsetHeight}`,
-                  pin: true,
-                  pinSpacing: false,
-                  invalidateOnRefresh: true,
+              /* Tarjetas apiladas (servicios y casos): cada una se fija un escalón más abajo
+                 y la que queda tapada se achica y se oscurece */
+              const stack = (list: HTMLElement, cards: HTMLElement[], stepRem: number) => {
+                const step = remPx() * stepRem
+                const topOf = (i: number) => header.offsetHeight + remPx() + i * step
+                cards.forEach((card, i) => {
+                  ScrollTrigger.create({
+                    trigger: card,
+                    start: () => `top top+=${topOf(i)}`,
+                    endTrigger: list,
+                    end: () => `bottom top+=${topOf(i) + card.offsetHeight}`,
+                    pin: true,
+                    pinSpacing: false,
+                    invalidateOnRefresh: true,
+                  })
+                  const next = cards[i + 1]
+                  if (next) {
+                    gsap.to(card, {
+                      scale: 0.94,
+                      filter: 'brightness(0.7)',
+                      ease: 'none',
+                      scrollTrigger: {
+                        trigger: next,
+                        start: () => `top top+=${topOf(i + 1) + card.offsetHeight * 0.55}`,
+                        end: () => `top top+=${topOf(i + 1)}`,
+                        scrub: true,
+                        invalidateOnRefresh: true,
+                      },
+                    })
+                  }
                 })
+              }
+              stack($('[data-services]')[0], $('[data-service]'), 4.5)
+              stack($('[data-cases]')[0], $('[data-case]'), 4.5)
+
+              /* Proceso: el título queda fijo mientras pasan los pasos */
+              const head = $('[data-process-head]')[0]
+              const plist = $('[data-process-list]')[0]
+              ScrollTrigger.create({
+                trigger: head,
+                start: () => `top top+=${header.offsetHeight + remPx()}`,
+                endTrigger: plist,
+                end: () => `bottom top+=${header.offsetHeight + remPx() + head.offsetHeight}`,
+                pin: true,
+                pinSpacing: false,
+                invalidateOnRefresh: true,
               })
             }
 
@@ -186,8 +218,9 @@ export default function Motion() {
               })
             })
 
-            /* Manifiesto: se ilumina línea por línea con el scroll (scrub 1) */
+            /* Manifiesto: se fija en pantalla y se ilumina línea por línea con el scroll (scrub 1) */
             $('[data-lines-scrub]').forEach((el) => {
+              const section = el.closest('section') as HTMLElement
               SplitText.create(el, {
                 type: 'lines',
                 autoSplit: true,
@@ -199,10 +232,25 @@ export default function Motion() {
                       opacity: 1,
                       ease: 'none',
                       stagger: 0.12,
-                      scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom center', scrub: 1 },
+                      scrollTrigger: wide
+                        ? { trigger: section, start: 'top top', end: '+=1800', pin: true, scrub: 1, refreshPriority: 10 }
+                        : { trigger: el, start: 'top 85%', end: 'bottom center', scrub: 1 },
                     },
                   ),
               })
+            })
+
+            /* Parallax de las imágenes de los casos */
+            $('[data-parallax]').forEach((img) => {
+              gsap.fromTo(
+                img,
+                { yPercent: -8 },
+                {
+                  yPercent: 8,
+                  ease: 'none',
+                  scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
+                },
+              )
             })
 
             /* Fade-up general */
