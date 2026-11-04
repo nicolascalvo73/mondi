@@ -685,11 +685,11 @@ main {
   --case-bg: #24180f;
 }
 .case--pritiado {
-  --case-bg: #bdea00;
-  --case-fg: #2a0a17;
-  --case-muted: #4a2432;
-  --case-go-bg: #2a0a17;
-  --case-go-fg: #bdea00;
+  --case-bg: #000000;
+  --case-fg: #f3f0eb;
+  --case-muted: #b9b4ab;
+  --case-go-bg: #bdea00;
+  --case-go-fg: #2a0a17;
 }
 .case__info {
   display: flex;
