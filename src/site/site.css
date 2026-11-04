@@ -41,6 +41,28 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Controles: respuesta inmediata al toque, sin zoom por doble toque ni selección de la etiqueta */
+a,
+button,
+[role='button'] {
+  touch-action: manipulation;
+}
+button,
+.btn,
+.icon-btn {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.btn:active,
+.icon-btn:active {
+  transform: scale(0.97);
+}
+.case:active .case__name {
+  opacity: 0.8;
 }
 
 body {
@@ -268,10 +290,6 @@ html.js .preloader {
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.header__nav a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
 .header__tools {
   display: flex;
   align-items: center;
@@ -308,14 +326,6 @@ html.js .preloader {
   background: transparent;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-}
-.icon-btn:hover {
-  background: var(--h-fg);
-  color: var(--bg);
-}
-.header:not(.is-scrolled) .icon-btn:hover {
-  background: var(--on-accent);
-  color: var(--accent);
 }
 .theme-toggle .icon-sun {
   display: none;
@@ -355,24 +365,14 @@ html.js .preloader {
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.5s;
 }
-.btn:hover::before {
-  transform: translateY(0);
-  border-radius: 0;
-}
 .btn--solid {
   background: var(--btn-bg);
   color: var(--btn-fg);
-}
-.btn--solid:hover {
-  color: var(--btn-hover-fg);
 }
 .btn--ghost {
   border-color: currentColor;
   background: transparent;
   color: var(--btn-fg);
-}
-.btn--ghost:hover {
-  color: var(--btn-hover-fg);
 }
 .header__cta {
   --btn-bg: var(--h-cta-bg);
@@ -595,9 +595,6 @@ main {
   font-weight: 600;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.service:hover .service__arrow {
-  transform: rotate(45deg);
-}
 .service__art {
   display: grid;
   place-items: center;
@@ -709,9 +706,6 @@ main {
   line-height: 1;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.case:hover .case__name {
-  transform: translateX(0.75rem);
-}
 .case__meta {
   margin-top: 0.75rem;
   font-family: var(--font-mono);
@@ -730,9 +724,6 @@ main {
   object-fit: cover;
   transition: scale 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.case:hover .case__thumb img {
-  scale: 1.05;
-}
 .case__go {
   display: grid;
   place-items: center;
@@ -744,9 +735,6 @@ main {
   font-size: 1.625rem;
   font-weight: 600;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.case:hover .case__go {
-  transform: rotate(45deg) scale(1.08);
 }
 @media (min-width: 56.25rem) {
   .case {
@@ -786,9 +774,6 @@ main {
   padding: 2rem;
   background: var(--surface);
   transition: border-color 0.3s;
-}
-.step:hover {
-  border-color: var(--accent);
 }
 .step__num {
   display: inline-grid;
@@ -903,6 +888,13 @@ main {
 .field textarea::placeholder {
   color: var(--muted);
 }
+@media (pointer: coarse) {
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: max(1rem, 16px);
+  }
+}
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
@@ -975,10 +967,6 @@ main {
   flex-wrap: wrap;
   gap: 1.75rem;
 }
-.site-footer__links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-}
 
 /* Smooth wrapper (ScrollSmoother lo fija en escritorio) */
 #smooth-wrapper,
@@ -1031,4 +1019,69 @@ html.stack-sticky .process__grid > .step {
   html.stack-sticky .process__grid > .step {
     top: calc(1rem + var(--i) * 4.5rem);
   }
+}
+
+/* Hover solo con puntero preciso: evita hover pegado en touch */
+@media (hover: hover) and (pointer: fine) {
+  .header__nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .icon-btn:hover {
+    background: var(--h-fg);
+    color: var(--bg);
+  }
+  .header:not(.is-scrolled) .icon-btn:hover {
+    background: var(--on-accent);
+    color: var(--accent);
+  }
+  .btn:hover::before {
+    transform: translateY(0);
+    border-radius: 0;
+  }
+  .btn--solid:hover {
+    color: var(--btn-hover-fg);
+  }
+  .btn--ghost:hover {
+    color: var(--btn-hover-fg);
+  }
+  .service:hover .service__arrow {
+    transform: rotate(45deg);
+  }
+  .case:hover .case__name {
+    transform: translateX(0.75rem);
+  }
+  .case:hover .case__thumb img {
+    scale: 1.05;
+  }
+  .case:hover .case__go {
+    transform: rotate(45deg) scale(1.08);
+  }
+  .step:hover {
+    border-color: var(--accent);
+  }
+  .site-footer__links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+}
+
+/* Feedback de presión (Emil: 100–160 ms, ease-out fuerte) */
+.btn,
+.icon-btn {
+  transition: color 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s, transform 0.16s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stack-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.service,
+.case {
+  position: relative;
 }
