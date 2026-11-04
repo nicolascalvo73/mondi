@@ -6,7 +6,7 @@ import type { Lang } from './content'
 // Se ejecuta antes del primer pintado: tema guardado (por defecto oscuro) y
 // bandera "js" para que el preloader solo exista si hay JavaScript y no se pidió menos movimiento.
 const bootScript = `(function(){try{var d=document.documentElement;var t=null;try{t=localStorage.getItem('mondi-theme')}catch(e){}
-if(t!=='light'&&t!=='dark'){t='dark'}d.setAttribute('data-theme',t);
+if(t!=='light'&&t!=='dark'){t='dark'}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',t==='light'?'#fcf9f4':'#141414');
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('js')}}catch(e){}})();`
 
 export default function RootShell({ lang, children }: { lang: Lang; children: ReactNode }) {

@@ -10,6 +10,7 @@ export default function Header({ lang, c }: { lang: Lang; c: Content }) {
     const root = document.documentElement
     const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
     root.setAttribute('data-theme', next)
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'light' ? '#fcf9f4' : '#141414')
     try {
       localStorage.setItem('mondi-theme', next)
     } catch {}

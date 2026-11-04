@@ -179,9 +179,25 @@ export default function Motion() {
                 }
                 const next = cards[i + 1]
                 if (next) {
+                  /* velo animado con opacity (compositor) en vez de filter: brightness (repinta toda la tarjeta) */
+                  card.querySelectorAll(':scope > .stack-shade').forEach((n) => n.remove())
+                  const shade = document.createElement('span')
+                  shade.className = 'stack-shade'
+                  shade.setAttribute('aria-hidden', 'true')
+                  card.appendChild(shade)
+                  gsap.to(shade, {
+                    opacity: 0.32,
+                    ease: 'none',
+                    scrollTrigger: {
+                      trigger: next,
+                      start: () => `top top+=${topOf(i + 1) + card.offsetHeight * 0.55}`,
+                      end: () => `top top+=${topOf(i + 1)}`,
+                      scrub: true,
+                      invalidateOnRefresh: true,
+                    },
+                  })
                   gsap.to(card, {
                     scale: 0.94,
-                    filter: 'brightness(0.7)',
                     ease: 'none',
                     scrollTrigger: {
                       trigger: next,
