@@ -18,6 +18,7 @@
     "@portabletext/react": "6.0.3",
     "@sanity/image-url": "2.0.3",
     "@sanity/vision": "^3.99.0",
+    "gsap": "^3.15.1",
     "next": "^15.3.9",
     "next-intl": "4.8.3",
     "next-sanity": "9.12.3",
