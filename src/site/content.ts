@@ -102,7 +102,7 @@ export const content: Record<Lang, Content> = {
     },
     cases: {
       title: ['Trabajo', 'seleccionado'],
-      tag: '[CASOS] [04]',
+      tag: '[CASOS] [05]',
       open: 'Ver',
       items: [
         { slug: 'wanaku', name: 'Wanaku Moto', meta: 'Web · E-commerce · 2026', alt: 'Portada del caso Wanaku Moto' },
@@ -118,6 +118,12 @@ export const content: Record<Lang, Content> = {
           name: 'Pritiado Patrimonio',
           meta: 'Web 3D · Narrativa cultural · 2026',
           alt: 'Portada del caso Pritiado Patrimonio',
+        },
+        {
+          slug: 'vrtour',
+          name: 'Tour 360° de preventa',
+          meta: 'Web · Tour 360° · Render 3D · 2026',
+          alt: 'Portada del caso Tour 360° de preventa',
         },
       ],
     },
@@ -214,7 +220,7 @@ export const content: Record<Lang, Content> = {
     },
     cases: {
       title: ['Selected', 'work'],
-      tag: '[WORK] [04]',
+      tag: '[WORK] [05]',
       open: 'View',
       items: [
         { slug: 'wanaku', name: 'Wanaku Moto', meta: 'Web · E-commerce · 2026', alt: 'Wanaku Moto case cover' },
@@ -230,6 +236,12 @@ export const content: Record<Lang, Content> = {
           name: 'Pritiado Patrimonio',
           meta: '3D web · Cultural storytelling · 2026',
           alt: 'Pritiado Patrimonio case cover',
+        },
+        {
+          slug: 'vrtour',
+          name: '360° pre-sale tour',
+          meta: 'Web · 360° tour · 3D render · 2026',
+          alt: '360° pre-sale tour case cover',
         },
       ],
     },
