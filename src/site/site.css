@@ -678,16 +678,6 @@ main {
 .case--dillom {
   --case-bg: #0d0a1a;
 }
-.case--retiro-yoga-swami {
-  --case-bg: #24180f;
-}
-.case--pritiado {
-  --case-bg: #000000;
-  --case-fg: #f3f0eb;
-  --case-muted: #b9b4ab;
-  --case-go-bg: #bdea00;
-  --case-go-fg: #2a0a17;
-}
 .case__info {
   display: flex;
   flex-direction: column;
